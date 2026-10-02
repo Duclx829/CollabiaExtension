@@ -1,13 +1,21 @@
-let cachedMask = new Set(getSessionStorage('masked') || []);
-
 (() => {
+    let cachedMask = new Set(getSessionStorage('masked') || []);
+
     if (navigation) {
         handleNavigationChange(location.href);
-        onNavigationSuccess = () => handleNavigationChange(navigation.currentEntry.url);
+
+        function onNavigationSuccess() {
+            handleNavigationChange(navigation.currentEntry.url);
+        }
+
         navigation.addEventListener('navigatesuccess', onNavigationSuccess);
 
         function handleNavigationChange(url) {
-            console.log('url');
+            console.log(`
+            
+            url: ${url}
+
+            `)
             if (url.startsWith(`${window.origin}/chat/main-content`)) {
                 const urlParams = new URLSearchParams(window.location.search);
                 checkMaskMessage(urlParams);
@@ -17,6 +25,9 @@ let cachedMask = new Set(getSessionStorage('masked') || []);
         }
 
         function checkMaskMessage(urlParams) {
+            if (!cachedMask)
+                return;
+
             const channelId = urlParams.get("channelId");
             const userId = urlParams.get("userId");
             if (

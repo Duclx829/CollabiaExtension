@@ -39,6 +39,7 @@ const MINIFIED = false;
     }
 
     const applyContentScript = (match, cScript) => {
+        console.log(contentScript);
         if (!cScript)
             cScript = contentScript[match];
 
@@ -54,7 +55,7 @@ const MINIFIED = false;
     const removeUnusedContentScript = () => {
         const pathName = location.pathname;
         Object.entries(contentScript).forEach(([key, value]) => {
-            if (key !== pathName) {
+            if (key !== `${value.type}|${pathName}`) {
                 const element = document.getElementById(`${value.name}_${value.id}`);
                 if (element)
                     element.remove();
@@ -90,7 +91,9 @@ const MINIFIED = false;
                 if (!cs.matches || cs.matches === 'all') {
                     applyContentScript('', cs);
                 } else if (Array.isArray(cs.matches)) {
-                    cs.matches.forEach((match) => contentScript[match] = {...cs, id: generateRandomHex()});
+                    cs.matches.forEach((match) =>
+                        contentScript[`${cs.type}|${match}`] = {...cs, id: generateRandomHex()}
+                    );
                 }
             });
         }
