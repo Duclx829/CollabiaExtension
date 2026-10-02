@@ -1,5 +1,5 @@
 (async () => {
-    const CDN_TAG = sessionStorage.getItem('cdntag', TAG) || '@HEAD';
+    const CDN_TAG = sessionStorage.getItem('cdntag') || '@HEAD';
     const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
     const VERSION = new Date().getTime().toString(16);
     const CONFIG_URL = `${CDN_BASE_URL}@${CDN_TAG}/config.json`;
