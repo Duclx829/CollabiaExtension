@@ -88,7 +88,7 @@ async function copyImage(target) {
 
 /**
  * @param {string} src
- * @returns 
+ * @returns
  */
 function downloadImage(src) {
     if (!src) return;
@@ -139,6 +139,11 @@ function showToast(text, type = 'success') {
  * @param {EventTarget | Node | HTMLElement} children 
  */
 function showTooltip(id, children) {
+    console.log(`
+    
+    show tooltip
+    
+    `)
     try {
         const site = document.body.querySelector('.site');
         const div = document.createElement('div');

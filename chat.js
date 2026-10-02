@@ -480,6 +480,7 @@
     }
 
     function sideBarItemPreview(node) {
+        console.log('show tooltip')
         showTooltip(`sidebar-item-preview_${Date.now()}`, node);
     }
 
