@@ -42,24 +42,25 @@ const MINIFIED = false;
         if (!cScript)
             cScript = contentScript[match];
 
-        console.log(match, cScript, contentScript);
         if (cScript) {
-            if (cScript.type === 'stylesheet') {
-                appendStyleSheet(`${cScript.name}_${cScript.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
-            } else if (cScript.type === 'script') {
-                appendScript(`${cScript.name}_${cScript.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
-            }
+            cScript.forEach((cs) => {
+                if (cs.type === 'stylesheet') {
+                    appendStyleSheet(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
+                } else if (cs.type === 'script') {
+                    appendScript(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
+                }
+            });
         }
     }
 
     const removeUnusedContentScript = () => {
         const pathName = location.pathname;
         Object.entries(contentScript).forEach(([key, value]) => {
-            console.log({key, comparison: `${value.type}|${pathName}`});
-            if (key !== `${value.type}|${pathName}`) {
-                const element = document.getElementById(`${value.name}_${value.id}`);
-                if (element)
-                    element.remove();
+            if (key !== pathName) {
+                value.forEach((cs) => {
+                    const element = document.getElementById(`${cs.name}_${cs.id}`);
+                    if (element) element.remove();
+                });
             }
         })
     }
@@ -92,9 +93,12 @@ const MINIFIED = false;
                 if (!cs.matches || cs.matches === 'all') {
                     applyContentScript('', cs);
                 } else if (Array.isArray(cs.matches)) {
-                    cs.matches.forEach((match) =>
-                        contentScript[`${cs.type}|${match}`] = {...cs, id: generateRandomHex()}
-                    );
+                    cs.matches.forEach((match) => {
+                        if (!contentScript[match])
+                            contentScript[match] = [{...cs, id: generateRandomHex()}];
+                        else
+                            contentScript[match].push({...cs, id: generateRandomHex()});
+                    });
                 }
             });
         }
