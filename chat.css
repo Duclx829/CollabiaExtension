@@ -192,6 +192,13 @@ body::before {
     position: relative !important;
 }
 
+.body-drm div:has(> MuiCircularProgress-root):has(+ .flex-column-reverse) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translate(-50%, 50%) !important;
+}
+
 .direct-message-main #container-write-message > div:nth-child(3).position-absolute {
     position: relative !important;
 }
