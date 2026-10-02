@@ -1,7 +1,7 @@
-const VERSION = new Date().getTime().toString(16);
-const CDN_TAG = sessionStorage.getItem('cdnsha') || '@HEAD';
+const RANDOM_HEX = new Date().getTime().toString(16);
+const CDNSHA = sessionStorage.getItem('cdnsha') || '@HEAD';
 const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
-const CONFIG_URL = `${CDN_BASE_URL}@${CDN_TAG}/config.json`;
+const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
 const MINIFIED = false;
 
 (async () => {
@@ -18,6 +18,7 @@ const MINIFIED = false;
             console.log('failed to load stylesheet.', e);
         }
     }
+
     const appendScript = (src) => {
         try {
             const script =
@@ -32,14 +33,14 @@ const MINIFIED = false;
     }
 
     try {
-        const config = await (await fetch(`${CONFIG_URL}?v=${VERSION}`)).json();
+        const config = await (await fetch(`${CONFIG_URL}?v=${RANDOM_HEX}`)).json();
         const contentScripts = config.content_scripts;
         if (contentScripts) {
             contentScripts.forEach((cs) => {
                 if (cs.type === 'stylesheet') {
-                    appendStyleSheet(`${CDN_BASE_URL}@${CDN_TAG}/${cs.name}${MINIFIED ? '.min' : ''}.css?v=${VERSION}`);
+                    appendStyleSheet(`${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
                 } else if (cs.type === 'script') {
-                    appendScript(`${CDN_BASE_URL}@${CDN_TAG}/${cs.name}${MINIFIED ? '.min' : ''}.js?v=${VERSION}`);
+                    appendScript(`${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
                 }
             });
         }
