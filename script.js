@@ -1,25 +1,25 @@
-function appendStyleSheet(href) {
-    const link =
-        Object.assign(
-            document.createElement("link"),
-            { href, rel: 'stylesheet' },
-        );
-    (document.head || document.documentElement).append(link);
-}
-
-function appendScript(src) {
-    const script =
-        Object.assign(
-            document.createElement("script"),
-            { src, type: 'text/javascript' },
-        );
-    document.documentElement.append(script)
-}
-
 (async () => {
     const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension@HEAD/";
     const VERSION = new Date().getTime().toString(16);
     const CONFIG_URL = `${CDN_BASE_URL}config.json`;
+
+    const appendStyleSheet = (href) => {
+        const link =
+            Object.assign(
+                document.createElement("link"),
+                { href, rel: 'stylesheet' },
+            );
+        (document.head || document.documentElement).append(link);
+    }
+
+    const appendScript = (src) => {
+        const script =
+            Object.assign(
+                document.createElement("script"),
+                { src, type: 'text/javascript' },
+            );
+        (document.body || document.documentElement).append(script);
+    }
 
     try {
         const config = await (await fetch(`${CONFIG_URL}?v=${VERSION}`)).json();
