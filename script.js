@@ -39,10 +39,10 @@ const MINIFIED = false;
     }
 
     const applyContentScript = (match, cScript) => {
-        console.log(contentScript);
         if (!cScript)
             cScript = contentScript[match];
 
+        console.log(match, cScript, contentScript);
         if (cScript) {
             if (cScript.type === 'stylesheet') {
                 appendStyleSheet(`${cScript.name}_${cScript.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
