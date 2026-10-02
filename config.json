@@ -1,3 +1,14 @@
 {
-  "name": "unknown"
+  "content_scripts": [
+    {
+      "matches": ["https://collabia.tdt.asia/*"],
+      "type": "stylesheet",
+      "name": "style.css"
+    },
+    {
+      "matches": ["https://collabia.tdt.asia/*"],
+      "type": "script",
+      "name": "global.js"
+    }
+  ]
 }
