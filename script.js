@@ -53,10 +53,9 @@ const MINIFIED = false;
 
     const removeUnusedContentScript = () => {
         const pathName = location.pathname;
-        console.log('remove: ', contentScript);
         Object.entries(contentScript).forEach(([key, value]) => {
             if (key !== pathName) {
-                const element = document.getElementById(value.id);
+                const element = document.getElementById(`${value.name}_${value.id}`);
                 if (element)
                     element.remove();
             }
@@ -64,11 +63,6 @@ const MINIFIED = false;
     }
 
     const onUrlChanges = (href, pathName) => {
-        console.log(`
-        
-            URL Changes
-
-        `)
         removeUnusedContentScript();
         applyContentScript(pathName);
     }
