@@ -29,6 +29,11 @@
       "matches": "all",
       "type": "script",
       "name": "dialog"
+    },
+    {
+      "matches": ["/chat/main-content"],
+      "type": "script",
+      "name": "chat"
     }
   ]
 }
