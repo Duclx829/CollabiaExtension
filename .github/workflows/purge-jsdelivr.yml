@@ -2,7 +2,7 @@ name: Purge jsDelivr
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   purge:
     runs-on: ubuntu-latest
