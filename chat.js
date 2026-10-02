@@ -18,7 +18,7 @@
     if (!mouseHoverThrottle) localStorage.setItem('mousehover-throttle', mouseHoverThrottle = 100);
     if (!longPressDuration) localStorage.setItem('longpress-duration', longPressDuration = 500);
 
-    let cachedMask = new Set(getSessionStorage('masked') || []);
+    let cachedMask = new Set(sessionStorage.getItem('masked') || []);
 
     if (navigation) {
         handleNavigationChange(location.href);
