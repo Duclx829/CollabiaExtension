@@ -16,17 +16,17 @@
       "name": "chat"
     },
     {
-      "matches": ["https://collabia.tdt.asia/*"],
+      "matches": "all",
       "type": "script",
       "name": "utils"
     },
     {
-      "matches": ["https://collabia.tdt.asia/*"],
+      "matches": "all",
       "type": "script",
       "name": "help"
     },
     {
-      "matches": ["https://collabia.tdt.asia/*"],
+      "matches": "all",
       "type": "script",
       "name": "dialog"
     }
