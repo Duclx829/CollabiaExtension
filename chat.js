@@ -1,4 +1,22 @@
 (() => {
+    let mouseStopThrottle = Number(localStorage.getItem('mousestop-throttle'));
+    let mouseHoverThrottle = Number(localStorage.getItem('mousehover-throttle'));
+    let longPressDuration = Number(localStorage.getItem('longpress-duration'));
+    let mouseStopTimeout;
+    let mouseHoverTimeout;
+    let leftMouseHoldTimeout;
+    let middleClickLongpressTimeout;
+    let contextmenuOpenedByHold;
+    let isMouseout;
+    const timeout = {};
+    const modalInfo = {};
+    const pointer = {x: 0, y: 0};
+    let contextMenu;
+    let lastMiddleClickTime = 0;
+    if (!mouseStopThrottle) localStorage.setItem('mousestop-throttle', mouseStopThrottle = 500);
+    if (!mouseHoverThrottle) localStorage.setItem('mousehover-throttle', mouseHoverThrottle = 100);
+    if (!longPressDuration) localStorage.setItem('longpress-duration', longPressDuration = 500);
+
     let cachedMask = new Set(getSessionStorage('masked') || []);
 
     if (navigation) {
@@ -11,11 +29,6 @@
         navigation.addEventListener('navigatesuccess', onNavigationSuccess);
 
         function handleNavigationChange(url) {
-            console.log(`
-            
-            url: ${url}
-
-            `)
             if (url.startsWith(`${window.origin}/chat/main-content`)) {
                 const urlParams = new URLSearchParams(window.location.search);
                 checkMaskMessage(urlParams);
@@ -50,4 +63,5 @@
             }
         }
     }
+    console.log(document.body.cloneNode(true));
 })();
