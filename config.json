@@ -8,6 +8,11 @@
     {
       "matches": ["/home/news-feed"],
       "type": "stylesheet",
+      "name": "newsfeed"
+    },
+    {
+      "matches": ["/chat/main-content"],
+      "type": "stylesheet",
       "name": "chat"
     },
     {

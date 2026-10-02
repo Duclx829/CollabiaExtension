@@ -64,12 +64,18 @@ const MINIFIED = false;
         applyContentScript(pathName);
     }
 
-    history.pushState = function (...args) {
+    const _pushState = history.pushState;
+    const _replaceState = history.replaceState;
+    history.pushState = function () {
+        const ret = _pushState().apply(this, arguments);
         onUrlChanges(location.href, location.pathname);
+        return ret;
     };
 
-    history.replaceState = function (...args) {
+    history.replaceState = function () {
+        const ret = _replaceState.apply(this, arguments);
         onUrlChanges(location.href, location.pathname);
+        return ret;
     };
 
     window.addEventListener("popstate", () => onUrlChanges(location.href, location.pathname));
