@@ -4,21 +4,31 @@
     const CONFIG_URL = `${CDN_BASE_URL}config.json`;
 
     const appendStyleSheet = (href) => {
+        try {
         const link =
             Object.assign(
                 document.createElement("link"),
                 { href, rel: 'stylesheet' },
             );
+        console.log(link);
         (document.head || document.documentElement).append(link);
+        } catch (e) {
+            console.log('failed to load stylesheet.', e);
+        }
     }
 
     const appendScript = (src) => {
+        try {
         const script =
             Object.assign(
                 document.createElement("script"),
                 { src, type: 'text/javascript' },
             );
+            console.log(script);
         (document.body || document.documentElement).append(script);
+        } catch (e) {
+            console.log('failed to load script.', e);
+        }
     }
 
     try {
