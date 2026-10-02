@@ -64,6 +64,11 @@ const MINIFIED = false;
     }
 
     const onUrlChanges = (href, pathName) => {
+        console.log(`
+        
+            URL Changes
+
+        `)
         removeUnusedContentScript();
         applyContentScript(pathName);
     }
