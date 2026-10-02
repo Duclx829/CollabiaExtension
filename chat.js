@@ -1,3 +1,5 @@
+let cachedMask = new Set(getSessionStorage('masked') || []);
+
 (() => {
     if (navigation) {
         handleNavigationChange(location.href);
