@@ -1,0 +1,34 @@
+@keyframes toastSlideDown {
+    from {
+        opacity: .5;
+        transform: translate(-50%, -100%);
+    }
+}
+
+@keyframes contextMenuOpen {
+    1% {
+        transform: scale(.8);
+        opacity: .5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popUp {
+    1% {
+        opacity: .5;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
