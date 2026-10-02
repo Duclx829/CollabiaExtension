@@ -5,6 +5,9 @@ const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
 const MINIFIED = false;
 
 (async () => {
+    const contentScript = {};
+    const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
+
     const appendStyleSheet = (href) => {
         try {
             const link =
@@ -32,18 +35,60 @@ const MINIFIED = false;
         }
     }
 
+    const applyContentScript = (match, cScript) => {
+        if (!cScript)
+            cScript = contentScript[match];
+
+        if (cScript) {
+            if (cScript.type === 'stylesheet') {
+                appendStyleSheet(`${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
+            } else if (cScript.type === 'script') {
+                appendScript(`${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
+            }
+        }
+    }
+
+    const removeUnusedContentScript = () => {
+        const pathName = location.pathname;
+        Object.entries(contentScript).forEach(([key, value]) => {
+            if (key !== pathName) {
+                const element = document.getElementById(value.id);
+                if (element)
+                    element.remove();
+            }
+        })
+    }
+
+    const onUrlChanges = (href, pathName) => {
+        removeUnusedContentScript();
+        applyContentScript(pathName);
+    }
+
+    history.pushState = function (...args) {
+        onUrlChanges(location.href, location.pathname);
+    };
+
+    history.replaceState = function (...args) {
+        onUrlChanges(location.href, location.pathname);
+    };
+
+    window.addEventListener("popstate", () => onUrlChanges(location.href, location.pathname));
+    window.addEventListener("urlchange", () => onUrlChanges(location.href, location.pathname));
+
     try {
         const config = await (await fetch(`${CONFIG_URL}?v=${RANDOM_HEX}`)).json();
         const contentScripts = config.content_scripts;
         if (contentScripts) {
             contentScripts.forEach((cs) => {
-                if (cs.type === 'stylesheet') {
-                    appendStyleSheet(`${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
-                } else if (cs.type === 'script') {
-                    appendScript(`${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
+                if (!cs.matches || cs.matches === 'all') {
+                    applyContentScript('', cs);
+                } else if (Array.isArray(cs.matches)) {
+                    cs.matches.forEach((match) => contentScript[match] = {...cs, id: generateRandomHex()});
                 }
             });
         }
+
+        applyContentScript(location.pathname);
     } catch (e) {
         console.log('[ERROR]', e);
     }
