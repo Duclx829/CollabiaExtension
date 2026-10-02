@@ -342,3 +342,497 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     background: #ffffff !important;
     /*box-shadow: 0 2px 5px hsl(0deg 2% 73% / 75%) !important;*/
 }
+
+.message-item .dm-grid-container:not(:has(:nth-child(2)))[data-only-one-resource] .dm-grid-item[data-is-file="false"] .chat-image-resource-contain[src] {
+    min-height: 2rem !important;
+    min-width: 2rem !important;
+}
+
+
+.message-item .dm-grid-container:not(:has(:nth-child(2)))[data-only-one-resource] .dm-grid-item[data-is-file="false"]:has(.chat-image-resource-contain[src]) {
+    min-width: 4rem;
+    min-height: 2.5rem;
+    border-color: transparent !important;
+}
+
+#container-listMessage .typing-wrapper {
+    line-height: 1 !important;
+    position: absolute !important;
+    left: .25rem;
+    right: 0;
+    bottom: 0;
+    pointer-events: none !important;
+}
+#container-listMessage .typing-wrapper > .view-typing {
+    line-height: .25 !important;
+}
+
+#container-listMessage .typing-wrapper > .view-typing > div {
+    padding: 0 !important;
+}
+
+#container-listMessage [class^="DMResources_listVideoOrImage"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: .25rem !important;
+}
+
+#container-listMessage [class^="DMResources_listVideoOrImage"]:has(.cqThemeDMFileItem) {
+    margin-bottom: .7rem;
+}
+
+[class^="DMItemRight_chatList__"] [class^="DMResources_listVideoOrImage"] {
+    justify-content: end;
+}
+
+[class^="DMResources_listVideoOrImage"] .dm-grid-item {
+    min-width: fit-content;
+}
+
+.dm-grid-item video {
+    height: fit-content;
+}
+
+.message-item .chat-image-resource-contain {
+    width: 100% !important;
+}
+
+.dm-grid-container:not(:has(:nth-child(2))) {
+    width: fit-content !important;
+    grid-template-columns: auto !important;
+}
+
+.message-item .non-content-reply:not(:has(.chat-image-resource-contain)) {
+    pointer-events: none !important;
+    display: inline-block;
+    overflow: hidden !important;
+    max-height: 40px !important;
+}
+
+.message-item .cqThemeTagPeopleLeft a {
+    color: #000 !important;
+}
+
+.cqThemeTagPeopleLeft[data-tag-me="true"] a {
+    color: red !important;
+}
+
+.message-item .messages-reply:has(.chat-image-resource-contain),
+.message-item .messages-container:has(.chat-image-resource-contain) {
+    opacity: 1 !important;
+}
+
+.messages-container .replied,
+.messages-reply .replied {
+    max-height: 60px !important;
+    transition: opacity 200ms ease-in-out;
+    /*background: rgb(210 210 210 / 80%) !important;*/
+    opacity: 0.4 !important;
+    border: 1px solid #73737354 !important;
+    background: #f7de98 !important;
+    color: #000 !important;
+}
+
+.messages-reply:has(.chat-image-resource-contain) .replied,
+.messages-container:has(.chat-image-resource-contain) .replied {
+    max-height: 110px !important;
+    opacity: 0.65 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    filter: brightness(0.5);
+}
+
+.replied .chat-image-resource-contain {
+    min-height: 36px !important;
+    max-height: 110px !important;
+    width: auto !important;
+}
+
+.replied .cqThemeDeleteMessage {
+    border: none !important;
+    padding: 0 !important;
+    line-height: 1;
+}
+
+.messages-container .replied:hover,
+.messages-reply .replied:hover {
+    opacity: .8 !important;
+}
+
+[class^="DMItemLeft_messagesContainer"] .cqThemeDMItemLeft::before,
+[class^="DMItemLeft_messagesContainer"] div:has(> .dm-grid-container)::before,
+[class^="DMItemRight_contentMessages_"]::before,
+[class^="DMItemRight_chatList"] div:has(> .dm-grid-container)::before {
+    --layer-width: 144px;
+
+    content: '';
+    position: absolute;
+    z-index: 0;
+    display: inline-block;
+    height: 100%;
+    width: var(--layer-width);
+}
+
+[class^="DMItemLeft_messagesContainer"] .cqThemeDMItemLeft::before,
+[class^="DMItemLeft_messagesContainer"] div:has(> .dm-grid-container)::before {
+    inset: 0 calc(var(--layer-width) * -1 + 1px) 0 calc(100% - 1px);
+}
+
+[class^="DMItemRight_contentMessages_"]::before,
+[class^="DMItemRight_chatList"] div:has(> .dm-grid-container)::before {
+    inset: 0 calc(100% - 1px) 0 calc(var(--layer-width) * -1 + 1px);
+}
+
+.message-item:not(:has(.msg-item-image-stack)) .dm-grid-item.border[data-side="left"]:last-child,
+.message-item:not(:has(.msg-item-image-stack)) .dm-grid-item.border[data-side="right"]:last-child {
+    anchor-name: --emotion-anchor !important;
+}
+
+.message-item:not(:has(.msg-item-image-stack)):has(.dm-grid-item.border[data-side="left"]) .wrap-emotion,
+.message-item:not(:has(.msg-item-image-stack)):has(.dm-grid-item.border[data-side="right"]) .wrap-emotion
+{
+    right: anchor(--emotion-anchor right) !important;
+    bottom: calc(anchor(--emotion-anchor bottom) - 12px) !important;
+}
+
+.message-item .seen-chat {
+    user-select: none !important;
+}
+
+.cqThemeDeleteMessage {
+    background-color: transparent !important;
+    border: 1px solid hsl(0deg 0% 82% / 70%) !important;
+    padding: .4rem 1rem !important;
+    color: rgba(0 0 0 60%) !important;
+    font-weight: 300 !important;
+}
+
+#container-listMessage [class*="_hoverActionSection__"] {
+    backdrop-filter: blur(2px);
+    background: #fffefe !important;
+    border: 1px solid #d6d6d6 !important;
+    padding-right: .4rem !important;
+}
+
+#container-listMessage [class*="_hoverActionSection__"] > div:nth-child(2) {
+    border-radius: calc(20px - .4rem) !important;
+    background: rgb(0 0 0 / 65%) !important;
+}
+
+#container-listMessage [class*="DMItemRight_hoverActionSection__"] {
+    z-index: 3 !important;
+    border-radius: 20px !important;
+    flex-direction: row-reverse !important;
+    padding: .25rem !important;
+    padding-left: .4rem !important;
+    height: fit-content !important;
+    gap: .2rem !important;
+}
+
+#container-write-message div:has(>.cqThemeDMFooter) {
+    z-index: 30 !important;
+}
+
+#container-write-message .cqThemeDMFooter.chat-input-messages {
+    max-height: unset !important;
+}
+
+.chat-input-wrapper .form-input > div:has(+ .input-group) {
+    position: sticky !important;
+    top: 0 !important;
+    border: 1px solid #f1f1f1;
+    border-radius: calc(20px - .25rem);
+    box-shadow: -1px -1px 1px #ffffff, 1px 2px 3px #b6b6b6;
+    background: inherit !important;
+    margin-right: .12rem;
+    margin-left: .25rem;
+}
+
+.chat-input-wrapper .form-input .input-group {
+    max-height: max(40svh, 300px) !important;
+}
+
+.chat-input-wrapper .form-input .input-group .cqThemeTagPeopleLeft {
+    line-height: 1 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    outline: 2px solid #0b57d014;
+    border-radius: 1lh !important;
+}
+
+
+.MuiPaper-root [class^="RedmineDetailDialog_header__"] {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px 2px rgba(0 0 0 / 10%);
+    padding: 16px 24px !important;
+    padding-right: 200px !important;
+}
+
+[class^="RedmineDetailDialog_header__"] p {
+    margin-bottom: 0 !important;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_mainContent__"] {
+    margin-bottom: 0  !important;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_footer__"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto  !important;
+    width: fit-content !important;
+    background: inherit;
+    gap: 1rem;
+    padding: 16px 16px 16px 0;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_footer__"] button:nth-child(1) {
+    position: relative;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    color: transparent !important;
+    width: 115px !important;
+    overflow: hidden;
+    line-height: 0 !important;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_footer__"] button:nth-child(1)::before {
+    content: 'Open Redmine';
+    color: #fff;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_footer__"] button:nth-child(2) {
+    position: relative;
+    color: transparent;
+    background: #fff;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0;
+}
+
+.MuiPaper-root [class^="RedmineDetailDialog_footer__"] button:nth-child(2)::before {
+    content: '⨉';
+    position: absolute;
+    color: #7c7c7c;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-pre::before,
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-next::before {
+    content: '';
+    position: fixed;
+    top: 50px;
+    bottom: 60px;
+    display: inline-block;
+    width: 150px;
+}
+
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-pre::before {
+    left: 0;
+}
+
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-next::before {
+    right: 0;
+}
+
+.image-zoom-pan-container .image-zoom-pan-content {
+    transition: transform 0.1s ease-out !important;
+}
+
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-pre:hover::before,
+.slick-slider .slide-swiper-arrow.slide-swiper-arrow-next:hover::before {
+    background: rgba(0 0 0 / 10%);
+}
+
+.MuiDialog-container .dm-dialog-container,
+.MuiDialog-container .dm-dialog-container .slick-slider,
+.MuiDialog-container .slick-slider .image-zoom-pan-content {
+    background: transparent !important;
+}
+
+.dm-dialog-container .slick-slider.dm-slides .slick-track .image-detail-dialog img {
+    max-width: 100%;
+}
+
+.MuiDialog-container .MuiDialog-paper:has(.dm-dialog-container) {
+    background: hsla(0, 0%, 0%, 0.2);
+    backdrop-filter: blur(14px) !important;
+}
+
+.MuiDialog-container .slick-slider .image-zoom-pan-content {
+    backdrop-filter: none !important;
+}
+
+.slideSwiper .slick-track {
+    width: fit-content !important;
+}
+
+.slideSwiper .slick-slide.slick-active {
+    width: fit-content !important;
+}
+
+body > .popover[class*="DMActionButton_popover"] {
+    box-shadow: 1px 2px 3.5px rgb(0 0 0 / 30%) !important;
+    border-color: transparent !important;
+}
+
+.show-three-dot > p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item {
+    height: fit-content !important;
+    padding-top: .3rem !important;
+    padding-bottom: .3rem !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item[class*="DMActionButton_selected-reaction__"] {
+    background-color: #e8e8e8 !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:not([class*="DMActionButton_selected-reaction__"]) {
+    padding-top: .4rem;
+    padding-bottom: 0;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item > div {
+    padding-left: .25rem !important;
+    padding-right: .25rem !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item svg {
+    height: 28px !important;
+    width: 28px !important;
+    overflow: visible !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child {
+    padding: .2rem 0 0 0 !important;
+    margin-top: .1rem;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child svg {
+    height: 16px !important;
+    width: 16px !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child:hover {
+    animation: none !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child > div {
+    padding-right: 0 !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child .btn {
+    background: rgb(239 239 239) !important;
+    border: 1px solid #d7d7d7 !important;
+    padding: 5px 6px 6px 5px !important;
+}
+
+.site .item-last-message.preview {
+    position: fixed !important;
+    z-index: 1000;
+    overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-overflow: initial !important;
+    white-space: wrap !important;
+    background: hsla(0, 0%, 85%, 0.9) !important;
+    min-height: 3rem !important;
+    height: fit-content !important;
+    max-width: min(30rem, 80svw) !important;
+    padding: .5rem 1rem !important;
+    border-radius: 1rem !important;
+    color: #000 !important;
+    animation: popUp 120ms ease-in-out forwards !important;
+    transform-origin: top left;
+    font-weight: 400 !important;
+    margin-left: .25rem !important;
+}
+
+.image-quickview {
+    position: fixed;
+    width: fit-content;
+    inset: 0;
+    height: 100svh;
+    width: 100svw;
+    backdrop-filter: blur(16px);
+    background: hsla(0, 0%, 20%, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 200ms linear forwards;
+}
+
+.image-quickview > div,
+.site:has(.image-quickview) .site-main .chat-image-resource-contain {
+    pointer-events: none !important;
+}
+
+.image-quickview img {
+    max-width: min(98svw, 1920px) !important;
+    height: auto !important;
+    max-height: 98svh !important;
+    object-fit: contain !important;
+    animation: popUp 150ms ease-in-out forwards;
+    /*pointer-events: none !important;*/
+}
+
+.tooltip-content-preview {
+    position: fixed;
+    z-index: 1000;
+}
+
+.tooltip-content-preview > div {
+    color: rgba(255, 255, 255, 90%) ;
+    background: rgba(0, 0, 0, 85%) !important;
+    box-shadow: rgba(0, 0, 0, 80%) 1px 2px 3.5px !important;
+    border-radius: 1rem;
+    transform-origin: bottom left;
+    opacity: 0;
+    animation: popUp 120ms 50ms ease-in-out forwards !important;
+    padding: 1rem;
+    font-weight: 400 !important;
+    max-height: 60svh !important;
+    max-width: min(50svw, 50rem);
+    overflow: auto;
+    white-space: pre-line;
+    text-overflow: initial !important;
+    overflow-wrap: break-word !important;
+}
+
+.tooltip-content-preview > div * {
+    pointer-events: none !important;
+}
+
+.tooltip-content-preview .cqThemeTagPeopleLeft {
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 98%) ;
+}
+
+#comment-image-preview .item-comment-image-chat {
+    object-fit: contain !important;
+}
+
+.wrap-comment-image-chat:has(#comment-image-preview) {
+    outline: 2px solid orange;
+}
+

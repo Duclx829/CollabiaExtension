@@ -1,0 +1,11 @@
+.cqThemePostOriginDetail.site-content > div {
+    width: 100% !important;
+    max-width: min(992px, 92svw) !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.MuiDialog-root.MuiModal-root:has(> .MuiDialog-container.MuiDialog-scrollPaper > .dialog-show-gif-birthday),
+.MuiDialog-paper.dialog-show-gif-birthday {
+    display: none !important;
+}
