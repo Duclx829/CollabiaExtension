@@ -1,0 +1,344 @@
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.07;
+    background-image: var(--app-bg-image);
+    background-repeat: repeat;
+}
+
+.site #side-bar-message {
+    background: #fff !important;
+    border: 1px solid #0000000d !important;
+}
+
+.site #side-bar-message .cqThemeBorderEnd {
+    border-color: transparent !important;
+}
+
+#side-bar-message .container-side-bar-search {
+    margin-right: -.875rem !important;
+}
+
+.cqThemeSideBarItem .contact-name,
+.cqThemeSideBarItem .contact-namelh-1 {
+    font-weight: 500 !important;
+    color: #080809 !important;
+}
+
+.dm-side-bar-item .contact-name + div,
+.dm-side-bar-item .contact-namelh-1 + div {
+    margin-bottom: .75rem;
+    line-height: 0;
+    height: .75rem !important;
+}
+
+.cqThemeSideBarItem .item-last-message {
+    color: #65686C !important;
+}
+
+.cqThemeSideBarItem .item-last-message,
+.cqThemeSideBarItem .view-typing {
+    height: 1.2rem !important;
+}
+
+.cqThemeSideBarItem .last-message-time {
+    color: hsl(0deg 0% 0% / 60%) !important;
+    font-size: .75rem;
+    white-space: nowrap !important;
+}
+
+.dm-side-bar-item .alert-request-dr {
+    width: .75rem !important;
+    height: .75rem !important;
+    background: blue !important;
+    margin-bottom: .1rem;
+}
+
+.cqThemeSideBarItem:has(.alert-request-dr) .contact-name,
+.cqThemeSideBarItem:has(.alert-request-dr) .contact-namelh-1 {
+    font-weight: 700 !important;
+    color: hsl(0deg 0% 0% / 90%) !important;
+}
+
+.cqThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
+.cqThemeSideBarItem:has(.alert-request-dr) .item-last-message {
+    font-weight: 600 !important;
+    color: hsl(0deg 0% 0% / 90%) !important;
+}
+
+.cqThemeSideBarItemFocus .last-message-time,
+.cqThemeSideBarItem:has(.alert-request-dr) .last-message-time {
+    color: hsl(0deg 0% 0% / 80%) !important;
+    font-size: .75rem;
+}
+
+.cqThemeSideBarItemFocus[data-channel-name] {
+    background: #ebf5ff !important;
+}
+
+.cqThemeSideBarItemFocus .cqThemeSideBarItemFocus {
+    background: transparent !important;
+}
+
+.cqThemeSideBarItemFocus .contact-name,
+.cqThemeSideBarItemFocus .contact-namelh-1 {
+    font-weight: 600 !important;
+}
+
+.message-item .cqThemeBorderFocus {
+    border: none !important;
+    outline: 3px solid orange;
+}
+
+.dm-side-bar-item label + div {
+    flex-direction: row-reverse;
+    gap: .35rem !important;
+}
+
+.dm-side-bar-item svg:has(+.alert-request-dr),
+.dm-side-bar-item svg[data-testid="AlternateEmailIcon"] {
+    height: .7rem !important;
+    width: .7rem !important;
+    display: inline-block;
+    border-radius: 100%;
+    background-color: red;
+    overflow: hidden !important;
+}
+
+.site .content-write-message:not(:empty) {
+    border-radius: .5rem !important;
+    border: 1px solid #0000000d !important;
+    /*box-shadow: 2px 5px #0000001c;*/
+}
+
+.content-write-message [class^="DMMainHeader_mainPinContent__"] {
+    border: 1px solid #7a7a7a2b;
+    box-shadow: 0px 2px 3.5px #0000004d;
+}
+
+.content-write-message .direct-message-main {
+    background: transparent !important;
+}
+
+.direct-message-main > #direct-channel-info {
+    max-width: unset !important;
+    width: clamp(300px, 40%, 40svw) !important;
+    background-color: rgb(255 255 255 / 75%) !important;
+}
+
+.direct-message-main > #direct-channel-info > div > .channel-info-group {
+    padding-bottom: 0 !important;
+}
+
+.direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CISettting_setting-card"],
+.direct-message-main > #direct-channel-info > div > .channel-info-group [class*="CIMembers_member-card"],
+.direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CIShared_shared-card"] {
+    box-shadow: -1px -1px 2px rgba(0, 0, 0, 1.5%), 2px 4px 7px -2px rgba(0, 0, 0, 12%) !important;
+}
+
+.direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CIShared_shared-card"] {
+    padding-bottom: 2px !important;
+    margin-bottom: 4px !important;
+}
+
+.direct-message-main > #direct-channel-info > div > .channel-info-group [class*="CIMembers_member-card"] [class^="ListMember_member-item"] {
+    box-shadow: none !important;
+    border: none !important;
+    margin-bottom: 0 !important;
+    padding: .5rem !important;
+}
+
+.direct-message-main > #direct-channel-info .channel-info-group > .channel-info-group + div > div + div > div {
+    height: clamp(400px, 700px, 70vh) !important;
+}
+
+.CIShare-container .dm-grid-item.dm-grid-item-image > div:hover > img {
+    object-fit: contain !important;
+}
+
+.title-direct-info + div + div + div > .d-flex.align-items-center {
+    justify-content: center !important;
+}
+
+.title-direct-info + div + div + div > .d-flex.align-items-center .MuiButtonBase-root > div > div:first-child > div {
+    border: 1px solid #f0f0f0 !important;
+    background-color: #f0f0f0 !important;
+    padding: .5rem !important;
+    border-radius: 50vh !important;
+    aspect-ratio: 1/1 !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.title-direct-info + div + div + div > .d-flex.align-items-center .MuiButtonBase-root:hover > div > div:first-child > div {
+    filter: brightness(.9) !important;
+}
+
+.direct-message-main #container-write-message {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.direct-message-main #container-write-message > div:nth-child(2) {
+    height: auto !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+}
+
+.direct-message-main .body-drm {
+    height: auto !important;
+    padding-bottom: 0 !important;
+    position: relative !important;
+}
+
+.direct-message-main #container-write-message > div:nth-child(3).position-absolute {
+    position: relative !important;
+}
+
+.direct-message-main #container-write-message::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: var(--app-chat-frame-bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: opacity(.8);
+}
+
+body.anti-spy .message-item .cqThemeDMItemLeft > div,
+body.anti-spy .message-item .seen-chat .avatar-seen,
+body.anti-spy .message-item [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) > span:nth-child(1),
+body.anti-spy .message-item [class^="DMItemLeft_titleReplyMessage__"] > div:nth-child(2),
+body.anti-spy .message-item :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply),
+body.anti-spy .message-item [class^="DMItemRight_contentMessages__"] > div
+{
+    transition: filter 120ms ease;
+}
+
+body.anti-spy .message-item:not(:hover) .cqThemeDMItemLeft > div,
+body.anti-spy .message-item:not(:hover) .seen-chat .avatar-seen,
+body.anti-spy .message-item:not(:hover) [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) > span:nth-child(1),
+body.anti-spy .message-item:not(:hover) [class^="DMItemLeft_titleReplyMessage__"] > div:nth-child(2),
+body.anti-spy .message-item:not(:hover) :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply),
+body.anti-spy .message-item:not(:hover) [class^="DMItemRight_contentMessages__"] > div,
+body.anti-spy .message-item:not(:hover) [class^="DMItemRight_titleReplyMessage__"] > div:nth-child(2),
+body.anti-spy .typing-wrapper > .view-typing
+{
+    filter: blur(10px) !important;
+}
+
+body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
+    filter: blur(16px) grayscale(100%) !important;
+}
+
+.cqThemeWriteMessage.body-drm + .w-40 {
+    background-color: hsl(0deg 0% 100% / 60%);
+}
+
+.direct-message-main .cqThemeDMItemLeft[data-theme] {
+    /*background: #f0f0f0 !important;*/
+    background: #ffffff !important;
+    border: 1px solid #dddddd52 !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.direct-message-main .cqThemeDMItemLeft[data-theme][data-contain-file],
+.direct-message-main [class*="DMItemRight_contentMessages__"][data-theme][data-contain-file] {
+    color: #000 !important;
+}
+
+
+.direct-message-main .cqThemeDMItemLeft[data-theme] > div > div:has(br),
+.direct-message-main [className*="DMItemRight_contentMessages__"][data-theme] > div > div:has(br){
+    white-space: pre-line !important;
+}
+
+.message-item:is(:first-child) > div:not(:has(.seen-chat)) > div:is(:last-child) {
+    margin-bottom: 1rem !important;
+}
+
+.message-item:has(.wrap-new-messages) ~ .message-item {
+    opacity: .85 !important;
+}
+
+.message-item .wrap-new-messages .line-new-message {
+    height: 2px !important;
+    box-shadow: 0 -14px 12px !important;
+}
+
+.message-item [class^="DMItemRight_contentMessages_"] {
+    /*background: rgb(211 210 210) !important;*/
+    /*background: #ffd25d99 !important;*/
+    background: rgb(255 210 93 / 80%) !important;;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.message-item .wrap-emotion:not(:empty) {
+    z-index: 5;
+    border-radius: 20px !important;
+    border-top: 1px solid rgb(133 130 130 / 50%) !important;
+    border-right: 1px solid rgb(0 0 0 / 0%) !important;
+    margin-left: .25rem;
+    margin-right: .25rem;
+    padding: 2px;
+    box-sizing: border-box;
+    background: var(--app-bg);
+    user-select: none !important;
+}
+
+.message-item [class^="DMItemLeft_messagesContainer_"] .wrap-emotion {
+    left: unset !important;
+    right: 2px !important;
+}
+
+.chat-image-resource-contain:has(>  .MuiCircularProgress-indeterminate) {
+    min-height: 80px !important;
+    min-width: 100px !important;
+}
+
+.message-item:has(.dm-grid-item:not([data-side="pin"]).border:last-child > div > .chat-image-resource-contain) .wrap-emotion,
+.message-item:has(.dm-grid-item:not([data-side="pin"]).border:last-child > div > .chat-image-resource-cover) .wrap-emotion {
+    border-color: transparent !important;
+}
+
+.message-item:has(.total-4-images, .more-than-4-images):not(:has(.cqThemeDMFileItem)) .wrap-emotion {
+    right: 15px !important;
+}
+
+.dm-grid-container:has(> div > .dm-grid-item.border[data-is-file="false"]) {
+    /* box-shadow: 0 2px 2.5px rgb(0 0 0 / 10%); */
+    border-radius: 20px;
+    overflow: visible !important;
+    width: fit-content !important;
+}
+
+.dm-grid-container:not(:has(.msg-item-image-stack .dm-grid-item-image-2)) {
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 2.5px;
+}
+
+.dm-grid-container .dm-grid-item.border[data-is-file=false][data-side=left] {
+    border-radius: 20px !important;
+}
+
+.dm-grid-item.border {
+    /*border-color: #ececec !important;*/
+    border-color: rgb(212 212 212) !important;
+    user-select: none !important;
+}
+
+.dm-grid-item[data-is-file="true"] {
+    background: #fff !important;
+}
+
+.non-content-reply .dm-grid-item {
+    border-radius: 20px !important;
+}
+
+.wrap-emotion .emotion.list-emotion {
+    margin: 0 !important;
+    /*background: #f0f0f0 !important;*/
+    background: #ffffff !important;
+    /*box-shadow: 0 2px 5px hsl(0deg 2% 73% / 75%) !important;*/
+}

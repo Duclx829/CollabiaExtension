@@ -32,3 +32,17 @@
         transform: scale(1);
     }
 }
+
+html body {
+    --app-bg: rgb(236, 240, 241);
+    background: var(--app-bg) !important;
+}
+
+body #root {
+    position: relative;
+    z-index: 1;
+}
+
+.site .container-navbar {
+    box-shadow: none !important;
+}
