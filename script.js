@@ -8,12 +8,12 @@ const MINIFIED = false;
     const contentScript = {};
     const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
 
-    const appendStyleSheet = (href) => {
+    const appendStyleSheet = (id, href) => {
         try {
             const link =
                 Object.assign(
                     document.createElement("link"),
-                    {href, rel: 'stylesheet'},
+                    {href, rel: 'stylesheet', id},
                 );
 
             (document.head || document.documentElement).append(link);
@@ -22,12 +22,15 @@ const MINIFIED = false;
         }
     }
 
-    const appendScript = (src) => {
+    const appendScript = (id, src) => {
         try {
+            if (id && !!document.getElementById(id))
+                return;
+
             const script =
                 Object.assign(
                     document.createElement("script"),
-                    {src, type: 'text/javascript'},
+                    {src, type: 'text/javascript', id},
                 );
             (document.body || document.documentElement).append(script);
         } catch (e) {
@@ -41,9 +44,9 @@ const MINIFIED = false;
 
         if (cScript) {
             if (cScript.type === 'stylesheet') {
-                appendStyleSheet(`${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
+                appendStyleSheet(`${cScript.name}_${cScript.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
             } else if (cScript.type === 'script') {
-                appendScript(`${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
+                appendScript(`${cScript.name}_${cScript.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cScript.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
             }
         }
     }
