@@ -1,3 +1,21 @@
+function appendStyleSheet(href) {
+    const link =
+        Object.assign(
+            document.createElement("link"),
+            { href, rel: 'stylesheet' },
+        );
+    (document.head || document.documentElement).append(link);
+}
+
+function appendScript(src) {
+    const script =
+        Object.assign(
+            document.createElement("script"),
+            { src, type: 'text/javascript' },
+        );
+    document.documentElement.append(script)
+}
+
 (async () => {
     const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension@HEAD/";
     const VERSION = new Date().getTime().toString(16);
@@ -17,23 +35,5 @@
         }
     } catch (e) {
         console.log(e);
-    }
-
-    function appendStyleSheet(href) {
-        const link =
-            Object.assign(
-                document.createElement("link"),
-                { href, rel: 'stylesheet' },
-            );
-        (document.head || document.documentElement).append(link);
-    }
-
-    function appendScript(src) {
-        const script =
-            Object.assign(
-                document.createElement("script"),
-                { src, type: 'text/javascript' },
-            );
-        document.documentElement.append(script)
     }
 })();
