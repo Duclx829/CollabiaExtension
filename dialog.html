@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Help</title>
+    <meta name="color-scheme" content="light dark">
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" type="text/css" href="../content_scripts/vimium.css">
+    <link rel="stylesheet" type="text/css" href="./key_mappings.css">
+    <link rel="stylesheet" type="text/css" href="./help_dialog_page.css"> -->
+    <!-- <script src="help_dialog_page.js" type="module"></script> -->
+    <style>
+        :root {
+            --backdrop-blur: blur(12px);
+            --backdrop-saturate: saturate(1.5);
+            --ring-offset-shadow: 0 0 #0000;
+            --ring-shadow: 0 0 #0000;
+            --shadow: 0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    
+        #dialog-root {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            opacity: 0;
+            background: hsl(0 0% 0% / 0.3);
+            backdrop-filter: var(--backdrop-blur) var(--backdrop-saturate);
+            animation: fadeIn 200ms linear forwards;
+        }
+
+        .dialog-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .dialog-wrapper {
+            position: relative;
+            z-index: 1;
+            background-color: hsl(0 0% 100% / 1);
+            border-radius: 14px;
+            min-width: 600px;
+            width: 840px;
+            max-width: calc(100% - 100px);
+            min-height: 150px;
+            max-height: calc(100% - 100px);
+            margin: 50px auto;
+            overflow-y: auto;
+            overflow-x: auto;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            animation: dialogOpen 200ms linear forwards;
+            box-shadow: var(--ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--shadow);
+        }
+
+        .dialog-content {
+            flex: 1 1 auto;
+        }
+
+        a {
+            text-decoration: underline;
+            color: #2f508e;
+            cursor: pointer;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        a#close {
+            font-family: "courier new", monospace;
+            font-weight: bold;
+            color: #555;
+            text-decoration: none !important;
+            font-size: 24px;
+            position: relative;
+            top: 3px;
+            padding-left: 5px;
+            cursor: pointer;
+        }
+
+        a#close:hover {
+            color: black;
+            -webkit-user-select: none;
+        }
+
+        h1 {
+            font-size: 20px;
+            white-space: nowrap;
+            flex-grow: 1;
+            font-weight: normal;
+            margin: 4px 0;
+        }
+
+        h2 {
+            margin-top: 3px;
+            margin-bottom: 4px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        header a {
+            font-size: 14px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        header a.close {
+            padding-right: 0;
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            margin: 10px auto;
+            background-color: #9a9a9a;
+        }
+
+        #commands-section {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4px 16px;
+        }
+
+        .help-box {
+            font-size: 12px;
+            padding: .25lh 2ch;
+            background-color: #393a3d;
+            border: solid 1px #101010;
+            box-shadow: none;
+            color: white;
+        }
+
+        .help-description {
+            font-size: 14px;
+            padding-top: .2lh;
+        }
+
+        @keyframes dialogOpen {
+            from {
+                opacity: .0;
+                transform: translateY(-50%) scale(.8);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dialog-wrapper {
+                /*background-color: var(--vimium-background-color);*/
+                color: var(--vimium-background-text-color);
+                /*border-color: rgba(255, 255, 255, 0.1);*/
+            }
+
+            a {
+                color: var(--vimium-link-color);
+            }
+      
+            h1,
+            h2 {
+                color: white;
+            }
+      
+            .divider {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+      
+            .help-description {
+                color: #c9cccf;
+            }
+        }
+    </style>
+    <script src="dialog.js"></script>
+</head>
+
+<body>
+    <div id="dialog-root">
+        <div class="dialog-overlay"></div>
+        <div class="dialog-wrapper">
+<!--            <header>-->
+<!--                <h1>-->
+<!--                    <span id="dialog-title">Hướng dẫn</span>-->
+<!--                </h1>-->
+<!--                <div>-->
+<!--                    <a id="close" href="#">×</a>-->
+<!--                </div>-->
+<!--            </header>-->
+            <div class="dialog-content"></div>
+        </div>
+    </div>
+</body>
+</html>
