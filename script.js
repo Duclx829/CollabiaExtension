@@ -64,22 +64,20 @@ const MINIFIED = false;
         applyContentScript(pathName);
     }
 
-    const _pushState = history.pushState;
-    const _replaceState = history.replaceState;
-    history.pushState = function () {
-        const ret = _pushState().apply(this, arguments);
-        onUrlChanges(location.href, location.pathname);
-        return ret;
+    const notify = () => window.dispatchEvent(new Event("urlchange"));
+    const pushState = history.pushState;
+    const replaceState = history.replaceState;
+    history.pushState = function (...args) {
+        pushState.apply(this, args);
+        notify();
     };
 
-    history.replaceState = function () {
-        const ret = _replaceState.apply(this, arguments);
-        onUrlChanges(location.href, location.pathname);
-        return ret;
+    history.replaceState = function (...args) {
+        replaceState.apply(this, args);
+        notify();
     };
-
-    window.addEventListener("popstate", () => onUrlChanges(location.href, location.pathname));
-    window.addEventListener("urlchange", () => onUrlChanges(location.href, location.pathname));
+    window.addEventListener("popstate", notify);
+    window.addEventListener("urlchange", () => onUrlChanges(window.location.href, window.location.pathname));
 
     try {
         const config = await (await fetch(`${CONFIG_URL}?v=${RANDOM_HEX}`)).json();
