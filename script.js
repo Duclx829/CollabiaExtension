@@ -1,5 +1,5 @@
 (async () => {
-    const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension@master/";
+    const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension@HEAD/";
     const VERSION = new Date().getTime().toString(16);
     const CONFIG_URL = `${CDN_BASE_URL}config.json`;
 
@@ -9,8 +9,8 @@
        if (contentScripts) {
            contentScripts.forEach((cs) => {
                if (cs.type === 'stylesheet') {
-                   const link = Object.assign(document.createElement("link"), { href: `${CDN_BASE_URL}${cs.name}`, type: 'stylesheet' });
-                   document.documentElement.append(link);
+                   const link = Object.assign(document.createElement("link"), { href: `${CDN_BASE_URL}${cs.name}`, rel: 'stylesheet' });
+                   (document.head || document.documentElement).append(link);
                } else if (cs.type === 'script') {
                    const script = Object.assign(document.createElement("script"), { src: `${CDN_BASE_URL}${cs.name}`, type: 'text/javascript' });
                    document.documentElement.append(script)
