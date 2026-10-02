@@ -136,14 +136,10 @@ function showToast(text, type = 'success') {
 
 /**
  * @param {string} id 
- * @param {EventTarget | Node | HTMLElement} children 
+ * @param {EventTarget | Node | HTMLElement} children
+ * @param {{x: number, y: number}} pointer
  */
-function showTooltip(id, children) {
-    console.log(`
-    
-    show tooltip
-    
-    `)
+function showTooltip(id, children, pointer) {
     try {
         const site = document.body.querySelector('.site');
         const div = document.createElement('div');

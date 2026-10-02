@@ -107,7 +107,7 @@
         if (
             className.includes('replied-text') &&
             !evt.target.querySelector('.cqThemeDeleteMessage')
-        ) showTooltip(`reply-preview_${Date.now()}`, evt.target);
+        ) showTooltip(`reply-preview_${Date.now()}`, evt.target, pointer);
         else if (
             className === 'chat-image-resource-contain'
             // className === 'chat-image-resource-cover'
@@ -480,8 +480,7 @@
     }
 
     function sideBarItemPreview(node) {
-        console.log('show tooltip')
-        showTooltip(`sidebar-item-preview_${Date.now()}`, node);
+        showTooltip(`sidebar-item-preview_${Date.now()}`, node, pointer);
     }
 
     function closeContextMenu() {
