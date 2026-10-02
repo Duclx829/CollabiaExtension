@@ -3,22 +3,22 @@
     {
       "matches": ["https://collabia.tdt.asia/*"],
       "type": "stylesheet",
-      "name": "style.min.css"
+      "name": "main"
     },
     {
       "matches": ["https://collabia.tdt.asia/*"],
       "type": "script",
-      "name": "utils.min.js"
+      "name": "utils"
     },
     {
       "matches": ["https://collabia.tdt.asia/*"],
       "type": "script",
-      "name": "help.min.js"
+      "name": "help"
     },
     {
       "matches": ["https://collabia.tdt.asia/*"],
       "type": "script",
-      "name": "index.min.js"
+      "name": "dialog"
     }
   ]
 }
