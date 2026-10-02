@@ -1,0 +1,13 @@
+name: Purge jsDelivr
+on:
+  push:
+    branches:
+      - main
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        run: |
+          curl -fsS \
+            "https://purge.jsdelivr.net/gh/Duclx829/CollabiaExtension@HEAD/script.js"
