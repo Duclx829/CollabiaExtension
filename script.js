@@ -53,6 +53,7 @@ const MINIFIED = false;
 
     const removeUnusedContentScript = () => {
         const pathName = location.pathname;
+        console.log('remove: ', contentScript);
         Object.entries(contentScript).forEach(([key, value]) => {
             if (key !== pathName) {
                 const element = document.getElementById(value.id);
