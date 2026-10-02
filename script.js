@@ -42,7 +42,6 @@ const MINIFIED = false;
         if (!cScript)
             cScript = contentScript[match];
 
-        console.log('add', cScript);
         if (cScript) {
             cScript.forEach((cs) => {
                 if (cs.type === 'stylesheet') {
@@ -57,7 +56,6 @@ const MINIFIED = false;
     const removeUnusedContentScript = () => {
         const pathName = location.pathname;
         Object.entries(contentScript).forEach(([key, value]) => {
-            console.log('remove', value);
             if (key !== pathName) {
                 value.forEach((cs) => {
                     const element = document.getElementById(`${cs.name}_${cs.id}`);
@@ -93,7 +91,7 @@ const MINIFIED = false;
         if (contentScripts) {
             contentScripts.forEach((cs) => {
                 if (!cs.matches || cs.matches === 'all') {
-                    applyContentScript('', cs);
+                    applyContentScript('', [cs]);
                 } else if (Array.isArray(cs.matches)) {
                     cs.matches.forEach((match) => {
                         if (!contentScript[match])
