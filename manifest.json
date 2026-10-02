@@ -8,18 +8,11 @@
   "action": {
     "default_title": "CSS Override"
   },
-  "web_accessible_resources": [
-    {
-      "matches": ["https://collabia.tdt.asia/*"],
-      "resources": ["help.html", "image/bg.png", "image/chat-frame-bg.png", "image/dotted.png", "image/qr/*", "clock/index.html"]
-    }
-  ],
   "content_scripts": [
     {
       "matches": ["https://collabia.tdt.asia/*"],
-      "run_at": "document_idle",
-      "css": ["style.css"],
-      "js": ["global.js", "utils.js", "localforage.js", "script.js", "helpscript.js", "curl.js"]
+      "run_at": "document_start",
+      "js": ["script.js"]
     }
   ]
 }
