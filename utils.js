@@ -1,4 +1,9 @@
 /**
+ * @returns {string}
+ */
+const randomHex = () => new Date().getTime().toString(16);
+
+/**
  * @param {string} key: The sessionStorage key.
  * @returns {any|null}
  */
@@ -265,75 +270,83 @@ function toQueryString(params) {
 }
 
 function createSpinner(root, size) {
-    const spinner = document.createElement('svg');
-    spinner.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    spinner.setAttribute('viewBox', '0 0 24 24');
+    const spinner = document.createElement('div');
     Object.assign(
         spinner.style,
         {
-            fill: '#1f1f1f',
-            width: size || '2rem',
-            height: size || '2rem',
+            position: 'fixed',
+            inset: 0,
+            zIndex: 1000,
+            background: 'rgba(0,0,0,0.12)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
         },
     );
     spinner.innerHTML = `
-      <style>
-        .spinner {
-          transform-origin: center center;
-          animation: spin-animation linear infinite 1s;
-        }
-         
-        .spinner > * {
-          transform-origin: center center;
-        }
-         
-        .spinner .s-1 {
-          transform: rotate(90deg);
-          animation: offset-1 cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate 1s;
-        }
-         
-        .spinner .s-3 {
-          transform: rotate(-90deg);
-          animation: offset-3 cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate 1s;
-        }
-         
-        @keyframes offset-1 {
-          0% {
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="#999999"
+           style="width: ${size || '2rem'}; height: ${size || '2rem'};"
+      >
+        <style>
+          .spinner {
+            transform-origin: center center;
+            animation: spin-animation linear infinite 1s;
+          }
+           
+          .spinner > * {
+            transform-origin: center center;
+          }
+           
+          .spinner .s-1 {
             transform: rotate(90deg);
+            animation: offset-1 cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate 1s;
           }
            
-          100% {
-            transform: rotate(0deg);
-          }
-        }
-         
-        @keyframes offset-3 {
-          0% {
+          .spinner .s-3 {
             transform: rotate(-90deg);
+            animation: offset-3 cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate 1s;
           }
            
-          100% {
-            transform: rotate(0deg);
-          }
-        }
-         
-        @keyframes spin-animation {
-          0% {
-            transform: rotate(0deg);
+          @keyframes offset-1 {
+            0% {
+              transform: rotate(90deg);
+            }
+             
+            100% {
+              transform: rotate(0deg);
+            }
           }
            
-          100% {
-            transform: rotate(360deg);
+          @keyframes offset-3 {
+            0% {
+              transform: rotate(-90deg);
+            }
+             
+            100% {
+              transform: rotate(0deg);
+            }
           }
-        }
-      </style>
-     
-      <g class="spinner">
-        <path class="s-1" d="M12 1.224c0-.676.55-1.23 1.222-1.162A12 12 0 0123.73 14.527c-.142.66-.84 1.012-1.482.803-.643-.209-.987-.9-.862-1.563a9.551 9.551 0 00-8.166-11.24C12.55 2.44 12 1.9 12 1.223z" />
-        <path class="s-2" d="M22.776 12c.676 0 1.23.55 1.162 1.222A12 12 0 019.473 23.73c-.66-.142-1.012-.84-.803-1.482.209-.643.9-.987 1.563-.862a9.551 9.551 0 0011.24-8.166C21.56 12.55 22.1 12 22.777 12z" />
-        <path class="s-3" d="M12 22.776c0 .676-.55 1.23-1.222 1.162A12 12 0 01.27 9.473c.142-.66.84-1.012 1.482-.803.643.209.987.9.862 1.563a9.552 9.552 0 008.166 11.24c.67.087 1.221.627 1.221 1.303z" />
-      </g>
+           
+          @keyframes spin-animation {
+            0% {
+              transform: rotate(0deg);
+            }
+             
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+        <g class="spinner">
+          <path class="s-1" d="M12 1.224c0-.676.55-1.23 1.222-1.162A12 12 0 0123.73 14.527c-.142.66-.84 1.012-1.482.803-.643-.209-.987-.9-.862-1.563a9.551 9.551 0 00-8.166-11.24C12.55 2.44 12 1.9 12 1.223z" />
+          <path class="s-2" d="M22.776 12c.676 0 1.23.55 1.162 1.222A12 12 0 019.473 23.73c-.66-.142-1.012-.84-.803-1.482.209-.643.9-.987 1.563-.862a9.551 9.551 0 0011.24-8.166C21.56 12.55 22.1 12 22.777 12z" />
+          <path class="s-3" d="M12 22.776c0 .676-.55 1.23-1.222 1.162A12 12 0 01.27 9.473c.142-.66.84-1.012 1.482-.803.643.209.987.9.862 1.563a9.552 9.552 0 008.166 11.24c.67.087 1.221.627 1.221 1.303z" />
+        </g>
+      </svg>
     `;
+    spinner.id = `spinner_${randomHex()}`;
     (root || document.body).append(spinner);
     return spinner;
 }

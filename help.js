@@ -40,32 +40,6 @@
 
         (async () => {
             try {
-                // const loading = document.createElement('div');
-                // Object.assign(
-                //     loading.style,
-                //     {
-                //         position: 'fixed',
-                //         inset: 0,
-                //         zIndex: 1000,
-                //         background: 'rgba(0,0,0,0.12)'
-                //     },
-                // );
-                // const spinner = document.createElement('span');
-                // Object.assign(
-                //     spinner.style,
-                //     {
-                //         position: 'absolute',
-                //         left: '50%',
-                //         top: '50%',
-                //         border: '3px solid',
-                //         borderColor: 'red red transparent',
-                //         width: '2rem',
-                //         aspectRatio: '1 / 1',
-                //         borderRadius: '50%',
-                //         animation: 'rotate 500ms linear infinite',
-                //     },
-                // );
-                // loading.append(spinner);
                 const spinner = createSpinner();
                 const htmlTxt = await (await fetch(`${CDN_BASE_URL}@${CDNSHA}/help.html?v=${RANDOM_HEX}`)).text();
 
