@@ -12,6 +12,7 @@
     }
 
     const onKeydown = (event) => {
+        console.log(event);
         if (
             event.ctrlKey &&
             event.key === "?" &&
