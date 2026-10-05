@@ -66,7 +66,7 @@
                     },
                 );
                 loading.append(spinner);
-                document.append(loading);
+                document.body.append(loading);
                 const htmlTxt = await (await fetch(`${CDN_BASE_URL}@${CDNSHA}/help.html?v=${RANDOM_HEX}`)).text();
 
                 helpModal = document.createElement('div');
