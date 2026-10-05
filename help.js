@@ -12,7 +12,6 @@
     }
 
     const onKeydown = (event) => {
-        console.log(event);
         if (
             event.ctrlKey &&
             event.key === "?" &&
@@ -41,7 +40,7 @@
 
         (async () => {
             try {
-                const htmlTxt = await (await fetch(`${CDN_BASE_URL}@${CDN_TAG}/help.html?v=${VERSION}`)).text();
+                const htmlTxt = await (await fetch(`${CDN_BASE_URL}@${CDNSHA}/help.html?v=${RANDOM_HEX}`)).text();
 
                 helpModal = document.createElement('div');
                 helpModal.id = 'collabia-custom-help';
