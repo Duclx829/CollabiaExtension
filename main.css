@@ -33,6 +33,12 @@
     }
 }
 
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 html body {
     --app-bg: rgb(236, 240, 241);
     background: var(--app-bg) !important;
