@@ -13,18 +13,18 @@ async function openDialog(content, onCleanUp) {
     }
 
     try {
-        const resp = await fetch(chrome.runtime.getURL('dialog.html'));
-        const html = await resp.text();
-        dialog = document.createElement('div');
-        dialog.id = 'dialog';
-        dialog.innerHTML = html;
-        dialog.querySelector('.dialog-content')?.append(content);
-        const closeBtn  = dialog.querySelector('a#close');
-        if (closeBtn) closeBtn.addEventListener('click', () => closeDialog());
-        const overlay  = dialog.querySelector('.dialog-overlay');
-        if (overlay) overlay.addEventListener('click', () => closeDialog());
-
-        document.body.append(dialog);
+        // const resp = await fetch(chrome.runtime.getURL('dialog.html'));
+        // const html = await resp.text();
+        // dialog = document.createElement('div');
+        // dialog.id = 'dialog';
+        // dialog.innerHTML = html;
+        // dialog.querySelector('.dialog-content')?.append(content);
+        // const closeBtn  = dialog.querySelector('a#close');
+        // if (closeBtn) closeBtn.addEventListener('click', () => closeDialog());
+        // const overlay  = dialog.querySelector('.dialog-overlay');
+        // if (overlay) overlay.addEventListener('click', () => closeDialog());
+        //
+        // document.body.append(dialog);
     } catch (err) {
         console.log('[ERROR] - Failed to fetch the dialog. Detail: ', err);
     }

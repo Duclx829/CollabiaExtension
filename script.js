@@ -3,6 +3,11 @@ const CDNSHA = sessionStorage.getItem('cdnsha') || '@HEAD';
 const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
 const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
 const MINIFIED = false;
+const EXTENSION_RUNTIME_URL =
+    getComputedStyle(document.documentElement)
+        ?.getPropertyValue('--app-bg-image')
+        ?.match(/chrome-extension:\/\/+?.[^/]+/)
+        ?.at(0);
 
 (async () => {
     const contentScript = {};

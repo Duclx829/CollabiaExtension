@@ -122,7 +122,7 @@
         else if (className.startsWith('img-mention-input-in-write-message')) {
             const node = document.createElement('img');
             const name = evt.target.nextSibling.textContent ?? '';
-            node.src = `${chrome.runtime.getURL(`image/qr/${name}.png`)}`;
+            node.src = `${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         } else if (
             className === 'pointer' &&
@@ -130,7 +130,7 @@
         ) {
             const node = document.createElement('img');
             const name = evt.target.textContent;
-            node.src = `${chrome.runtime.getURL(`image/qr/${name}.png`)}`;
+            node.src = `${chrome.runtime.getURL(`${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`)}`;
             imgPreviewEvent(node);
         }
     }
