@@ -10,7 +10,7 @@ const EXTENSION_RUNTIME_URL =
         ?.at(0);
 
 (async () => {
-    console.log(EXTENSION_RUNTIME_URL)
+    sessionStorage.setItem('ext_rt_url', EXTENSION_RUNTIME_URL);
     const contentScript = {};
     const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
 

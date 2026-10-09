@@ -1,4 +1,12 @@
 (() => {
+    const EXT_RT_URL =
+        sessionStorage.getItem('ext_rt_url')
+        || getComputedStyle(document.documentElement)
+            ?.getPropertyValue('--app-bg-image')
+            ?.match(/chrome-extension:\/\/+?.[^/]+/)
+            ?.at(0)
+        || '';
+
     let mouseStopThrottle = Number(localStorage.getItem('mousestop-throttle'));
     let mouseHoverThrottle = Number(localStorage.getItem('mousehover-throttle'));
     let longPressDuration = Number(localStorage.getItem('longpress-duration'));
@@ -122,7 +130,7 @@
         else if (className.startsWith('img-mention-input-in-write-message')) {
             const node = document.createElement('img');
             const name = evt.target.nextSibling.textContent ?? '';
-            node.src = `${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`;
+            node.src = `${EXT_RT_URL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         } else if (
             className === 'pointer' &&
@@ -130,7 +138,7 @@
         ) {
             const node = document.createElement('img');
             const name = evt.target.textContent;
-            node.src = `${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`;
+            node.src = `${EXT_RT_URL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         }
     }
