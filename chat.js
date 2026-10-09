@@ -1,12 +1,5 @@
 (() => {
-    const EXT_RT_URL =
-        sessionStorage.getItem('ext_rt_url')
-        || getComputedStyle(document.documentElement)
-            ?.getPropertyValue('--app-bg-image')
-            ?.match(/chrome-extension:\/\/+?.[^/]+/)
-            ?.at(0)
-        || '';
-
+    let extRtURL = sessionStorage.getItem('ext_rt_url');
     let mouseStopThrottle = Number(localStorage.getItem('mousestop-throttle'));
     let mouseHoverThrottle = Number(localStorage.getItem('mousehover-throttle'));
     let longPressDuration = Number(localStorage.getItem('longpress-duration'));
@@ -73,6 +66,13 @@
         }
     }
 
+    const getExtRtURL = () =>
+        getComputedStyle(document.documentElement)
+            ?.getPropertyValue('--app-bg-image')
+            ?.match(/chrome-extension:\/\/+?.[^/]+/)
+            ?.at(0)
+            || '';
+
     const onKeydown = (event) => {
     }
 
@@ -130,7 +130,11 @@
         else if (className.startsWith('img-mention-input-in-write-message')) {
             const node = document.createElement('img');
             const name = evt.target.nextSibling.textContent ?? '';
-            node.src = `${EXT_RT_URL}/image/qr/${name}.png`;
+            if (!extRtURL) {
+                extRtURL = getExtRtURL();
+                sessionStorage.setItem('ext_rt_url', extRtURL);
+            }
+            node.src = `${extRtURL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         } else if (
             className === 'pointer' &&
@@ -138,7 +142,11 @@
         ) {
             const node = document.createElement('img');
             const name = evt.target.textContent;
-            node.src = `${EXT_RT_URL}/image/qr/${name}.png`;
+            if (!extRtURL) {
+                extRtURL = getExtRtURL();
+                sessionStorage.setItem('ext_rt_url', extRtURL);
+            }
+            node.src = `${extRtURL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         }
     }
