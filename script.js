@@ -8,9 +8,9 @@ const EXTENSION_RUNTIME_URL =
         ?.getPropertyValue('--app-bg-image')
         ?.match(/chrome-extension:\/\/+?.[^/]+/)
         ?.at(0);
-console.log(EXTENSION_RUNTIME_URL)
 
 (async () => {
+    console.log(EXTENSION_RUNTIME_URL)
     const contentScript = {};
     const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
 
