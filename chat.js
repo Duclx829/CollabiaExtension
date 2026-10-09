@@ -130,7 +130,7 @@
         ) {
             const node = document.createElement('img');
             const name = evt.target.textContent;
-            node.src = `${chrome.runtime.getURL(`${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`)}`;
+            node.src = `${EXTENSION_RUNTIME_URL}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         }
     }
