@@ -8,6 +8,7 @@ const EXTENSION_RUNTIME_URL =
         ?.getPropertyValue('--app-bg-image')
         ?.match(/chrome-extension:\/\/+?.[^/]+/)
         ?.at(0);
+console.log(EXTENSION_RUNTIME_URL)
 
 (async () => {
     const contentScript = {};
