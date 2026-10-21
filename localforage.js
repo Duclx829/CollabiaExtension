@@ -80,6 +80,6 @@ function watchBearerToken(onupdate) {
 }
 
 (async () => {
-    const auth = await getAuth();
-    console.log(auth);
+    const data = await getIndexedDBData();
+    console.log(data);
 })();
