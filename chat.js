@@ -1,5 +1,5 @@
 (() => {
-    let extRtURL = sessionStorage.getItem('ext_rt_url');
+    let extRtID = sessionStorage.getItem('ext_rt_id');
     let mouseStopThrottle = Number(localStorage.getItem('mousestop-throttle'));
     let mouseHoverThrottle = Number(localStorage.getItem('mousehover-throttle'));
     let longPressDuration = Number(localStorage.getItem('longpress-duration'));
@@ -66,11 +66,12 @@
         }
     }
 
-    const getExtRtURL = () =>
+    const getExtRtID = () =>
         getComputedStyle(document.documentElement)
             ?.getPropertyValue('--app-bg-image')
             ?.match(/chrome-extension:\/\/+?.[^/]+/)
             ?.at(0)
+            ?.replace('chrome-extension://', '')
             || '';
 
     const onKeydown = (event) => {
@@ -130,11 +131,11 @@
         else if (className.startsWith('img-mention-input-in-write-message')) {
             const node = document.createElement('img');
             const name = evt.target.nextSibling.textContent ?? '';
-            if (!extRtURL) {
-                extRtURL = getExtRtURL();
-                sessionStorage.setItem('ext_rt_url', extRtURL);
+            if (!extRtID) {
+                extRtID = getExtRtID();
+                sessionStorage.setItem('ext_rt_id', extRtID);
             }
-            node.src = `${extRtURL}/image/qr/${name}.png`;
+            node.src = `chrome-extension://${extRtID}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         } else if (
             className === 'pointer' &&
@@ -142,11 +143,11 @@
         ) {
             const node = document.createElement('img');
             const name = evt.target.textContent;
-            if (!extRtURL) {
-                extRtURL = getExtRtURL();
-                sessionStorage.setItem('ext_rt_url', extRtURL);
+            if (!extRtID) {
+                extRtID = getExtRtID();
+                sessionStorage.setItem('ext_rt_id', extRtID);
             }
-            node.src = `${extRtURL}/image/qr/${name}.png`;
+            node.src = `chrome-extension://${extRtID}/image/qr/${name}.png`;
             imgPreviewEvent(node);
         }
     }

@@ -3,14 +3,15 @@ const CDNSHA = sessionStorage.getItem('cdnsha') || '@HEAD';
 const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
 const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
 const MINIFIED = false;
-const EXTENSION_RUNTIME_URL =
+const EXTENSION_RUNTIME_ID =
     getComputedStyle(document.documentElement)
         ?.getPropertyValue('--app-bg-image')
         ?.match(/chrome-extension:\/\/+?.[^/]+/)
-        ?.at(0);
+        ?.at(0)
+        ?.replace('chrome-extension://', '');
 
 (async () => {
-    sessionStorage.setItem('ext_rt_url', EXTENSION_RUNTIME_URL);
+    sessionStorage.setItem('ext_rt_id', EXTENSION_RUNTIME_ID);
     const contentScript = {};
     const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
 
