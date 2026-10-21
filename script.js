@@ -116,15 +116,15 @@ sessionStorage.removeItem('ext_rt_url');
     }
 })();
 
-(async () => {
-    let indexedDBData;
-    while(true) {
-        try {
-            indexedDBData = await getIndexedDBData();
-            if (indexedDBData)
-                break;
-        } catch (e) {
-        }
-    }
-    console.log(indexedDBData);
-})();
+// (async () => {
+//     let indexedDBData;
+//     while(true) {
+//         try {
+//             indexedDBData = await getIndexedDBData();
+//             if (indexedDBData)
+//                 break;
+//         } catch (e) {
+//         }
+//     }
+//     console.log(indexedDBData);
+// })();
