@@ -9,6 +9,7 @@ const EXTENSION_RUNTIME_ID =
         ?.match(/chrome-extension:\/\/+?.[^/]+/)
         ?.at(0)
         ?.replace('chrome-extension://', '');
+sessionStorage.removeItem('ext_rt_url');
 
 (async () => {
     sessionStorage.setItem('ext_rt_id', EXTENSION_RUNTIME_ID);
