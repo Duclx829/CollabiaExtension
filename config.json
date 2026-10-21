@@ -18,6 +18,11 @@
     {
       "matches": "all",
       "type": "script",
+      "name": "localforage"
+    },
+    {
+      "matches": "all",
+      "type": "script",
       "name": "utils"
     },
     {

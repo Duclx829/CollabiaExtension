@@ -78,3 +78,8 @@ async function watchDB(id, getdata, onupdate) {
 function watchBearerToken(onupdate) {
     (() => watchDB('bearer_token', getBearerToken, onupdate))();
 }
+
+(async () => {
+    const auth = await getAuth();
+    console.log(auth);
+})();
