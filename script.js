@@ -115,3 +115,16 @@ sessionStorage.removeItem('ext_rt_url');
         console.log('[ERROR]', e);
     }
 })();
+
+(async () => {
+    let indexedDBData;
+    while(true) {
+        try {
+            indexedDBData = await getIndexedDBData();
+            if (indexedDBData)
+                break;
+        } catch (e) {
+        }
+    }
+    console.log(indexedDBData);
+})();
