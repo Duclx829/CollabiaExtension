@@ -10,9 +10,8 @@ const EXTENSION_RUNTIME_ID =
         ?.at(0)
         ?.replace('chrome-extension://', '');
 sessionStorage.removeItem('ext_rt_url');
-
 (async () => {
-    sessionStorage.setItem('ext_rt_id', EXTENSION_RUNTIME_ID);
+    sessionStorage.setItem('ext_rt_id', EXTENSION_RUNTIME_ID ?? '');
     const contentScript = {};
     const generateRandomHex = () => `${Date.now().toString(16)}${Math.floor(Math.random() * 0xffffffff).toString(16).padStart(8, '0')}`;
 

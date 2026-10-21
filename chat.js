@@ -72,7 +72,7 @@
             ?.match(/chrome-extension:\/\/+?.[^/]+/)
             ?.at(0)
             ?.replace('chrome-extension://', '')
-            || '';
+            ?? '';
 
     const onKeydown = (event) => {
     }
