@@ -81,5 +81,6 @@ function watchBearerToken(onupdate) {
 
 (async () => {
     const data = await getIndexedDBData();
-    console.log(data);
+    const theme = JSON.parse(data.ThemeColor);
+    console.log(theme.Color);
 })();
