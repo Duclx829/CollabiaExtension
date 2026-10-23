@@ -1,6 +1,6 @@
 * {
     --app-bg: rgb(236, 240, 241);
-    --color-sidebar-bg: rgba(255,255,255,100);
+    --color-sidebar-bg: rgb(40 40 40);
     --color-sidebar-border: rgba(0,0,0,0.05);
     --color-sidebar-channel-name: rgba(8,8,9,100);
     --color-sidebar-last-msg: rgba(101,104,108,100);
