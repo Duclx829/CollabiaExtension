@@ -683,9 +683,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 
 #container-listMessage [class*="_hoverActionSection__"] {
     backdrop-filter: blur(2px);
-    background: #fffefe !important;
-    border: 1px solid #d6d6d6 !important;
+    background: var(--color-hoveraction-bg, rgba(255,254,254,100)) !important;
+    border: 1px solid var(--color-hoveraction-border, rgba(214,214,214,100)) !important;
     padding-right: .4rem !important;
+    box-shadow: 0 2px 8px var(--color-hoveraction-shadow, rgba(0,0,0,0.15));
 }
 
 #container-listMessage [class*="_hoverActionSection__"] > div:nth-child(2) {
