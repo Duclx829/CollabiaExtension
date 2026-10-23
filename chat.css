@@ -104,6 +104,7 @@ body::before {
     border-radius: 100%;
     background-color: var(--color-sidebar-tagged-indicator, rgba(255,0,0,100));
     overflow: hidden !important;
+    color: transparent;
 }
 
 .site .content-write-message:not(:empty) {
