@@ -52,9 +52,9 @@ sessionStorage.removeItem('ext_rt_url');
         if (cScript) {
             cScript.forEach((cs) => {
                 if (cs.type === 'stylesheet') {
-                    appendStyleSheet(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.css?v=${RANDOM_HEX}`);
+                    appendStyleSheet(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.css`);
                 } else if (cs.type === 'script') {
-                    appendScript(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.js?v=${RANDOM_HEX}`);
+                    appendScript(`${cs.name}_${cs.id || generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/${cs.name}${MINIFIED ? '.min' : ''}.js`);
                 }
             });
         }
@@ -93,7 +93,8 @@ sessionStorage.removeItem('ext_rt_url');
     window.addEventListener("urlchange", () => onUrlChanges(window.location.href, window.location.pathname));
 
     try {
-        const config = await (await fetch(`${CONFIG_URL}?v=${RANDOM_HEX}`)).json();
+        appendStyleSheet(`light_${generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/light${MINIFIED ? '.min' : ''}.css`);
+        const config = await (await fetch(CONFIG_URL)).json();
         const contentScripts = config.content_scripts;
         if (contentScripts) {
             contentScripts.forEach((cs) => {
