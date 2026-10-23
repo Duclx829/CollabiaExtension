@@ -146,9 +146,24 @@ function showToast(text, type = 'success') {
  */
 function showTooltip(id, children, pointer) {
     try {
+        const tooltipElements = document.querySelectorAll('.tooltip-content-preview');
+        if (tooltipElements.length) {
+            tooltipElements.forEach((el) => el.remove());
+        }
+
         const site = document.body.querySelector('.site');
         const div = document.createElement('div');
         div.id = id;
+        // let cachedTooltipIds = [];
+        // try {
+        //     cachedTooltipIds = JSON.parse(sessionStorage.getItem('tt_ids'));
+        // } catch (e) {
+        // }
+        //
+        // if (!Array.isArray(cachedTooltipIds)) cachedTooltipIds = [];
+        //
+        // const [primaryKey, hex] = id.split('_');
+        // sessionStorage.setItem('tt_ids', )
         div.className = 'tooltip-content-preview';
         const clonedChild = children.cloneNode(true);
         clonedChild.className = '';
@@ -168,7 +183,10 @@ function showTooltip(id, children, pointer) {
             div.childNodes.item(0).style.transformOrigin = `${offsetTop < 0 ? 'top' : 'bottom'} ${offsetRight < 0 ? 'right' : 'left'}`;
         }
 
-        clonedChild.addEventListener('mouseout', () => div.remove());
+        clonedChild.addEventListener('mouseout', () => {
+            console.log('remove: ', div);
+            div.remove();
+        });
     } catch (e) {
         console.log(e);
     }
