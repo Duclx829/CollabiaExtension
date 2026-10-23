@@ -154,16 +154,6 @@ function showTooltip(id, children, pointer) {
         const site = document.body.querySelector('.site');
         const div = document.createElement('div');
         div.id = id;
-        // let cachedTooltipIds = [];
-        // try {
-        //     cachedTooltipIds = JSON.parse(sessionStorage.getItem('tt_ids'));
-        // } catch (e) {
-        // }
-        //
-        // if (!Array.isArray(cachedTooltipIds)) cachedTooltipIds = [];
-        //
-        // const [primaryKey, hex] = id.split('_');
-        // sessionStorage.setItem('tt_ids', )
         div.className = 'tooltip-content-preview';
         const clonedChild = children.cloneNode(true);
         clonedChild.className = '';
@@ -184,7 +174,6 @@ function showTooltip(id, children, pointer) {
         }
 
         clonedChild.addEventListener('mouseout', () => {
-            console.log('remove: ', div);
             div.remove();
         });
     } catch (e) {
