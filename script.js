@@ -117,17 +117,17 @@ sessionStorage.removeItem('ext_rt_url');
     }
 })();
 
-(async () => {
-    let indexedDBData;
-    while(true) {
-        try {
-            console.log('getting localforage info...');
-            indexedDBData = await getIndexedDBData();
-            if (indexedDBData)
-                break;
-        } catch (e) {
-            await new Promise((resolve) => setTimeout(() => resolve(), 300));
-        }
-    }
-    console.log(indexedDBData);
-})();
+// (async () => {
+//     let indexedDBData;
+//     while(true) {
+//         try {
+//             console.log('getting localforage info...');
+//             indexedDBData = await getIndexedDBData();
+//             if (indexedDBData)
+//                 break;
+//         } catch (e) {
+//             await new Promise((resolve) => setTimeout(() => resolve(), 300));
+//         }
+//     }
+//     console.log(indexedDBData);
+// })();
