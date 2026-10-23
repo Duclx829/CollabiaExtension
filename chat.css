@@ -8,8 +8,8 @@ body::before {
 }
 
 .site #side-bar-message {
-    background: #fff !important;
-    border: 1px solid #0000000d !important;
+    background: var(--color-sidebar-bg, rgba(255,255,255,100)) !important;
+    border: 1px solid var(--color-sidebar-border, rgba(0,0,0,0.05)) !important;
 }
 
 .site #side-bar-message .cqThemeBorderEnd {
@@ -23,7 +23,7 @@ body::before {
 .cqThemeSideBarItem .contact-name,
 .cqThemeSideBarItem .contact-namelh-1 {
     font-weight: 500 !important;
-    color: #080809 !important;
+    color: var(--color-sidebar-channel-name, rgba(8,8,9,100)) !important;
 }
 
 .dm-side-bar-item .contact-name + div,
@@ -34,7 +34,7 @@ body::before {
 }
 
 .cqThemeSideBarItem .item-last-message {
-    color: #65686C !important;
+    color: var(--color-sidebar-last-msg, rgba(101,104,108,100)) !important;
 }
 
 .cqThemeSideBarItem .item-last-message,
@@ -43,7 +43,7 @@ body::before {
 }
 
 .cqThemeSideBarItem .last-message-time {
-    color: hsl(0deg 0% 0% / 60%) !important;
+    color: var(--color-sidebar-last-msg-time, hsl(0deg 0% 0%/60%)) !important;
     font-size: .75rem;
     white-space: nowrap !important;
 }
@@ -51,30 +51,30 @@ body::before {
 .dm-side-bar-item .alert-request-dr {
     width: .75rem !important;
     height: .75rem !important;
-    background: blue !important;
+    background: var(--color-sidebar-unread-indicator, rgba(0,0,255,100)) !important;
     margin-bottom: .1rem;
 }
 
 .cqThemeSideBarItem:has(.alert-request-dr) .contact-name,
 .cqThemeSideBarItem:has(.alert-request-dr) .contact-namelh-1 {
     font-weight: 700 !important;
-    color: hsl(0deg 0% 0% / 90%) !important;
+    color: var(--color-sidebar-channel-name-unread, hsl(0deg 0% 0%/90%)) !important;
 }
 
 .cqThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
 .cqThemeSideBarItem:has(.alert-request-dr) .item-last-message {
     font-weight: 600 !important;
-    color: hsl(0deg 0% 0% / 90%) !important;
+    color: var(--color-sidebar-last-msg-unread, hsl(0deg 0% 0%/90%)) !important;
 }
 
 .cqThemeSideBarItemFocus .last-message-time,
 .cqThemeSideBarItem:has(.alert-request-dr) .last-message-time {
-    color: hsl(0deg 0% 0% / 80%) !important;
+    color: var(--color-sidebar-last-msg-time-unread, hsl(0deg 0% 0%/80%)) !important;
     font-size: .75rem;
 }
 
 .cqThemeSideBarItemFocus[data-channel-name] {
-    background: #ebf5ff !important;
+    background: var(--color-sidebar-focused-channel-bg, rgba(235,245,255,100)) !important;
 }
 
 .cqThemeSideBarItemFocus .cqThemeSideBarItemFocus {
@@ -88,7 +88,7 @@ body::before {
 
 .message-item .cqThemeBorderFocus {
     border: none !important;
-    outline: 3px solid orange;
+    outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
 .dm-side-bar-item label + div {
@@ -102,7 +102,7 @@ body::before {
     width: .7rem !important;
     display: inline-block;
     border-radius: 100%;
-    background-color: red;
+    background-color: var(--color-sidebar-tagged-indicator, rgba(255,0,0,100));
     overflow: hidden !important;
 }
 

@@ -1,0 +1,16 @@
+* {
+    --app-bg: rgb(236, 240, 241);
+    --color-sidebar-bg: rgba(255,255,255,100);
+    --color-sidebar-border: rgba(0,0,0,0.05);
+    --color-sidebar-channel-name: rgba(8,8,9,100);
+    --color-sidebar-last-msg: rgba(101,104,108,100);
+    --color-sidebar-last-msg-time: hsl(0deg 0% 0%/60%);
+    --color-sidebar-unread-indicator: rgba(0,0,255,100);
+    --color-sidebar-tagged-indicator: rgba(255,0,0,100);
+    --color-sidebar-channel-name-unread: hsl(0deg 0% 0%/90%);
+    --color-sidebar-last-msg-unread: hsl(0deg 0% 0%/90%);
+    --color-sidebar-last-msg-time-unread: hsl(0deg 0% 0%/80%);
+    --color-sidebar-focused-channel-bg: rgba(235,245,255,100);
+
+    --color-message-focused-border: rgba(255,165,0,100);
+}

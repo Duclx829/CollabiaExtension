@@ -40,8 +40,7 @@
 }
 
 html body {
-    --app-bg: rgb(236, 240, 241);
-    background: var(--app-bg) !important;
+    background: var(--app-bg, rgb(236,240,241)) !important;
 }
 
 body #root {

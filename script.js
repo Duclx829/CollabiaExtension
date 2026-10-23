@@ -2,7 +2,7 @@ const RANDOM_HEX = new Date().getTime().toString(16);
 const CDNSHA = sessionStorage.getItem('cdnsha') || '@HEAD';
 const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
 const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
-const MINIFIED = false;
+const MINIFIED = true;
 const EXTENSION_RUNTIME_ID =
     getComputedStyle(document.documentElement)
         ?.getPropertyValue('--app-bg-image')
@@ -93,7 +93,7 @@ sessionStorage.removeItem('ext_rt_url');
     window.addEventListener("urlchange", () => onUrlChanges(window.location.href, window.location.pathname));
 
     try {
-        appendStyleSheet(`light_${generateRandomHex()}`, `${CDN_BASE_URL}@${CDNSHA}/light${MINIFIED ? '.min' : ''}.css`);
+        appendStyleSheet(`light_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/light${MINIFIED ? '.min' : ''}.css`);
         const config = await (await fetch(CONFIG_URL)).json();
         const contentScripts = config.content_scripts;
         if (contentScripts) {

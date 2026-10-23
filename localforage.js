@@ -79,8 +79,8 @@ function watchBearerToken(onupdate) {
     (() => watchDB('bearer_token', getBearerToken, onupdate))();
 }
 
-(async () => {
-    const data = await getIndexedDBData();
-    const theme = JSON.parse(data.ThemeColor);
-    console.log(theme.Color);
-})();
+// (async () => {
+//     const data = await getIndexedDBData();
+//     const theme = JSON.parse(data.ThemeColor);
+//     console.log(theme.Color);
+// })();
