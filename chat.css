@@ -80,6 +80,10 @@ body::before {
     background: var(--color-sidebar-focused-channel-bg, rgba(235,245,255,100)) !important;
 }
 
+.darkThemeSideBarItemFocus > .dm-side-bar-item {
+    background: transparent !important;
+}
+
 .cqThemeSideBarItemFocus .cqThemeSideBarItemFocus {
     background: transparent !important;
 }
