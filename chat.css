@@ -42,7 +42,8 @@ body::before {
     height: 1.2rem !important;
 }
 
-.cqThemeSideBarItem .last-message-time {
+.cqThemeSideBarItem .last-message-time,
+.dm-side-bar-item .last-message-time {
     color: var(--color-sidebar-last-msg-time, hsl(0deg 0% 0%/60%)) !important;
     font-size: .75rem;
     white-space: nowrap !important;
