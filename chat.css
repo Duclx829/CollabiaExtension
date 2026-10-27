@@ -75,7 +75,8 @@ body::before {
     font-size: .75rem;
 }
 
-.cqThemeSideBarItemFocus[data-channel-name] {
+.cqThemeSideBarItemFocus[data-channel-name],
+.darkThemeSideBarItemFocus[data-channel-name] {
     background: var(--color-sidebar-focused-channel-bg, rgba(235,245,255,100)) !important;
 }
 
