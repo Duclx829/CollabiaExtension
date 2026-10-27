@@ -17,7 +17,7 @@
     /*--color-sidebar-last-msg-unread: hsl(0deg 0% 0%/90%);*/
     --color-sidebar-last-msg-unread: #e4e6eb;
     --color-sidebar-last-msg-time-unread: #b0b3b8;
-    --color-sidebar-focused-channel-bg: rgba(235,245,255,100);
+    --color-sidebar-focused-channel-bg: #303A46;
 
     --color-message-focused-border: rgba(255,165,0,100);
 
