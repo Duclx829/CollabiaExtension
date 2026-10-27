@@ -61,14 +61,16 @@ body::before {
     color: var(--color-sidebar-channel-name-unread, hsl(0deg 0% 0%/90%)) !important;
 }
 
-.cqThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
-.cqThemeSideBarItem:has(.alert-request-dr) .item-last-message {
+.dm-side-bar-item.cqThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
+.dm-side-bar-item.darkThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
+.dm-side-bar-item:has(.alert-request-dr) .item-last-message {
     font-weight: 600 !important;
     color: var(--color-sidebar-last-msg-unread, hsl(0deg 0% 0%/90%)) !important;
 }
 
-.cqThemeSideBarItemFocus .last-message-time,
-.cqThemeSideBarItem:has(.alert-request-dr) .last-message-time {
+.dm-side-bar-item.cqThemeSideBarItemFocus .last-message-time,
+.dm-side-bar-item.darkThemeSideBarItemFocus .last-message-time,
+.dm-side-bar-item:has(.alert-request-dr) .last-message-time {
     color: var(--color-sidebar-last-msg-time-unread, hsl(0deg 0% 0%/80%)) !important;
     font-size: .75rem;
 }
