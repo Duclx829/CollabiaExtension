@@ -33,7 +33,7 @@ body::before {
     height: .75rem !important;
 }
 
-.cqThemeSideBarItem .item-last-message {
+.dm-side-bar-item .item-last-message {
     color: var(--color-sidebar-last-msg, rgba(101,104,108,100)) !important;
 }
 
@@ -42,7 +42,6 @@ body::before {
     height: 1.2rem !important;
 }
 
-.cqThemeSideBarItem .last-message-time,
 .dm-side-bar-item .last-message-time {
     color: var(--color-sidebar-last-msg-time, hsl(0deg 0% 0%/60%)) !important;
     font-size: .75rem;
