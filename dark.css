@@ -4,12 +4,16 @@
     --color-sidebar-bg: #242526;
     --color-sidebar-border: rgba(0, 0, 0, 0);
 /*rgba(0,0,0,0.05);*/
-    --color-sidebar-channel-name: rgba(8,8,9,100);
-    --color-sidebar-last-msg: rgba(101,104,108,100);
-    --color-sidebar-last-msg-time: hsl(0deg 0% 0%/60%);
+    --color-sidebar-channel-name: #e4e6eb;
+            /*rgba(8,8,9,100);*/
+    --color-sidebar-last-msg: #b0b3b8;
+            /*rgba(101,104,108,100);*/
+    --color-sidebar-last-msg-time: #8a8d91;
+            /*hsl(0deg 0% 0%/60%);*/
     --color-sidebar-unread-indicator: #0866ff;
     --color-sidebar-tagged-indicator: rgba(255,48,48,100);
-    --color-sidebar-channel-name-unread: hsl(0deg 0% 0%/90%);
+    --color-sidebar-channel-name-unread: #f6f4f4;
+            /*hsl(0deg 0% 0%/90%);*/
     /*--color-sidebar-last-msg-unread: hsl(0deg 0% 0%/90%);*/
     --color-sidebar-last-msg-unread: #e4e6eb;
     --color-sidebar-last-msg-time-unread: #b0b3b8;
