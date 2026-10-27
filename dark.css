@@ -1,15 +1,18 @@
 * {
     --app-bg: rgb(236, 240, 241);
-    --color-sidebar-bg: rgb(40 40 40);
-    --color-sidebar-border: rgba(0,0,0,0.05);
+    /*--color-sidebar-bg: rgb(40 40 40);*/
+    --color-sidebar-bg: #242526;
+    --color-sidebar-border: rgba(0, 0, 0, 0);
+/*rgba(0,0,0,0.05);*/
     --color-sidebar-channel-name: rgba(8,8,9,100);
     --color-sidebar-last-msg: rgba(101,104,108,100);
     --color-sidebar-last-msg-time: hsl(0deg 0% 0%/60%);
-    --color-sidebar-unread-indicator: rgb(92,92,255,100);
+    --color-sidebar-unread-indicator: #0866ff;
     --color-sidebar-tagged-indicator: rgba(255,48,48,100);
     --color-sidebar-channel-name-unread: hsl(0deg 0% 0%/90%);
-    --color-sidebar-last-msg-unread: hsl(0deg 0% 0%/90%);
-    --color-sidebar-last-msg-time-unread: hsl(0deg 0% 0%/80%);
+    /*--color-sidebar-last-msg-unread: hsl(0deg 0% 0%/90%);*/
+    --color-sidebar-last-msg-unread: #e4e6eb;
+    --color-sidebar-last-msg-time-unread: #b0b3b8;
     --color-sidebar-focused-channel-bg: rgba(235,245,255,100);
 
     --color-message-focused-border: rgba(255,165,0,100);
@@ -17,4 +20,7 @@
     --color-hoveraction-bg: rgba(117,113,113,100);
     --color-hoveraction-border: rgba(135,135,135,100);
     --color-hoveraction-shadow: rgba(255,255,255,0.15);
+    /*background: #303030;*/
+    /*box-shadow: -1px -1px 3px -1px #0000008a, 2px 2px 4px -1px #000000b3, inset 1px 1px 1px #ffffff1a, inset -1px -1px 1px #ffffff17;*/
+    /*color: #000000;*/
 }
