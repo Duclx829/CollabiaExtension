@@ -17,4 +17,8 @@
     --color-hoveraction-bg: rgba(255,254,254,100);
     --color-hoveraction-border: rgba(214,214,214,100);
     --color-hoveraction-shadow: rgba(0,0,0,0.15);
+
+
+    --color-pin-message-bg: #f1f2f5;
+    --color-pin-message-color: #333;
 }

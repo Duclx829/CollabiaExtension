@@ -27,4 +27,7 @@
     /*background: #303030;*/
     /*box-shadow: -1px -1px 3px -1px #0000008a, 2px 2px 4px -1px #000000b3, inset 1px 1px 1px #ffffff1a, inset -1px -1px 1px #ffffff17;*/
     /*color: #000000;*/
+
+    --color-pin-message-bg: #202B38;
+    --color-pin-message-color: #e4e6eb;
 }
