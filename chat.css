@@ -16,6 +16,10 @@ body::before {
     border-color: transparent !important;
 }
 
+.site #side-bar-message .darkThemeBorderEnd {
+    border: none !important;
+}
+
 #side-bar-message .container-side-bar-search {
     margin-right: -.875rem !important;
 }
