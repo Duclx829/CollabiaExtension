@@ -132,3 +132,38 @@ const appendScript = (id, src) => {
 //     }
 //     console.log(indexedDBData);
 // })();
+
+(() => {
+    const originalOpen = XMLHttpRequest.prototype.open;
+    const originalSend = XMLHttpRequest.prototype.send;
+    window.response = {};
+
+    XMLHttpRequest.prototype.open = function (method, url, ...args) {
+        this._interceptInfo = { method, url };
+        return originalOpen.call(this, method, url, ...args);
+    };
+
+    XMLHttpRequest.prototype.send = function (...args) {
+        this.addEventListener("load", function () {
+            const { method, url } = this._interceptInfo || {};
+
+            console.group(`[API] ${method}: ${url}`, this.status);
+            const contentType = this.getResponseHeader("content-type") || "";
+            if (contentType.includes("application/json")) {
+                try {
+                    const response = JSON.parse(this.responseText);
+                    window.response[`[${method}]|${url}`] = response;
+                    console.log("Response JSON:", response);
+                } catch {
+                    console.log("Response text:", this.responseText);
+                }
+            } else {
+                console.log("Response:", this.responseText);
+            }
+
+            console.groupEnd();
+        });
+
+        return originalSend.apply(this, args);
+    };
+})();
