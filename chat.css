@@ -136,6 +136,9 @@ body::before {
     box-shadow: 0px 2px 3.5px #0000004d;
 }
 
+.content-write-message [class^="DMMainHeader_mainPinContent__"] path {
+}
+
 .content-write-message .direct-message-main {
     background: transparent !important;
 }
@@ -274,6 +277,11 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
+.direct-message-main .cqThemeDMItemLeft[data-theme] {
+    color: var(--color-message-text) !important;
+    background: var(--color-message-bg) !important;
+}
+
 .direct-message-main .cqThemeDMItemLeft[data-theme][data-contain-file],
 .direct-message-main [class*="DMItemRight_contentMessages__"][data-theme][data-contain-file] {
     color: #000 !important;
@@ -316,6 +324,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     box-sizing: border-box;
     background: var(--app-bg);
     user-select: none !important;
+}
+
+.message-item [data-theme="dark_theme"] > .wrap-emotion:not(:empty) {
+    border-color: transparent !important;
 }
 
 .message-item [class^="DMItemLeft_messagesContainer_"] .wrap-emotion {
@@ -529,7 +541,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 .wrap-emotion .emotion.list-emotion {
     margin: 0 !important;
     /*background: #f0f0f0 !important;*/
-    background: #ffffff !important;
+    background: var(--color-message-reaction-bg) !important;
     /*box-shadow: 0 2px 5px hsl(0deg 2% 73% / 75%) !important;*/
 }
 
@@ -537,7 +549,6 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     min-height: 2rem !important;
     min-width: 2rem !important;
 }
-
 
 .message-item .dm-grid-container:not(:has(:nth-child(2)))[data-only-one-resource] .dm-grid-item[data-is-file="false"]:has(.chat-image-resource-contain[src]) {
     min-width: 4rem;

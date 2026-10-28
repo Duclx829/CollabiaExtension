@@ -1,5 +1,5 @@
 * {
-    --app-bg: rgb(236, 240, 241);
+    --app-bg: #18191a;
     /*--color-sidebar-bg: rgb(40 40 40);*/
     --color-sidebar-bg: #242526;
     --color-sidebar-border: rgba(0, 0, 0, 0);
@@ -20,6 +20,9 @@
     --color-sidebar-focused-channel-bg: #303a46;
 
     --color-message-focused-border: rgba(255,165,0,100);
+    --color-message-bg: #303133;
+    --color-message-text: #e4e6eb;
+    --color-message-reaction-bg: #303030;
 
     --color-hoveraction-bg: rgba(117,113,113,100);
     --color-hoveraction-border: rgba(135,135,135,100);
