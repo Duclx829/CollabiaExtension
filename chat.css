@@ -766,7 +766,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 #container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions:hover {
-    background: #3a3b3c !important;
+    background: var(--color-hoveraction-icon-bg) !important;
 }
 
 #container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions > div {
@@ -779,9 +779,23 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 #container-listMessage [class*="_hoverActionSection__"] > div:nth-child(2) {
-    border-radius: calc(20px - .4rem) !important;
+    padding: 0.35rem 0.5rem !important;
+    border-radius: calc(20px - .15em) !important;
     background: var(--color-hoveraction-time-bg) !important;
+    margin-left: -.2em;
 }
+
+#container-listMessage .cqThemeDMItemLeft [class*="_hoverActionSection__"] > div:nth-child(2),
+#container-listMessage .darkThemeDMItemLeft [class*="_hoverActionSection__"] > div:nth-child(2) {
+    margin-right: -.2em;
+}
+
+#container-listMessage .cqThemeDMItemLeft [class*="_hoverActionSection__"] > div:nth-child(2),
+#container-listMessage .darkThemeDMItemLeft [class*="_hoverActionSection__"] > div:nth-child(2) {
+    margin-left: 0;
+    margin-right: -.2em;
+}
+
 
 #container-listMessage [class*="DMItemRight_hoverActionSection__"] {
     z-index: 3 !important;

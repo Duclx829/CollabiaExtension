@@ -20,11 +20,12 @@
     --color-message-sender-bg: #ffd25dcc;
     --color-message-sender-text: #000000;
 
-    --color-hoveraction-bg: rgba(255,254,254,100);
-    --color-hoveraction-border: rgba(214,214,214,100);
+    --color-hoveraction-bg: rgba(255,255,255,0.78);
+    --color-hoveraction-border: rgba(255,255,255,0.85);
     --color-hoveraction-shadow: rgba(0,0,0,0.15);
     --color-hoveraction-icon: #333333;
-    --color-hoveraction-time-bg: rgb(0 0 0 / 65%);
+    --color-hoveraction-icon-bg: #f0f1f3;
+    --color-hoveraction-time-bg: #e5e7eb;
 
     --color-pin-message-bg: #f1f2f5;
     --color-pin-message-color: #333;
