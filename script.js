@@ -133,68 +133,68 @@ const appendScript = (id, src) => {
 //     console.log(indexedDBData);
 // })();
 
-(() => {
-    const originalOpen = XMLHttpRequest.prototype.open;
-    const originalSend = XMLHttpRequest.prototype.send;
-    window.response = {};
-
-    XMLHttpRequest.prototype.open = function (method, url, ...args) {
-        this._interceptInfo = { method, url };
-        return originalOpen.call(this, method, url, ...args);
-    };
-
-    XMLHttpRequest.prototype.send = function (...args) {
-        this.addEventListener("load", function () {
-            const { method, url } = this._interceptInfo || {};
-
-            console.group(`[API] ${method}: ${url}`, this.status);
-            const contentType = this.getResponseHeader("content-type") || "";
-            if (contentType.includes("application/json")) {
-                try {
-                    const response = JSON.parse(this.responseText);
-                    window.response[`[${method}]|${url}`] = response;
-                    console.log("Response JSON:", response);
-                } catch {
-                    console.log("Response text:", this.responseText);
-                }
-            } else {
-                console.log("Response:", this.responseText);
-            }
-
-            console.groupEnd();
-        });
-
-        return originalSend.apply(this, args);
-    };
-})();
-
-(() => {
-    const OriginalWebSocket = window.WebSocket;
-    window.WebSocket = new Proxy(OriginalWebSocket, {
-        construct(target, args) {
-            const ws = Reflect.construct(target, args, target);
-
-            console.log("[WS CONNECT]", args[0]);
-
-            ws.addEventListener("message", (event) => {
-                console.log("[WS RECEIVED]", {
-                    url: ws.url,
-                    data: event.data,
-                    time: new Date().toISOString(),
-                });
-            });
-
-            ws.addEventListener("open", () => {
-                console.log("[WS OPEN]", ws.url);
-            });
-
-            ws.addEventListener("close", (event) => {
-                console.log("[WS CLOSE]", ws.url, event.code);
-            });
-
-            return ws;
-        },
-    });
-
-    console.log("WebSocket listener installed!");
-})();
+// (() => {
+//     const originalOpen = XMLHttpRequest.prototype.open;
+//     const originalSend = XMLHttpRequest.prototype.send;
+//     window.response = {};
+//
+//     XMLHttpRequest.prototype.open = function (method, url, ...args) {
+//         this._interceptInfo = { method, url };
+//         return originalOpen.call(this, method, url, ...args);
+//     };
+//
+//     XMLHttpRequest.prototype.send = function (...args) {
+//         this.addEventListener("load", function () {
+//             const { method, url } = this._interceptInfo || {};
+//
+//             console.group(`[API] ${method}: ${url}`, this.status);
+//             const contentType = this.getResponseHeader("content-type") || "";
+//             if (contentType.includes("application/json")) {
+//                 try {
+//                     const response = JSON.parse(this.responseText);
+//                     window.response[`[${method}]|${url}`] = response;
+//                     console.log("Response JSON:", response);
+//                 } catch {
+//                     console.log("Response text:", this.responseText);
+//                 }
+//             } else {
+//                 console.log("Response:", this.responseText);
+//             }
+//
+//             console.groupEnd();
+//         });
+//
+//         return originalSend.apply(this, args);
+//     };
+// })();
+//
+// (() => {
+//     const OriginalWebSocket = window.WebSocket;
+//     window.WebSocket = new Proxy(OriginalWebSocket, {
+//         construct(target, args) {
+//             const ws = Reflect.construct(target, args, target);
+//
+//             console.log("[WS CONNECT]", args[0]);
+//
+//             ws.addEventListener("message", (event) => {
+//                 console.log("[WS RECEIVED]", {
+//                     url: ws.url,
+//                     data: event.data,
+//                     time: new Date().toISOString(),
+//                 });
+//             });
+//
+//             ws.addEventListener("open", () => {
+//                 console.log("[WS OPEN]", ws.url);
+//             });
+//
+//             ws.addEventListener("close", (event) => {
+//                 console.log("[WS CLOSE]", ws.url, event.code);
+//             });
+//
+//             return ws;
+//         },
+//     });
+//
+//     console.log("WebSocket listener installed!");
+// })();
