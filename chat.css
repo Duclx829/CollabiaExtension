@@ -114,7 +114,7 @@ body::before {
 }
 
 .message-item [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) {
-    color: var(--color-message-sender);
+    color: var(--color-message-sender-name);
 }
 
 .dm-side-bar-item label + div {
@@ -325,7 +325,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 .message-item [class^="DMItemRight_contentMessages_"] {
     /*background: rgb(211 210 210) !important;*/
     /*background: #ffd25d99 !important;*/
-    background: rgb(255 210 93 / 80%) !important;;
+    background: var(--color-message-sender-bg) !important;;
+    color: var(--color-message-sender-text) !important;;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
