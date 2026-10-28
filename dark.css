@@ -27,9 +27,11 @@
     --color-message-sender-bg: #e5b94f;
     --color-message-sender-text: #242016;
 
-    --color-hoveraction-bg: rgba(117,113,113,100);
-    --color-hoveraction-border: rgba(135,135,135,100);
-    --color-hoveraction-shadow: rgba(255,255,255,0.15);
+    --color-hoveraction-bg: rgba(60, 62, 66, 0.72);
+    --color-hoveraction-border: rgba(255, 255, 255, 0.14);
+    --color-hoveraction-shadow: rgba(100,100,100,0.3);
+    --color-hoveraction-icon: #d1d5db;
+    --color-hoveraction-time-bg: rgba(20, 21, 23, 0.48);
     /*background: #303030;*/
     /*box-shadow: -1px -1px 3px -1px #0000008a, 2px 2px 4px -1px #000000b3, inset 1px 1px 1px #ffffff1a, inset -1px -1px 1px #ffffff17;*/
     /*color: #000000;*/

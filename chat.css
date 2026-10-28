@@ -746,16 +746,41 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 #container-listMessage [class*="_hoverActionSection__"] {
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(14px);
     background: var(--color-hoveraction-bg, rgba(255,254,254,100)) !important;
     border: 1px solid var(--color-hoveraction-border, rgba(214,214,214,100)) !important;
     padding-right: .4rem !important;
     box-shadow: 0 2px 8px var(--color-hoveraction-shadow, rgba(0,0,0,0.15));
 }
 
+#container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions {
+    border-radius: 50%;
+    height: fit-content;
+    aspect-ratio: 1/1;
+    width: auto;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25em !important;
+}
+
+#container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions:hover {
+    background: #3a3b3c !important;
+}
+
+#container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions > div {
+    line-height: 0;
+}
+
+#container-listMessage [class*="_hoverActionSection__"] .btn.btn-reactions:not(:hover) svg > path {
+    fill: var(--color-hoveraction-icon);
+    stroke: var(--color-hoveraction-icon);
+}
+
 #container-listMessage [class*="_hoverActionSection__"] > div:nth-child(2) {
     border-radius: calc(20px - .4rem) !important;
-    background: rgb(0 0 0 / 65%) !important;
+    background: var(--color-hoveraction-time-bg) !important;
 }
 
 #container-listMessage [class*="DMItemRight_hoverActionSection__"] {
