@@ -646,7 +646,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     color: red !important;
 }
 
-.darkThemeTagPeopleLeft[data-tag-me="true"] a {
+.darkThemeDMItemLeft .darkThemeTagPeopleLeft[data-tag-me="true"] a {
     background: #702F32;
     color: #FFE3E0 !important;
     padding: .25em .5em;
