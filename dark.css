@@ -40,7 +40,9 @@
     --color-reaction-toolbar-bg: rgba(36,37,38,0.88);
     --color-reaction-toolbar-border: rgba(255,255,255,0.12);
     --color-reaction-btnadd-border: rgba(255, 255, 255, 0.10);
+
     --color-reaction-btnadd-bg: rgba(255, 255, 255, 0.09);
+    --color-reaction-btnadd-bg-hovered: rgba(255, 255, 255, 0.17);
 
     --reaction-toolbar-shadow: 0 6px 20px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.05);
 

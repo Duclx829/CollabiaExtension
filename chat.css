@@ -1045,6 +1045,10 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child 
     margin-right: .15em;
 }
 
+.popover[class*="DMActionButton_popover"] .nav-item:last-child .btn:hover {
+    background: var(--color-reaction-btnadd-bg-hovered) !important;
+}
+
 .popover[class*="DMActionButton_popover"] .nav-item:last-child .btn svg {
     color: currentColor;
 }
