@@ -1023,6 +1023,7 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
     align-items: center;
     justify-content: center;
     transform-origin: center;
+    transition: transform 100ms ease;
     border-radius: 50%;
 }
 
@@ -1032,8 +1033,8 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item svg {
-    height: 1.65em !important;
-    width: 1.65em !important;
+    height: 1.75em !important;
+    width: 1.75em !important;
     overflow: visible !important;
 }
 
