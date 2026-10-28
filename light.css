@@ -13,6 +13,7 @@
     --color-sidebar-focused-channel-bg: rgba(235,245,255,100);
 
     --color-message-focused-border: rgba(255,165,0,100);
+    --color-message-sender: #333333;
     --color-message-bg: #fff;
     --color-message-text: #000000;
     --color-message-reaction-bg: #fff;

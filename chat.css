@@ -102,6 +102,21 @@ body::before {
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
+.message-item .message-time,
+.message-item [class^="DMItemLeft_titleReplyMessage__"] {
+    color: var(--color-sidebar-last-msg);
+    opacity: .9 !important;
+}
+
+.message-item:hover .message-time,
+.message-item:hover [class^="DMItemLeft_titleReplyMessage__"] {
+    opacity: 1 !important;
+}
+
+.message-item [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) {
+    color: var(--color-message-sender);
+}
+
 .dm-side-bar-item label + div {
     flex-direction: row-reverse;
     gap: .35rem !important;
