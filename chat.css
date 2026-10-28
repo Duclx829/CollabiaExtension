@@ -998,10 +998,6 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item {
     overflow: hidden;
 }
 
-.popover[class*="DMActionButton_popover"] .nav-item[class*="DMActionButton_selected-reaction__"] {
-    background-color: #e8e8e8 !important;
-}
-
 .popover[class*="DMActionButton_popover"] .nav-item:not([class*="DMActionButton_selected-reaction__"]) {
     padding-top: .4rem;
     padding-bottom: 0;
@@ -1024,12 +1020,26 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
     justify-content: center;
     transform-origin: center;
     transition: transform 100ms ease;
+    border: 1px solid transparent;
     border-radius: 50%;
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item:hover > div > div {
     background: var(--color-reaction-icon-bg-hovered);
     transform: scale(1.12);
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:active > div > div {
+    transform: scale(0.94);
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item[class*="DMActionButton_selected-reaction__"] {
+    background-color: transparent !important;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item[class*="DMActionButton_selected-reaction__"] > div > div {
+    background: var(--color-reaction-icon-bg-selected);
+    border-color: var(--color-reaction-icon-border-selected);
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item svg {

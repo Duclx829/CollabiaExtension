@@ -41,6 +41,8 @@
     --color-reaction-toolbar-border: rgba(255,255,255,0.12);
 
     --color-reaction-icon-bg-hovered: rgba(255,255,255,0.10);
+    --color-reaction-icon-bg-selected: rgba(229,185,79,0.18);
+    --color-reaction-icon-border-selected: rgba(229,185,79,0.65);
     --color-reaction-btnadd-border: rgba(255,255,255,0.10);
     --color-reaction-btnadd-bg: rgba(255,255,255,0.09);
     --color-reaction-btnadd-bg-hovered: rgba(255,255,255,0.17);
