@@ -307,6 +307,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     color: #60a5fa !important;
 }
 
+.direct-message-main .darkThemeDMItemLeft[data-theme] a.mention-link {
+    color: #d3b86c !important;
+}
+
 .direct-message-main .cqThemeDMItemLeft[data-theme] > div > div:has(br),
 .direct-message-main [className*="DMItemRight_contentMessages__"][data-theme] > div > div:has(br){
     white-space: pre-line !important;
