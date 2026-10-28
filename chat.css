@@ -963,20 +963,32 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 body > .popover[class*="DMActionButton_popover"] {
+    background: var(--color-reaction-toolbar-bg) !important;
     box-shadow: var(--reaction-toolbar-shadow) !important;
     border: 1px solid var(--color-reaction-toolbar-border) !important;
     padding: 0 !important;
 }
 
+body > .popover[class*="DMActionButton_popover"] > ul.nav {
+    padding: .2em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item,
+body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item > div {
+    padding: 0 !important;
+}
+
+body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child {
+    margin-left: .5em;
+}
+
 .show-three-dot > p {
     text-overflow: ellipsis;
     overflow: hidden;
-}
-
-.popover[class*="DMActionButton_popover"] .nav-item {
-    height: fit-content !important;
-    padding-top: .3rem !important;
-    padding-bottom: .3rem !important;
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item[class*="DMActionButton_selected-reaction__"] {
@@ -988,14 +1000,18 @@ body > .popover[class*="DMActionButton_popover"] {
     padding-bottom: 0;
 }
 
-.popover[class*="DMActionButton_popover"] .nav-item > div {
-    padding-left: .25rem !important;
-    padding-right: .25rem !important;
+.popover[class*="DMActionButton_popover"] .nav-item > div > div {
+    height: 2.5em;
+    width: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center;
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item svg {
-    height: 28px !important;
-    width: 28px !important;
+    height: 2em !important;
+    width: 2em !important;
     overflow: visible !important;
 }
 

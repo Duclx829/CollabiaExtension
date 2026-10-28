@@ -37,9 +37,10 @@
     /*box-shadow: -1px -1px 3px -1px #0000008a, 2px 2px 4px -1px #000000b3, inset 1px 1px 1px #ffffff1a, inset -1px -1px 1px #ffffff17;*/
     /*color: #000000;*/
 
-    --color-reaction-toolbar-border: rgba(255, 255, 255, 0.12);
+    --color-reaction-toolbar-bg: rgba(36,37,38,0.88);
+    --color-reaction-toolbar-border: rgba(255,255,255,0.12);
 
-    --reaction-toolbar-shadow: 0 6px 20px rgba(0, 0, 0, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --reaction-toolbar-shadow: 0 6px 20px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.05);
 
     --color-pin-message-bg: #202B38;
     --color-pin-message-color: #e4e6eb;
