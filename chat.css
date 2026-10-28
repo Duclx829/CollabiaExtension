@@ -986,11 +986,12 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: none !important;
 }
 
-body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child {
-    margin-left: .5em;
-}
+/*body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child {*/
+/*    margin-left: .5em;*/
+/*}*/
 
 .show-three-dot > p {
     text-overflow: ellipsis;
@@ -1006,18 +1007,33 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child 
     padding-bottom: 0;
 }
 
+body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-child) > div {
+    height: 2.65em;
+    width: 2.65em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .popover[class*="DMActionButton_popover"] .nav-item > div > div {
     height: 2.5em;
     width: 2.5em;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-origin: center;
+    border-radius: 50%;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:hover > div > div {
+    background: var(--color-reaction-icon-bg-hovered);
+    transform: scale(1.12);
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item svg {
-    height: 2em !important;
-    width: 2em !important;
+    height: 1.65em !important;
+    width: 1.65em !important;
     overflow: visible !important;
 }
 
@@ -1043,6 +1059,7 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child 
     align-items: center;
     justify-content: center;
     margin-right: .15em;
+    color: var(--color-message-focused-border);
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item:last-child .btn:hover {
