@@ -982,6 +982,12 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item > div {
     padding: 0 !important;
 }
 
+body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child {
     margin-left: .5em;
 }
@@ -1015,11 +1021,6 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child 
     overflow: visible !important;
 }
 
-.popover[class*="DMActionButton_popover"] .nav-item:last-child {
-    padding: .2rem 0 0 0 !important;
-    margin-top: .1rem;
-}
-
 .popover[class*="DMActionButton_popover"] .nav-item:last-child svg {
     height: 16px !important;
     width: 16px !important;
@@ -1034,9 +1035,18 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:first-child 
 }
 
 .popover[class*="DMActionButton_popover"] .nav-item:last-child .btn {
-    background: rgb(239 239 239) !important;
-    border: 1px solid #d7d7d7 !important;
-    padding: 5px 6px 6px 5px !important;
+    width: 2em !important;
+    height: 2em !important;
+    padding: 0 !important;
+    background: var(--color-reaction-btnadd-bg) !important;
+    border: 1px solid var(--color-reaction-btnadd-border) !important;
+    align-items: center;
+    justify-content: center;
+    margin-right: .15em;
+}
+
+.popover[class*="DMActionButton_popover"] .nav-item:last-child .btn svg {
+    color: currentColor;
 }
 
 .site .item-last-message.preview {
