@@ -167,3 +167,34 @@ const appendScript = (id, src) => {
         return originalSend.apply(this, args);
     };
 })();
+
+(() => {
+    const OriginalWebSocket = window.WebSocket;
+    window.WebSocket = new Proxy(OriginalWebSocket, {
+        construct(target, args) {
+            const ws = Reflect.construct(target, args, target);
+
+            console.log("[WS CONNECT]", args[0]);
+
+            ws.addEventListener("message", (event) => {
+                console.log("[WS RECEIVED]", {
+                    url: ws.url,
+                    data: event.data,
+                    time: new Date().toISOString(),
+                });
+            });
+
+            ws.addEventListener("open", () => {
+                console.log("[WS OPEN]", ws.url);
+            });
+
+            ws.addEventListener("close", (event) => {
+                console.log("[WS CLOSE]", ws.url, event.code);
+            });
+
+            return ws;
+        },
+    });
+
+    console.log("WebSocket listener installed!");
+})();
