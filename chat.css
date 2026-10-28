@@ -303,6 +303,9 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     color: #000 !important;
 }
 
+.direct-message-main .darkThemeDMItemLeft[data-theme] a:not(.mention-link) {
+    color: #60a5fa !important;
+}
 
 .direct-message-main .cqThemeDMItemLeft[data-theme] > div > div:has(br),
 .direct-message-main [className*="DMItemRight_contentMessages__"][data-theme] > div > div:has(br){
@@ -328,6 +331,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     background: var(--color-message-sender-bg) !important;;
     color: var(--color-message-sender-text) !important;;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.message-item [class^="DMItemRight_contentMessages_"] .darkThemeTagPeopleLeft .mention-link {
+    color: inherit !important;
 }
 
 .message-item .wrap-emotion:not(:empty) {
@@ -635,6 +642,17 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     color: red !important;
 }
 
+.darkThemeTagPeopleLeft[data-tag-me="true"] a {
+    background: #702F32;
+    color: #FFE3E0 !important;
+    padding: .25em .5em;
+    border-radius: .5em;
+    line-height: 1;
+    height: fit-content;
+    display: inline-block;
+}
+
+/*.DMItemRight_contentMessages__ep-Rw[data-theme=dark_theme] a:not(.DMItemRight_mention-link__MMrN7)*/
 .message-item .messages-reply:has(.chat-image-resource-contain),
 .message-item .messages-container:has(.chat-image-resource-contain) {
     opacity: 1 !important;
