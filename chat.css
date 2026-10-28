@@ -307,7 +307,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     color: #60a5fa !important;
 }
 
-.direct-message-main .darkThemeDMItemLeft[data-tag-me="false"] a.mention-link {
+.direct-message-main .darkThemeDMItemLeft .darkThemeTagPeopleLeft[data-tag-me="false"] a.mention-link {
     color: #d3b86c !important;
 }
 
