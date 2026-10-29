@@ -319,7 +319,7 @@
         clearTimeout(mouseStopTimeout);
         const sidebarItem = target.closest('.dm-side-bar-item');
         if (!!sidebarItem) {
-            const id = sidebarItem.parentNode.getAttribute('data-user-id') || sidebarItem.parentNode.getAttribute('data-channel-id')
+            const id = sidebarItem.parentNode.getAttribute('data-channel-id') || sidebarItem.parentNode.getAttribute('data-user-id');
             if (cachedMask.has(id)) {
                 sidebarItem.removeAttribute('data-mask');
                 cachedMask.delete(id);
@@ -550,7 +550,7 @@
                         if (sidebar) {
                             const sidebarItems = sidebar.querySelectorAll('[data-channel-id]');
                             sidebarItems.forEach((el) => {
-                                const id = el.getAttribute('data-user-id') || el.getAttribute('data-channel-id');
+                                const id = el.getAttribute('data-channel-id') || el.getAttribute('data-user-id');
                                 if (cachedMask.has(id))
                                     el.childNodes.item(0).setAttribute('data-mask', true);
                             })
