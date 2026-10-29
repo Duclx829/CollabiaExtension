@@ -255,7 +255,7 @@ const appendScript = (id, src) => {
                 activeChannelId = new URL(location.href).searchParams.get('channelId');
                 // todo: handle the case last posts cached.
                 if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
-                    trackMessages(response.data.posts);
+                    trackMessages(response?.data?.posts);
             }
 
             console.groupEnd();
