@@ -384,11 +384,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     width: fit-content !important;
 }
 
-.msg-item-image-stack .dm-grid-item.border {
-    border-width: 0 !important;
-}
-
-.msg-item-image-stack {
+.dm-grid-container > .image-stack {
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -396,23 +392,13 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     padding: 0;
 }
 
-.msg-item-image-stack:has(.dm-grid-item-image-4)::before {
-    content: attr(data-image-count) " Images";
-    position: absolute;
-    z-index: 6;
-    top: -5px;
-    right: 0;
-    white-space: nowrap;
-    font-size: 9px;
-    color: hsla(0, 0%, 20%, 0.7);
+.dm-grid-container > .image-stack > .dm-grid-item {
+    border: none !important;
 }
 
-.msg-item-image-stack:has(.dm-grid-item-image-2) {
-    width: 255px;
-}
-
-.msg-item-image-stack:has(.dm-grid-item-image-2) > .dm-grid-item-image {
-    position: absolute;
+.image-stack.img-stack-multiple > .dm-grid-item {
+    /*position: absolute;*/
+    position: relative;
     object-fit: cover;
     width: 180px;
     height: 180px;
@@ -425,70 +411,69 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     cursor: pointer;
 }
 
-.msg-item-image-stack:has(.dm-grid-item-image-2) .dm-grid-item-image:hover {
-    outline: 2px solid orange !important;
+.image-stack.img-stack-multiple > .dm-grid-item:hover {
+    outline: 2px solid var(--color-message-focused-border) !important;
 }
 
-.msg-item-image-stack:has(.dm-grid-item-image-2) .dm-grid-item-image:hover img {
+.image-stack.img-stack-multiple > .dm-grid-item:hover img {
     filter: brightness(0.95);
 }
 
-.msg-item-image-stack.total-2-images {
+.image-stack.img-stack-multiple.img-split {
     padding-top: 314px;
 }
 
-.msg-item-image-stack.total-3-images {
-    padding-top: 444px;
+.dm-grid-container > .image-stack.img-split,
+.dm-grid-container > .image-stack.img-column {
+    width: 255px;
 }
 
-.msg-item-image-stack.more-than-4-images {
-    margin-top: 10px;
-    padding-top: 220px;
-    width: 220px;
-}
-
-.msg-item-image-stack .dm-grid-item-image.hidden {
-    display: none;
-}
-
-.msg-item-image-stack.total-2-images .dm-grid-item-image-1 {
+.image-stack.img-split > .dm-grid-item:nth-child(1) {
     z-index: 2;
     box-shadow: 1.5px 1px 2.5px rgba(0 0 0 / 40%);
 }
 
-.msg-item-image-stack.total-2-images .dm-grid-item-image-2 {
+.image-stack.img-split > .dm-grid-item:nth-child(2) {
     top: 130px;
     left: 70px;
     z-index: 1;
 }
 
-.msg-item-image-stack.total-3-images .dm-grid-item-image-1 {
+.image-stack.img-stack-multiple.img-column {
+    padding-top: 444px;
+}
+
+.image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(1) {
     left: 70px;
     z-index: 3;
     box-shadow: 1.5px 2px 3.5px rgba(0 0 0 / 40%);
 }
 
-.msg-item-image-stack.total-3-images .dm-grid-item-image-2 {
+.image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(2) {
     top: 130px;
     z-index: 2;
     box-shadow: 1.5px 1px 2.5px rgba(0 0 0 / 40%);
 }
 
-.msg-item-image-stack.total-3-images .dm-grid-item-image-3 {
+.image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(3) {
     top: 260px;
     left: 70px;
     z-index: 1;
 }
 
-.msg-item-image-stack.total-4-images .dm-grid-item-image-1,
-.msg-item-image-stack.more-than-4-images .dm-grid-item-image-1 {
+.image-stack.img-stack-multiple.media-stack {
+    margin-top: 10px;
+    padding-top: 220px;
+    width: 220px;
+}
+
+.image-stack.img-stack-multiple.media-stack > .dm-grid-item:nth-child(1) {
     top: 35px;
     left: 20px;
     z-index: 4;
 }
 
-.msg-item-image-stack.total-4-images .dm-grid-item-image-2,
-.msg-item-image-stack.more-than-4-images .dm-grid-item-image-2 {
+.image-stack.img-stack-multiple.media-stack > .dm-grid-item:nth-child(2) {
     top: 35px;
     left: 20px;
     transform: rotate(-5deg);
@@ -497,8 +482,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     box-shadow: -2px 1px 3.5px rgba(0 0 0 / 50%);
 }
 
-.msg-item-image-stack.total-4-images .dm-grid-item-image-3,
-.msg-item-image-stack.more-than-4-images .dm-grid-item-image-3 {
+.image-stack.img-stack-multiple.media-stack > .dm-grid-item:nth-child(3) {
     top: 25px;
     left: 20px;
     transform: rotate(5deg);
@@ -507,8 +491,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     box-shadow: 1.5px 1px 2.5px rgba(0 0 0 / 40%);
 }
 
-.msg-item-image-stack.total-4-images .dm-grid-item-image-4,
-.msg-item-image-stack.more-than-4-images .dm-grid-item-image-4 {
+.image-stack.img-stack-multiple.media-stack > .dm-grid-item:nth-child(4) {
     top: 15px;
     left: 20px;
     transform: rotate(-5deg);
@@ -516,12 +499,34 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     z-index: 1;
 }
 
-.msg-item-image-stack:has(.dm-grid-item-image-4:hover) :where(.dm-grid-item-image-1, .dm-grid-item-image-2, .dm-grid-item-image-3),
-.msg-item-image-stack:has(.dm-grid-item-image-3:hover) :where(.dm-grid-item-image-2),
-.msg-item-image-stack:has(.dm-grid-item-image-2:hover) :where(.dm-grid-item-image-1) {
-    opacity: .1;
-    transition: opacity 120ms ease-in-out;
+
+.image-stack.img-stack-multiple.media-stack > .dm-grid-item:nth-child(n+4) {
+    display: none !important;
 }
+
+/*.dm-grid-container > .image-stack.img-split {*/
+/*    */
+/*}*/
+
+/*.img-column*/
+
+/*.msg-item-image-stack:has(.dm-grid-item-image-4)::before {*/
+/*    content: attr(data-image-count) " Images";*/
+/*    position: absolute;*/
+/*    z-index: 6;*/
+/*    top: -5px;*/
+/*    right: 0;*/
+/*    white-space: nowrap;*/
+/*    font-size: 9px;*/
+/*    color: hsla(0, 0%, 20%, 0.7);*/
+/*}*/
+
+/*.msg-item-image-stack:has(.dm-grid-item-image-4:hover) :where(.dm-grid-item-image-1, .dm-grid-item-image-2, .dm-grid-item-image-3),*/
+/*.msg-item-image-stack:has(.dm-grid-item-image-3:hover) :where(.dm-grid-item-image-2),*/
+/*.msg-item-image-stack:has(.dm-grid-item-image-2:hover) :where(.dm-grid-item-image-1) {*/
+/*    opacity: .1;*/
+/*    transition: opacity 120ms ease-in-out;*/
+/*}*/
 
 .dm-side-bar-item[data-mask] .item-last-message {
     color: transparent !important;
