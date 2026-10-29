@@ -19,7 +19,11 @@
     if (!mouseHoverThrottle) localStorage.setItem('mousehover-throttle', mouseHoverThrottle = 100);
     if (!longPressDuration) localStorage.setItem('longpress-duration', longPressDuration = 500);
 
-    let cachedMask = new Set(sessionStorage.getItem('masked') || []);
+    let cachedMask;
+    try {
+        cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || [])
+    } catch (e) {
+    }
 
     if (navigation) {
         handleNavigationChange(location.href);
@@ -325,7 +329,7 @@
             }
 
             checkMaskMessage(new URLSearchParams(window.location.search));
-            setSessionStorage('masked', Array.from(cachedMask.values()));
+            setSessionStorage('masked', JSON.stringify(Array.from(cachedMask.values())));
             return;
         }
 
