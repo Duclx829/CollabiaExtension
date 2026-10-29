@@ -87,9 +87,9 @@ body #root {
 }
 
 #container-write-message .message-item[data-sender="me"]{
-    opacity: .2 !important;
+    /*opacity: .2 !important;*/
 }
 
 #container-write-message .message-item[data-sender="others"]{
-    filter: hue-rotate(45deg);
+    /*filter: hue-rotate(45deg);*/
 }
