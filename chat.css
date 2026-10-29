@@ -402,7 +402,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border: none !important;
 }
 
-.image-stack.img-single {
+.image-stack.img-single > .dm-grid-item:not([data-side="pin"]) {
     box-shadow: 0 2px 2.5px rgb(0 0 0 / 10%);
     outline: 1px solid var(--color-reaction-toolbar-border);
 }
