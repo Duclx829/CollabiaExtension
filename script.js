@@ -133,40 +133,77 @@ const appendScript = (id, src) => {
 //     console.log(indexedDBData);
 // })();
 
-// (() => {
-//     const originalOpen = XMLHttpRequest.prototype.open;
-//     const originalSend = XMLHttpRequest.prototype.send;
-//     window.response = {};
-//
-//     XMLHttpRequest.prototype.open = function (method, url, ...args) {
-//         this._interceptInfo = { method, url };
-//         return originalOpen.call(this, method, url, ...args);
-//     };
-//
-//     XMLHttpRequest.prototype.send = function (...args) {
-//         this.addEventListener("load", function () {
-//             const { method, url } = this._interceptInfo || {};
-//
-//             console.group(`[API] ${method}: ${url}`, this.status);
-//             const contentType = this.getResponseHeader("content-type") || "";
-//             if (contentType.includes("application/json")) {
-//                 try {
-//                     const response = JSON.parse(this.responseText);
-//                     window.response[`[${method}]|${url}`] = response;
-//                     console.log("Response JSON:", response);
-//                 } catch {
-//                     console.log("Response text:", this.responseText);
-//                 }
-//             } else {
-//                 console.log("Response:", this.responseText);
-//             }
-//
-//             console.groupEnd();
-//         });
-//
-//         return originalSend.apply(this, args);
-//     };
-// })();
+
+(() => {
+    const originalOpen = XMLHttpRequest.prototype.open;
+    const originalSend = XMLHttpRequest.prototype.send;
+    // window.response = {};
+    let cachedMask, channelIdSet = new Set([]);
+
+    function trackMaskedChannels(channels) {
+        if (!channels || !channels.length || !Array.isArray(channels))
+            return;
+
+        try { cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || []); } catch(e) {}
+        const channelIds = channels.map((c) => c.id);
+        const newIds = channelIds.filter((id) => {
+            if (!channelIdSet.has(id)) {
+                channelIdSet.add(id);
+                return true;
+            }
+
+            return false;
+        });
+
+        requestAnimationFrame(() => {
+            const ids = newIds.filter((id) => cachedMask.has(id));
+            setTimeout(() => {
+                ids.forEach((id) => {
+                    document
+                        .querySelector(`#side-bar-message [data-channel-id="${id}"] > .dm-side-bar-item`)
+                        ?.setAttribute('data-mask', 'true');
+                });
+            }, 300);
+        });
+    }
+
+    XMLHttpRequest.prototype.open = function (method, url, ...args) {
+        this._interceptInfo = { method, url };
+        return originalOpen.call(this, method, url, ...args);
+    };
+
+    XMLHttpRequest.prototype.send = function (...args) {
+        this.addEventListener("load", function () {
+            const { method, url: urlStr } = this._interceptInfo || {};
+            const url = new URL(urlStr);
+            console.group(`[API] ${method}: ${urlStr}`, this.status);
+            const contentType = this.getResponseHeader("content-type") || "";
+            let response;
+            if (contentType.includes("application/json")) {
+                try {
+                    response = JSON.parse(this.responseText);
+                    // window.response[`[${method}]|${urlStr}`] = response;
+                    console.log("Response JSON:", response);
+                } catch {
+                    response = this.responseText;
+                    console.log("Response text:", response);
+                }
+            } else {
+                response = this.responseText;
+                console.log("Response:", response);
+            }
+
+            if (url.pathname === '/v1/chat/users/me/channels')
+                trackMaskedChannels(response.data.responses);
+
+            console.groupEnd();
+        });
+
+        return originalSend.apply(this, args);
+    };
+
+})();
+
 //
 // (() => {
 //     const OriginalWebSocket = window.WebSocket;

@@ -543,18 +543,18 @@
                         removedNode = entry?.removedNodes.item(0);
                         addedNode = entry?.addedNodes.item(0);
                         className = addedNode?.className?.toString() ?? removedNode?.className?.toString();
-                        let sidebar;
-                        try { sidebar = addedNode?.querySelector('#side-bar-message'); }
-                        catch { }
-
-                        if (sidebar) {
-                            const sidebarItems = sidebar.querySelectorAll('[data-channel-id]');
-                            sidebarItems.forEach((el) => {
-                                const id = el.getAttribute('data-channel-id') || el.getAttribute('data-user-id');
-                                if (cachedMask.has(id))
-                                    el.childNodes.item(0).setAttribute('data-mask', true);
-                            })
-                        }
+                        // let sidebar;
+                        // try { sidebar = addedNode?.querySelector('#side-bar-message'); }
+                        // catch { }
+                        //
+                        // if (sidebar) {
+                        //     const sidebarItems = sidebar.querySelectorAll('[data-channel-id]');
+                        //     sidebarItems.forEach((el) => {
+                        //         const id = el.getAttribute('data-channel-id') || el.getAttribute('data-user-id');
+                        //         if (cachedMask.has(id))
+                        //             el.childNodes.item(0).setAttribute('data-mask', true);
+                        //     })
+                        // }
 
                         if(
                             !className?.startsWith('message-item') &&
