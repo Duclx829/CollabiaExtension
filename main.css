@@ -86,6 +86,10 @@ body #root {
     gap: 0 !important;
 }
 
-.message-item.i-sent-this-msg {
+#container-write-message .message-item[data-sender="me"]{
     opacity: .2 !important;
+}
+
+#container-write-message .message-item[data-sender="others"]{
+    filter: hue-rotate(45deg);
 }
