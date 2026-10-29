@@ -41,8 +41,8 @@ body::before {
     color: var(--color-sidebar-last-msg, rgba(101,104,108,100)) !important;
 }
 
-.cqThemeSideBarItem .item-last-message,
-.cqThemeSideBarItem .view-typing {
+.dm-side-bar-item .item-last-message,
+.dm-side-bar-item .view-typing {
     height: 1.2rem !important;
 }
 
@@ -59,14 +59,17 @@ body::before {
     margin-bottom: .1rem;
 }
 
-.cqThemeSideBarItem:has(.alert-request-dr) .contact-name,
-.cqThemeSideBarItem:has(.alert-request-dr) .contact-namelh-1 {
+.cqThemeSideBarItemFocus .contact-name,
+.cqThemeSideBarItemFocus .contact-namelh-1 {
+    font-weight: 600 !important;
+}
+
+.dm-side-bar-item:has(.alert-request-dr) .contact-name,
+.dm-side-bar-item:has(.alert-request-dr) .contact-namelh-1 {
     font-weight: 700 !important;
     color: var(--color-sidebar-channel-name-unread, hsl(0deg 0% 0%/90%)) !important;
 }
 
-.dm-side-bar-item.cqThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
-.dm-side-bar-item.darkThemeSideBarItemFocus:has(.alert-request-dr) .item-last-message,
 .dm-side-bar-item:has(.alert-request-dr) .item-last-message {
     font-weight: 600 !important;
     color: var(--color-sidebar-last-msg-unread, hsl(0deg 0% 0%/90%)) !important;
@@ -75,8 +78,8 @@ body::before {
 .dm-side-bar-item.cqThemeSideBarItemFocus .last-message-time,
 .dm-side-bar-item.darkThemeSideBarItemFocus .last-message-time,
 .dm-side-bar-item:has(.alert-request-dr) .last-message-time {
+    font-size: .75em;
     color: var(--color-sidebar-last-msg-time-unread, hsl(0deg 0% 0%/80%)) !important;
-    font-size: .75rem;
 }
 
 .cqThemeSideBarItemFocus[data-channel-name],
@@ -88,16 +91,12 @@ body::before {
     background: transparent !important;
 }
 
-.cqThemeSideBarItemFocus .cqThemeSideBarItemFocus {
+.cqThemeSideBarItemFocus > .cqThemeSideBarItemFocus {
     background: transparent !important;
 }
 
-.cqThemeSideBarItemFocus .contact-name,
-.cqThemeSideBarItemFocus .contact-namelh-1 {
-    font-weight: 600 !important;
-}
-
-.message-item .cqThemeBorderFocus {
+.message-item .cqThemeBorderFocus,
+.message-item .darkThemeBorderFocus {
     border: none !important;
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }

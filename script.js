@@ -135,203 +135,185 @@ const appendScript = (id, src) => {
 
 
 (() => {
-    // const originalOpen = XMLHttpRequest.prototype.open;
-    // const originalSend = XMLHttpRequest.prototype.send;
-    // // window.response = {};
-    // let cachedMask, activeChannelId, channelIdSet = new Set([]);
-    // const apiVersion = 'v1', myId = localStorage.getItem('userId');
-    //
-    // function trackMaskedChannels(channels) {
-    //     if (!channels || !channels.length || !Array.isArray(channels))
-    //         return;
-    //
-    //     try { cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || []); } catch(e) {}
-    //     const channelIds = channels.map((c) => c.id);
-    //     const newIds = channelIds.filter((id) => {
-    //         if (!channelIdSet.has(id)) {
-    //             channelIdSet.add(id);
-    //             return true;
-    //         }
-    //
-    //         return false;
-    //     });
-    //
-    //     requestAnimationFrame(() => {
-    //         const ids = newIds.filter((id) => cachedMask.has(id));
-    //         setTimeout(() => {
-    //             ids.forEach((id) => {
-    //                 document
-    //                     .querySelector(`#side-bar-message [data-channel-id="${id}"] > .dm-side-bar-item`)
-    //                     ?.setAttribute('data-mask', 'true');
-    //             });
-    //         }, 300);
-    //     });
-    // }
-    //
-    // function trackMessages(messages) {
-    //     if (!messages || !messages.length || !Array.isArray(messages))
-    //         return;
-    //
-    //     const listMsgs = document.querySelector('#container-listMessage');
-    //     requestAnimationFrame(() => {
-    //         setTimeout(() => {
-    //             const msgElements = messages.map((msg) => {
-    //                 const msgElement = listMsgs.querySelector(`#${CSS.escape(String(msg.id))}.message-item`);
-    //
-    //                 const mediaFiles = msg?.metadata?.files ?? [];
-    //                 if (mediaFiles.length) {
-    //                     const images = mediaFiles.filter((file) => file.mime_type === 'image');
-    //                     const files = mediaFiles.filter((file) => file.mime_type !== 'image');
-    //                     const mediaContainer = msgElement.querySelector('.dm-grid-container');
-    //                     console.log('here_[media_container]', mediaContainer);
-    //
-    //                     if (mediaContainer) {
-    //                         if (images.length) {
-    //                             const imageContainer = mediaContainer.childNodes.item(0);
-    //                             imageContainer.classList.add('image-stack');
-    //                             if (images.length > 1)
-    //                                 imageContainer.classList.add('image-stack-multiple');
-    //                         }
-    //
-    //                         if (files.length) {
-    //                             const fileContainer = mediaContainer.childNodes.item(1);
-    //                             fileContainer.classList.add('file-container');
-    //                             if (files.length > 1)
-    //                                 fileContainer.classList.add('multiple-files-container');
-    //                         }
-    //                     }
-    //                 }
-    //
-    //                 if (msg.user_id === myId)
-    //                     msgElement?.setAttribute('data-sender', 'me');
-    //                 else
-    //                     msgElement?.setAttribute('data-sender', 'others');
-    //
-    //                 return msgElement;
-    //             })
-    //             console.log('here_ msgItems',
-    //                 msgElements,
-    //                 // a,
-    //                 // b,
-    //                 // a.every((id, idx) => id === b[idx]),
-    //             );
-    //         }, 10);
-    //     });
-    //
-    //     // const channelIds = channels.map((c) => c.id);
-    //     // const newIds = channelIds.filter((id) => {
-    //     //     if (!channelIdSet.has(id)) {
-    //     //         channelIdSet.add(id);
-    //     //         return true;
-    //     //     }
-    //     //
-    //     //     return false;
-    //     // });
-    //     //
-    //     // requestAnimationFrame(() => {
-    //     //     const ids = newIds.filter((id) => cachedMask.has(id));
-    //     //     setTimeout(() => {
-    //     //         ids.forEach((id) => {
-    //     //             document
-    //     //                 .querySelector(`#side-bar-message [data-channel-id="${id}"] > .dm-side-bar-item`)
-    //     //                 ?.setAttribute('data-mask', 'true');
-    //     //         });
-    //     //     }, 300);
-    //     // });
-    // }
-    //
-    // XMLHttpRequest.prototype.open = function (method, url, ...args) {
-    //     this._interceptInfo = { method, url };
-    //     return originalOpen.call(this, method, url, ...args);
-    // };
-    //
-    // XMLHttpRequest.prototype.send = function (...args) {
-    //     this.addEventListener("load", function () {
-    //         const { method, url: urlStr } = this._interceptInfo || {};
-    //         const url = new URL(urlStr);
-    //         console.group(`here_[API] ${method}: ${urlStr}`, this.status);
-    //         const contentType = this.getResponseHeader("content-type") || "";
-    //         let response;
-    //         if (contentType.includes("application/json")) {
-    //             try {
-    //                 response = JSON.parse(this.responseText);
-    //                 // window.response[`[${method}]|${urlStr}`] = response;
-    //                 console.log("Response JSON:", response);
-    //             } catch {
-    //                 response = this.responseText;
-    //                 console.log("Response text:", response);
-    //             }
-    //         } else {
-    //             response = this.responseText;
-    //             console.log("Response:", response);
-    //         }
-    //
-    //         const pathName = url.pathname;
-    //         if (pathName === `/${apiVersion}/chat/users/me/channels`)
-    //             trackMaskedChannels(response.data.responses);
-    //         else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
-    //             activeChannelId = new URL(location.href).searchParams.get('channelId');
-    //             // todo: handle the case last posts cached.
-    //             if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
-    //                 trackMessages(response.data.posts);
-    //         }
-    //
-    //         console.groupEnd();
-    //     });
-    //
-    //     return originalSend.apply(this, args);
-    // };
-    //
-    // const OriginalWebSocket = window.WebSocket;
-    // window.WebSocket = new Proxy(OriginalWebSocket, {
-    //     construct(target, args) {
-    //         const ws = Reflect.construct(target, args, target);
-    //         ws.addEventListener("message", (event) => {
-    //             let data;
-    //             try {
-    //                 data = JSON.parse(event.data);
-    //             } catch (e) {
-    //                 data = event.data;
-    //             }
-    //
-    //             if (
-    //                 (
-    //                     data?.event === "posted" ||
-    //                 data?.event === "post_edited"
-    //                 ) &&
-    //                 data?.broadcast?.channel_id === activeChannelId
-    //             ) {
-    //                 try {
-    //                     const post = JSON.parse(data?.data?.post);
-    //                     requestAnimationFrame(() =>
-    //                         requestAnimationFrame(() => {
-    //                             if (post?.user_id === myId) {
-    //                                 document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
-    //                                 console.log('here_[message from me]',
-    //                                     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-    //                                 );
-    //                             } else {
-    //                                 document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
-    //                                 console.log('here_[message from others]',
-    //                                     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-    //                                 );
-    //                             }
-    //                         })
-    //                     );
-    //
-    //                     console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
-    //                         url: ws.url,
-    //                         data: data?.data,
-    //                     });
-    //                 } catch (e) {
-    //                     console.log('here_[ERROR]: ', e)
-    //                 }
-    //
-    //             }
-    //         });
-    //
-    //         return ws;
-    //     },
-    // });
-    // console.log("WebSocket listener installed!");
+    const originalOpen = XMLHttpRequest.prototype.open;
+    const originalSend = XMLHttpRequest.prototype.send;
+    // window.response = {};
+    let cachedMask, activeChannelId, channelIdSet = new Set([]);
+    const apiVersion = 'v1', myId = localStorage.getItem('userId');
+
+    function trackMaskedChannels(channels) {
+        if (!channels || !channels.length || !Array.isArray(channels))
+            return;
+
+        try { cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || []); } catch(e) {}
+        const channelIds = channels.map((c) => c.id);
+        const newIds = channelIds.filter((id) => {
+            if (!channelIdSet.has(id)) {
+                channelIdSet.add(id);
+                return true;
+            }
+
+            return false;
+        });
+
+        requestAnimationFrame(() => {
+            const ids = newIds.filter((id) => cachedMask.has(id));
+            setTimeout(() => {
+                ids.forEach((id) => {
+                    document
+                        .querySelector(`#side-bar-message [data-channel-id="${id}"] > .dm-side-bar-item`)
+                        ?.setAttribute('data-mask', 'true');
+                });
+            }, 300);
+        });
+    }
+
+    function trackMessages(messages) {
+        if (!messages || !messages.length || !Array.isArray(messages))
+            return;
+
+        const listMsgs = document.querySelector('#container-listMessage');
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                const msgElements = messages.map((msg) => {
+                    const msgElement = listMsgs.querySelector(`#${CSS.escape(String(msg.id))}.message-item`);
+
+                    const mediaFiles = msg?.metadata?.files ?? [];
+                    if (mediaFiles.length) {
+                        const images = mediaFiles.filter((file) => file.mime_type === 'image');
+                        const files = mediaFiles.filter((file) => file.mime_type !== 'image');
+                        const mediaContainer = msgElement.querySelector('.dm-grid-container');
+                        console.log('here_[media_container]', mediaContainer);
+
+                        if (mediaContainer) {
+                            if (images.length) {
+                                mediaContainer.classList.add('img-grid-container')
+                                const imageContainer = mediaContainer.childNodes.item(0);
+                                imageContainer.classList.add('image-stack');
+                                const totalImgs = images.length;
+                                if (totalImgs > 1)
+                                    imageContainer.classList.add('img-stack-multiple');
+
+                                if (totalImgs === 2) imageContainer.classList.add('img-split');
+                                else if (totalImgs === 3) imageContainer.classList.add('img-column');
+                                else if (totalImgs >= 4) imageContainer.classList.add('media-stack');
+                                else imageContainer.classList.add('img-single');
+                            }
+
+                            if (files.length) {
+                                mediaContainer.classList.add('file-grid-container')
+                                const fileContainer = mediaContainer.childNodes.item(!!images.length ? 1 : 0);
+                                fileContainer.classList.add('file-container');
+                                if (files.length > 1)
+                                    fileContainer.classList.add('multiple-files-container');
+                            }
+                        }
+                    }
+
+                    if (msg.user_id === myId)
+                        msgElement?.setAttribute('data-sender', 'me');
+                    else
+                        msgElement?.setAttribute('data-sender', 'others');
+
+                    return msgElement;
+                })
+                console.log('here_ msgItems', msgElements);
+            }, 10);
+        });
+    }
+
+    XMLHttpRequest.prototype.open = function (method, url, ...args) {
+        this._interceptInfo = { method, url };
+        return originalOpen.call(this, method, url, ...args);
+    };
+
+    XMLHttpRequest.prototype.send = function (...args) {
+        this.addEventListener("load", function () {
+            const { method, url: urlStr } = this._interceptInfo || {};
+            const url = new URL(urlStr);
+            console.group(`here_[API] ${method}: ${urlStr}`, this.status);
+            const contentType = this.getResponseHeader("content-type") || "";
+            let response;
+            if (contentType.includes("application/json")) {
+                try {
+                    response = JSON.parse(this.responseText);
+                    // window.response[`[${method}]|${urlStr}`] = response;
+                    console.log("Response JSON:", response);
+                } catch {
+                    response = this.responseText;
+                    console.log("Response text:", response);
+                }
+            } else {
+                response = this.responseText;
+                console.log("Response:", response);
+            }
+
+            const pathName = url.pathname;
+            if (pathName === `/${apiVersion}/chat/users/me/channels`)
+                trackMaskedChannels(response.data.responses);
+            else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
+                activeChannelId = new URL(location.href).searchParams.get('channelId');
+                // todo: handle the case last posts cached.
+                if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
+                    trackMessages(response.data.posts);
+            }
+
+            console.groupEnd();
+        });
+
+        return originalSend.apply(this, args);
+    };
+
+    const OriginalWebSocket = window.WebSocket;
+    window.WebSocket = new Proxy(OriginalWebSocket, {
+        construct(target, args) {
+            const ws = Reflect.construct(target, args, target);
+            ws.addEventListener("message", (event) => {
+                let data;
+                try {
+                    data = JSON.parse(event.data);
+                } catch (e) {
+                    data = event.data;
+                }
+
+                if (
+                    (
+                        data?.event === "posted" ||
+                    data?.event === "post_edited"
+                    ) &&
+                    data?.broadcast?.channel_id === activeChannelId
+                ) {
+                    try {
+                        const post = JSON.parse(data?.data?.post);
+                        requestAnimationFrame(() =>
+                            requestAnimationFrame(() => {
+                                if (post?.user_id === myId) {
+                                    document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
+                                    console.log('here_[message from me]',
+                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                    );
+                                } else {
+                                    document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
+                                    console.log('here_[message from others]',
+                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                    );
+                                }
+                            })
+                        );
+
+                        console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
+                            url: ws.url,
+                            data: data?.data,
+                        });
+                    } catch (e) {
+                        console.log('here_[ERROR]: ', e)
+                    }
+
+                }
+            });
+
+            return ws;
+        },
+    });
+    console.log("here_WebSocket listener installed!");
 })();
