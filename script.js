@@ -182,7 +182,7 @@ const appendScript = (id, src) => {
                     if (mediaFiles.length) {
                         const images = mediaFiles.filter((file) => file.mime_type === 'image');
                         const files = mediaFiles.filter((file) => file.mime_type !== 'image');
-                        const mediaContainer = msgElement.querySelector('.dm-grid-container');
+                        const mediaContainer = msgElement?.querySelector('.dm-grid-container');
                         console.log('here_[media_container]', mediaContainer);
 
                         if (mediaContainer) {
