@@ -470,6 +470,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     justify-content: center;
     align-items: center;
     width: calc(var(--_img-item-size) * 1.2);
+    height: calc(var(--_img-item-size) * 1.2);
 }
 
 .image-stack.img-stack-multiple.media-stack > .dm-grid-item {
