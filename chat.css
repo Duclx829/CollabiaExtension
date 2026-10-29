@@ -397,7 +397,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border: none !important;
 }
 
-.image-stack.img-stack-multiple > .dm-grid-item {
+.image-stack.img-stack-multiple {
     --_img-item-size: 180px;
 }
 
@@ -613,11 +613,11 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     padding: 0 !important;
 }
 
-#container-listMessage [class^="DMResources_listVideoOrImage"] {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: .25rem !important;
-}
+/*#container-listMessage [class^="DMResources_listVideoOrImage"] {*/
+/*    display: flex !important;*/
+/*    flex-wrap: wrap !important;*/
+/*    gap: .25rem !important;*/
+/*}*/
 
 #container-listMessage [class^="DMResources_listVideoOrImage"]:has(.cqThemeDMFileItem) {
     margin-bottom: .7rem;
