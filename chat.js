@@ -608,9 +608,6 @@
                                     msgResourceItemEle.classList.add('msg-item-image-stack', `total-${msgItemId[id].totalImages}-images`, 'more-than-4-images');
                                 else if (msgItemId[id].totalImages > 1) msgResourceItemEle.classList.add('msg-item-image-stack', `total-${msgItemId[id].totalImages}-images`);
                             }
-                        } else if (removedNode && msgItemId[removedNode?.id]) {
-                            // msgItemId[removedNode.id].observer?.disconnect();
-                            // msgItemId[id] = null;
                         }
                     }
                 });
@@ -628,7 +625,7 @@
         document.body.addEventListener('mouseup', onMouseUp);
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
-        trackDomChanges();
+        // trackDomChanges();
     }
 
     const cleanup = () => {
@@ -636,7 +633,7 @@
         clearTimeout(mouseHoverTimeout);
         clearTimeout(leftMouseHoldTimeout);
         clearTimeout(middleClickLongpressTimeout);
-        clearInterval(trackRootInterval);
+        // clearInterval(trackRootInterval);
 
         document.body.removeEventListener('click', onClick);
         document.body.removeEventListener('contextmenu', onContextMenu);
