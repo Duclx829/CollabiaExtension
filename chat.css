@@ -385,10 +385,11 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 .dm-grid-container > .image-stack {
+    border-radius: 14px;
     position: relative;
+    display: block !important;
     width: fit-content;
     height: fit-content;
-    border-radius: 14px;
     padding: 0;
 }
 
@@ -397,16 +398,18 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 .image-stack.img-stack-multiple > .dm-grid-item {
+    --_img-item-size: 180px;
+}
+
+.image-stack.img-stack-multiple > .dm-grid-item {
     /*position: absolute;*/
     position: relative;
     object-fit: cover;
-    width: 180px;
-    height: 180px;
+    width: var(--_img-item-size);
+    height: var(--_img-item-size);
     border-radius: 18px;
     outline: 1px solid #86868665;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    top: 2px;
-    left: 2px;
     transition: transform 0.2s ease;
     cursor: pointer;
 }
@@ -425,7 +428,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 
 .dm-grid-container > .image-stack.img-split,
 .dm-grid-container > .image-stack.img-column {
-    width: 255px;
+    width: calc(var(--_img-item-size) * 1.5);
 }
 
 .image-stack.img-split > .dm-grid-item:nth-child(1) {
@@ -434,31 +437,31 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 .image-stack.img-split > .dm-grid-item:nth-child(2) {
+    transform: translateX(50%);
     top: 130px;
     left: 70px;
     z-index: 1;
 }
 
-.image-stack.img-stack-multiple.img-column {
-    padding-top: 444px;
+.dm-grid-container > .image-stack.img-column {
+    height: calc(var(--_img-item-size) * 2.5);
 }
 
 .image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(1) {
-    left: 70px;
     z-index: 3;
+    transform: translateX(50%);
     box-shadow: 1.5px 2px 3.5px rgba(0 0 0 / 40%);
 }
 
 .image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(2) {
-    top: 130px;
     z-index: 2;
+    transform: translateY(-25%);
     box-shadow: 1.5px 1px 2.5px rgba(0 0 0 / 40%);
 }
 
 .image-stack.img-stack-multiple.img-column > .dm-grid-item:nth-child(3) {
-    top: 260px;
-    left: 70px;
     z-index: 1;
+    transform: translate(50%, -50%);
 }
 
 .image-stack.img-stack-multiple.media-stack {
