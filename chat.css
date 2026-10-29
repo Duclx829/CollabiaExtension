@@ -592,6 +592,11 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     bottom: 0;
     pointer-events: none !important;
 }
+
+#container-listMessage .typing-wrapper + div {
+    min-height: 200px;
+}
+
 #container-listMessage .typing-wrapper > .view-typing {
     line-height: .25 !important;
 }
