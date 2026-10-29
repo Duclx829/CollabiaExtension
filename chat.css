@@ -384,6 +384,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     width: fit-content !important;
 }
 
+.dm-grid-container {
+    align-items: end;
+}
+
 .dm-grid-container > .image-stack {
     border-radius: 14px;
     position: relative;
@@ -422,13 +426,12 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     filter: brightness(0.95);
 }
 
-.image-stack.img-stack-multiple.img-split {
-    padding-top: 314px;
+.dm-grid-container > .image-stack.img-stack-multiple {
+    width: calc(var(--_img-item-size) * 1.5);
 }
 
-.dm-grid-container > .image-stack.img-split,
-.dm-grid-container > .image-stack.img-column {
-    width: calc(var(--_img-item-size) * 1.5);
+.image-stack.img-stack-multiple.img-split {
+    height: calc(var(--_img-item-size) * 1.75);
 }
 
 .image-stack.img-split > .dm-grid-item:nth-child(1) {
@@ -437,10 +440,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 .image-stack.img-split > .dm-grid-item:nth-child(2) {
-    transform: translateX(50%);
-    top: 130px;
-    left: 70px;
     z-index: 1;
+    transform: translate(50%, -25%);
 }
 
 .dm-grid-container > .image-stack.img-column {
