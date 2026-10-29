@@ -85,3 +85,7 @@ body #root {
     transform: translateX(-1rem) !important;
     gap: 0 !important;
 }
+
+.message-item.i-sent-this-msg {
+    opacity: .2 !important;
+}
