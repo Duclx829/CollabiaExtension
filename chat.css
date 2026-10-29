@@ -402,6 +402,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border: none !important;
 }
 
+.image-stack.img-single {
+     box-shadow: 0 2px 2.5px rgb(0 0 0 / 10%);
+}
+
 .image-stack.img-stack-multiple {
     --_img-item-size: 180px;
 }
