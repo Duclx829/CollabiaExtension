@@ -285,21 +285,31 @@ const appendScript = (id, src) => {
                 ) {
                     try {
                         const post = JSON.parse(data?.data?.post);
-                        requestAnimationFrame(() =>
-                            requestAnimationFrame(() => {
-                                if (post?.user_id === myId) {
-                                    document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
-                                    console.log('here_[message from me]',
-                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                    );
-                                } else {
-                                    document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
-                                    console.log('here_[message from others]',
-                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                    );
-                                }
-                            })
-                        );
+                        if (post?.id) {
+                            requestAnimationFrame(() =>
+                                requestAnimationFrame(() => {
+                                    if (post?.user_id === myId) {
+                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
+                                        console.log('here_[message from me]',
+                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                        );
+                                    } else {
+                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
+                                        console.log('here_[message from others]',
+                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                        );
+                                    }
+
+                                    trackMessages([{
+                                        id: post.id,
+                                        metadata: {
+                                            files: post?.props?.message_detail?.files ?? [],
+                                        },
+                                        user_id: post.user_id,
+                                    }]);
+                                })
+                            );
+                        }
 
                         console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
                             url: ws.url,
