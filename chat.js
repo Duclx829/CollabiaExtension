@@ -329,7 +329,7 @@
             }
 
             checkMaskMessage(new URLSearchParams(window.location.search));
-            setSessionStorage('masked', JSON.stringify(Array.from(cachedMask.values())));
+            setSessionStorage('masked', Array.from(cachedMask.values()));
             return;
         }
 
