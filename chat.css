@@ -103,15 +103,15 @@ body::before {
 
 .message-item[data-sender="others"][data-msg-group="start"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="start"] .img-stack.img-single .dm-grid-item,
-.message-item[data-sender="others"][data-msg-group="child"] .img-stack.img-single .dm-grid-item {
+.message-item[data-sender="others"][data-msg-group="start"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-top-left-radius: .35em !important;
 }
 
 .message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="end"] .img-stack.img-single .dm-grid-item,
-.message-item[data-sender="others"][data-msg-group="child"] .img-stack.img-single .dm-grid-item {
+.message-item[data-sender="others"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-bottom-left-radius: .35em !important;
 }
 
