@@ -164,8 +164,7 @@ body::before {
     border-top-left-radius: 20px !important;
 }
 
-.message-item .cqThemeDMItemLeft + div > .dm-grid-container,
-.message-item .darkThemeDMItemLeft + div > .dm-grid-container {
+.message-item .dm-grid-container {
     margin-top: .25rem !important;
 }
 
