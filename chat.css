@@ -141,8 +141,8 @@ body::before {
     border-bottom-left-radius: 20px !important;
 }
 
-.message-item.has-reaction + .message-item .cqThemeDMItemLeft,
-.message-item.has-reaction + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"]:not(data-msg-group="end").has-reaction + .message-item .cqThemeDMItemLeft,
+.message-item[data-sender="others"]:not(data-msg-group="end").has-reaction + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
