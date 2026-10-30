@@ -101,6 +101,10 @@ body::before {
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
+.message-item .dm-grid-container {
+    margin-top: .25rem !important;
+}
+
 .message-item .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-radius: 20px !important;
 }
@@ -108,6 +112,7 @@ body::before {
 .message-item .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item .darkThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
 }
 
 .message-item[data-sender="others"][data-msg-group="start"] .cqThemeDMItemLeft,
@@ -164,8 +169,58 @@ body::before {
     border-top-left-radius: 20px !important;
 }
 
-.message-item .dm-grid-container {
-    margin-top: .25rem !important;
+.message-item[data-sender="me"][data-msg-group="start"] .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"] .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="start"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"]:not([data-msg-group]) .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="start"] .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"] .darkThemeDMItemLeft,
+.message-item[data-sender="me"]:not([data-msg-group]) .darkThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-top-left-radius: 4px !important;
+}
+
+.message-item[data-sender="me"][data-msg-group="end"] .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"] .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="end"] .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"] .darkThemeDMItemLeft {
+    border-bottom-left-radius: 4px !important;
+}
+
+.message-item[data-sender="me"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-top-left-radius: 20px !important;
+}
+
+.message-item[data-sender="me"][data-msg-group="end"] .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="end"] .darkThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-top-left-radius: 4px !important;
+}
+
+.message-item[data-sender="me"].has-reaction:not(:has(.image-stack)) .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) + .message-item:not(:has(.image-stack)) .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) + .message-item:not(:has(.image-stack)) .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group].has-reaction .img-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"].has-reaction:not(:has(.image-stack)) .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) + .message-item:not(:has(.image-stack)) .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) + .message-item:not(:has(.image-stack)) .darkThemeDMItemLeft {
+    border-bottom-left-radius: 20px !important;
+}
+
+.message-item[data-sender="me"]:not([data-msg-group="end"]):has(+ .message-item.has-reaction) .cqThemeDMItemLeft,
+.message-item[data-sender="me"]:not([data-msg-group="end"]):has(+ .message-item.has-reaction) .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) .cqThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time):not(:has(.cqThemeDMItemLeft, .darkThemeDMItemLeft)) .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="me"]:not([data-msg-group="end"]):has(+ .message-item.has-reaction) .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) .darkThemeDMItemLeft,
+.message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) .darkThemeDMItemLeft {
+    border-top-left-radius: 20px !important;
 }
 
 .message-item .message-time,
