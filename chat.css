@@ -132,8 +132,10 @@ body::before {
     border-top-left-radius: 4px !important;
 }
 
-.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time),
-.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time),
+.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .cqThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .cqThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
