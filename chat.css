@@ -101,6 +101,14 @@ body::before {
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
+.message-item .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-radius: 20px !important;
+}
+
+.message-item .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-top-left-radius: 20px !important;
+}
+
 .message-item[data-sender="others"][data-msg-group="start"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"] .dm-grid-container .image-stack.img-single .dm-grid-item,
