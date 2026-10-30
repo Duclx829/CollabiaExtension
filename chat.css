@@ -115,10 +115,13 @@ body::before {
     border-bottom-left-radius: .35em !important;
 }
 
-.message-item[data-sender="others"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item {
+    border-top-left-radius: 20px !important;
+}
+
 .message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: 20px !important;
+    border-top-left-radius: .35em !important;
 }
 
 .message-item .message-time,
