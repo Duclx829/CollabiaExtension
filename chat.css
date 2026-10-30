@@ -142,7 +142,7 @@ body::before {
 
 .message-item[data-sender="others"].has-reaction:not(:has(.image-stack)) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .cqThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item .cqThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item:not(:has(.image-stack)) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group].has-reaction .img-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
@@ -157,10 +157,11 @@ body::before {
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
-.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time):not(:has(.cqThemeDMItemLeft)) .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"]:not([data-msg-group="end"]):has(+ .message-item.has-reaction) .darkThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) .darkThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .darkThemeDMItemLeft {
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) .darkThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="child"]:has(.message-time):not(:has(.darkThemeDMItemLeft)) .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-top-left-radius: 20px !important;
 }
 
