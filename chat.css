@@ -141,13 +141,13 @@ body::before {
 }
 
 .message-item[data-sender="others"].has-reaction:not(:has(.image-stack)) .cqThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .cqThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item:not(:has(.image-stack)) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item:not(:has(.image-stack)) .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group].has-reaction .img-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"].has-reaction:not(:has(.image-stack)) .darkThemeDMItemLeft,
-.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item .darkThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="start"]:has(.message-time) + .message-item:not(:has(.image-stack)) .darkThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"]:has(.message-time) + .message-item:not(:has(.image-stack)) .darkThemeDMItemLeft {
     border-bottom-left-radius: 20px !important;
 }
