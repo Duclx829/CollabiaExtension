@@ -101,6 +101,14 @@ body::before {
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
+.message-item[data-sender="others"][data-msg-group="start"] {
+    border-top-left-radius: 2px !important;
+}
+
+.message-item[data-sender="others"][data-msg-group="end"] {
+    border-bottom-left-radius: 2px !important;
+}
+
 .message-item .message-time,
 .message-item [class^="DMItemLeft_titleReplyMessage__"] {
     color: var(--color-sidebar-last-msg);

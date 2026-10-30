@@ -175,11 +175,33 @@ const appendScript = (id, src) => {
         const listMsgs = document.querySelector('#container-listMessage');
         requestAnimationFrame(() => {
             setTimeout(() => {
-                const msgElements = messages.map((msg) => {
+                const msgElements = messages.map((msg, idx, arr) => {
                     const msgElement = listMsgs.querySelector(`#${CSS.escape(String(msg.id))}.message-item`);
                     if (!msgElement) return;
 
                     msgElement.setAttribute('data-sender-id', msg.user_id);
+                    const nextMsgUserId = arr[idx+1]?.user_id;
+                    const prevSiblingId = msgElement.previousSibling?.getAttribute('data-sender-id');
+                    if (msg.user_id === nextMsgUserId) {
+                        // const nexSiblingId = msgElement.nextElementSibling?.getAttribute('data-sender-id');
+                        if (prevSiblingId && prevSiblingId === msg.user_id) {
+                            if (msg.user_id === nextMsgUserId)
+                                msgElement.setAttribute('data-msg-group', 'child');
+                            else
+                                msgElement.setAttribute('data-msg-group', 'start');
+                        } else if (msg.user_id === nextMsgUserId) {
+                            if (!prevSiblingId || prevSiblingId !== msg.user_id)
+                            msgElement.setAttribute('data-msg-group', 'start');
+                        }
+                    } else if (prevSiblingId && prevSiblingId === msg.user_id) {
+                        if (msgElement.previousSibling?.getAttribute('data-msg-group') === 'end') {
+                            msgElement.previousSibling.setAttribute('data-msg-group', 'child');
+                            msgElement.setAttribute('data-msg-group', 'end');
+                        } else {
+                            msgElement.setAttribute('data-msg-group', 'end');
+                        }
+                    }
+
                     const mediaFiles = msg?.metadata?.files ?? [];
                     if (mediaFiles.length) {
                         const images = mediaFiles.filter((file) => file.mime_type === 'image');
