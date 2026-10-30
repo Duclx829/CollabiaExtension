@@ -105,14 +105,14 @@ body::before {
 .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="start"] .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: .35em !important;
+    border-top-left-radius: 4px !important;
 }
 
 .message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft,
 .message-item[data-sender="others"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-bottom-left-radius: .35em !important;
+    border-bottom-left-radius: 4px !important;
 }
 
 .message-item[data-sender="others"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item {
@@ -121,7 +121,7 @@ body::before {
 
 .message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="others"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: .35em !important;
+    border-top-left-radius: 4px !important;
 }
 
 .message-item .message-time,
