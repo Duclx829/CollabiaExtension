@@ -177,12 +177,14 @@ const appendScript = (id, src) => {
             setTimeout(() => {
                 const msgElements = messages.map((msg) => {
                     const msgElement = listMsgs.querySelector(`#${CSS.escape(String(msg.id))}.message-item`);
+                    if (!msgElement) return;
 
+                    msgElement.setAttribute('data-sender-id', msg.user_id);
                     const mediaFiles = msg?.metadata?.files ?? [];
                     if (mediaFiles.length) {
                         const images = mediaFiles.filter((file) => file.mime_type === 'image');
                         const files = mediaFiles.filter((file) => file.mime_type !== 'image');
-                        const mediaContainer = msgElement?.querySelector('.dm-grid-container');
+                        const mediaContainer = msgElement.querySelector('.dm-grid-container');
                         console.log('here_[media_container]', mediaContainer);
 
                         if (mediaContainer) {
@@ -211,12 +213,12 @@ const appendScript = (id, src) => {
                     }
 
                     if (msg.user_id === myId)
-                        msgElement?.setAttribute('data-sender', 'me');
+                        msgElement.setAttribute('data-sender', 'me');
                     else
-                        msgElement?.setAttribute('data-sender', 'others');
+                        msgElement.setAttribute('data-sender', 'others');
 
                     return msgElement;
-                })
+                });
                 console.log('here_ msgItems', msgElements);
             }, 10);
         });
