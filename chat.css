@@ -174,23 +174,23 @@ body::before {
 .message-item[data-sender="me"][data-msg-group="start"] .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"]:not([data-msg-group]) [data-theme][data-contain-file] + div > .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
 }
 
 .message-item[data-sender="me"][data-msg-group="end"] [data-theme][data-contain-file],
 .message-item[data-sender="me"][data-msg-group="child"] [data-theme][data-contain-file],
 .message-item[data-sender="me"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
 }
 
 .message-item[data-sender="me"][data-msg-group="end"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
 }
 
 .message-item[data-sender="me"][data-msg-group="end"] [data-theme][data-contain-file] + div > .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="child"] .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
 }
 
 .message-item[data-sender="me"].has-reaction:not(:has(.image-stack)) [data-theme][data-contain-file],
@@ -199,7 +199,7 @@ body::before {
 .message-item[data-sender="me"][data-msg-group].has-reaction .img-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) + .message-item .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
 }
 
 .message-item[data-sender="me"]:not([data-msg-group="end"]):has(+ .message-item.has-reaction) [data-theme][data-contain-file],
@@ -208,7 +208,7 @@ body::before {
 .message-item[data-sender="me"][data-msg-group="child"]:has(.message-time) [data-theme][data-contain-file],
 .message-item[data-sender="me"][data-msg-group="start"]:has(.message-time) .dm-grid-container .image-stack.img-single .dm-grid-item,
 .message-item[data-sender="me"][data-msg-group="child"]:has(.message-time):not(:has([data-theme][data-contain-file])) .dm-grid-container .image-stack.img-single .dm-grid-item {
-    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
 }
 
 .message-item .message-time,
