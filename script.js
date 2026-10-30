@@ -139,7 +139,7 @@ const appendScript = (id, src) => {
     const originalSend = XMLHttpRequest.prototype.send;
     // window.response = {};
     let cachedMask, activeChannelId, channelIdSet = new Set([]);
-    const apiVersion = 'v1', myId = localStorage.getItem('userId');
+    const apiVersion = 'v1', myId = sessionStorage.getItem('cid');
 
     function trackMaskedChannels(channels) {
         if (!channels || !channels.length || !Array.isArray(channels))
@@ -241,10 +241,12 @@ const appendScript = (id, src) => {
                         }
                     }
 
-                    if (msg.user_id === myId)
-                        msgElement.setAttribute('data-sender', 'me');
-                    else
-                        msgElement.setAttribute('data-sender', 'others');
+                    if (myId !== undefined) {
+                        if (msg.user_id === myId)
+                            msgElement.setAttribute('data-sender', 'me');
+                        else
+                            msgElement.setAttribute('data-sender', 'others');
+                    }
 
                     return msgElement;
                 });
@@ -280,7 +282,13 @@ const appendScript = (id, src) => {
             }
 
             const pathName = url.pathname;
-            if (pathName === `/${apiVersion}/chat/users/me/channels`)
+            if (
+                pathName === `/${apiVersion}/users/user-profile` &&
+                url.searchParams.get('user_id')
+            ) {
+                const chatId = response.data?.chat_id;
+                if (chatId) sessionStorage.setItem('cid', chatId);
+            } else if (pathName === `/${apiVersion}/chat/users/me/channels`)
                 trackMaskedChannels(response.data.responses);
             else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
                 activeChannelId = new URL(location.href).searchParams.get('channelId');
