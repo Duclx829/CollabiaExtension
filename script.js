@@ -191,13 +191,16 @@ const appendScript = (id, src) => {
                                 msgElement.setAttribute('data-msg-group', 'start');
                         } else if (msg.user_id === nextMsgUserId) {
                             if (!prevSiblingId || prevSiblingId !== msg.user_id)
-                            msgElement.setAttribute('data-msg-group', 'start');
+                                msgElement.setAttribute('data-msg-group', 'start');
                         }
                     } else if (prevSiblingId && prevSiblingId === msg.user_id) {
                         if (msgElement.previousSibling?.getAttribute('data-msg-group') === 'end') {
                             msgElement.previousSibling.setAttribute('data-msg-group', 'child');
                             msgElement.setAttribute('data-msg-group', 'end');
                         } else {
+                            if (!msgElement.previousSibling?.getAttribute('data-msg-group'))
+                                msgElement.previousSibling?.setAttribute('data-msg-group', 'start');
+
                             msgElement.setAttribute('data-msg-group', 'end');
                         }
                     }
