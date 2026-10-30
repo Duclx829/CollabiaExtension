@@ -181,10 +181,14 @@ const appendScript = (id, src) => {
 
                     msgElement.setAttribute('data-sender-id', msg.user_id);
                     const nextMsgUserId = arr[idx+1]?.user_id;
-                    const prevSiblingId = msgElement.previousSibling?.getAttribute('data-sender-id');
+                    const prevSibling = msgElement.previousSibling;
+                    const prevSiblingId = prevSibling?.getAttribute('data-sender-id');
                     if (msg.user_id === nextMsgUserId) {
                         // const nexSiblingId = msgElement.nextElementSibling?.getAttribute('data-sender-id');
                         if (prevSiblingId && prevSiblingId === msg.user_id) {
+                            if (prevSibling && !prevSibling.getAttribute('data-msg-group'))
+                                prevSibling.setAttribute('data-msg-group', 'start');
+
                             if (msg.user_id === nextMsgUserId)
                                 msgElement.setAttribute('data-msg-group', 'child');
                             else
@@ -194,11 +198,11 @@ const appendScript = (id, src) => {
                                 msgElement.setAttribute('data-msg-group', 'start');
                         }
                     } else if (prevSiblingId && prevSiblingId === msg.user_id) {
-                        if (msgElement.previousSibling?.getAttribute('data-msg-group') === 'end') {
+                        if (prevSibling?.getAttribute('data-msg-group') === 'end') {
                             msgElement.previousSibling.setAttribute('data-msg-group', 'child');
                             msgElement.setAttribute('data-msg-group', 'end');
                         } else {
-                            if (!msgElement.previousSibling?.getAttribute('data-msg-group'))
+                            if (!prevSibling?.getAttribute('data-msg-group'))
                                 msgElement.previousSibling?.setAttribute('data-msg-group', 'start');
 
                             msgElement.setAttribute('data-msg-group', 'end');
