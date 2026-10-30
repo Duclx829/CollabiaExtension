@@ -118,28 +118,22 @@ const appendScript = (id, src) => {
     }
 })();
 
-// (async () => {
-//     let indexedDBData;
-//     while(true) {
-//         try {
-//             console.log('getting localforage info...');
-//             indexedDBData = await getIndexedDBData();
-//             if (indexedDBData)
-//                 break;
-//         } catch (e) {
-//             await new Promise((resolve) => setTimeout(() => resolve(), 300));
-//         }
-//     }
-//     console.log(indexedDBData);
-// })();
-
-
 (() => {
+    const channelMsgCache = {};
     const originalOpen = XMLHttpRequest.prototype.open;
     const originalSend = XMLHttpRequest.prototype.send;
-    // window.response = {};
     let cachedMask, activeChannelId, channelIdSet = new Set([]);
     const apiVersion = 'v1', myId = sessionStorage.getItem('cid');
+
+    window.addEventListener("urlchange", () => {
+        requestAnimationFrame(() => {
+            const channelId = new URL(location.href).searchParams.get('channelId');
+            if (channelId === activeChannelId) return;
+
+            activeChannelId = channelId;
+            trackMessages(channelMsgCache[channelId]);
+        })
+    });
 
     function trackMaskedChannels(channels) {
         if (!channels || !channels.length || !Array.isArray(channels))
@@ -168,9 +162,36 @@ const appendScript = (id, src) => {
         });
     }
 
-    function trackMessages(messages) {
+    function trackMessages(messages, channelId, msgEvent) {
         if (!messages || !messages.length || !Array.isArray(messages))
             return;
+
+        if (channelId) {
+            if (!channelMsgCache[channelId])
+                channelMsgCache[channelId] = [];
+
+            if (msgEvent)
+                channelMsgCache[channelId].unshift(
+                    ...messages.map((msg) => ({
+                        id: msg.id,
+                        user_id: msg.user_id,
+                        metadata: {
+                            files: msg.metadata.files.map((file) => ({ mime_type: file.mime_type })),
+                        },
+                        })
+                    )
+                );
+            else
+                channelMsgCache[channelId].push(
+                    ...messages.map((msg) => ({
+                        id: msg.id,
+                        user_id: msg.user_id,
+                        metadata: {
+                            files: msg.metadata.files.map((file) => ({ mime_type: file.mime_type })),
+                        },
+                    }))
+                );
+        }
 
         const listMsgs = document.querySelector('#container-listMessage');
         requestAnimationFrame(() => {
@@ -294,7 +315,10 @@ const appendScript = (id, src) => {
                 activeChannelId = new URL(location.href).searchParams.get('channelId');
                 // todo: handle the case last posts cached.
                 if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
-                    trackMessages(response?.data?.posts);
+                    trackMessages(
+                        response?.data?.posts,
+                        !response.data.next_post_id ? activeChannelId : null,
+                    );
             }
 
             console.groupEnd();
@@ -339,13 +363,17 @@ const appendScript = (id, src) => {
                                         );
                                     }
 
-                                    trackMessages([{
-                                        id: post.id,
-                                        metadata: {
-                                            files: post?.props?.message_detail?.files ?? [],
-                                        },
-                                        user_id: post.user_id,
-                                    }]);
+                                    trackMessages(
+                                        [{
+                                            id: post.id,
+                                            user_id: post.user_id,
+                                            metadata: {
+                                                files: post?.props?.message_detail?.files ?? [],
+                                            },
+                                        }],
+                                        activeChannelId,
+                                        true,
+                                    );
                                 })
                             );
                         }
