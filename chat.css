@@ -101,12 +101,14 @@ body::before {
     outline: 3px solid var(--color-message-focused-border, rgba(255,165,0,100));
 }
 
-.message-item[data-sender="others"][data-msg-group="start"] .cqThemeDMItemLeft {
-    border-top-left-radius: 2px !important;
+.message-item[data-sender="others"][data-msg-group="start"] .cqThemeDMItemLeft,
+    .message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft {
+    border-top-left-radius: .35em !important;
 }
 
-.message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft {
-    border-bottom-left-radius: 2px !important;
+.message-item[data-sender="others"][data-msg-group="end"] .cqThemeDMItemLeft,
+.message-item[data-sender="others"][data-msg-group="child"] .cqThemeDMItemLeft {
+    border-bottom-left-radius: .35em !important;
 }
 
 .message-item .message-time,
