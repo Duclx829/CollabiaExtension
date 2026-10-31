@@ -211,6 +211,7 @@ body::before {
     border-top-right-radius: 20px !important;
 }
 
+
 .message-item .message-time,
 .message-item [class^="DMItemLeft_titleReplyMessage__"] {
     color: var(--color-sidebar-last-msg);
