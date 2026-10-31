@@ -339,6 +339,7 @@ body::before {
     /*padding-bottom: 0 !important;*/
     position: relative !important;
     padding-bottom: 3em !important;
+    max-height: 100% !important;
 }
 
 .body-drm div:has(div > .MuiCircularProgress-root):has(> .flex-column-reverse) {
@@ -970,7 +971,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 .chat-input-messages .chat-input-wrapper .form-input {
-    border: var(--color-reaction-toolbar-border);
+    /*border: var(--color-reaction-toolbar-border);*/
     background: rgb(255 255 255 / 20%);
     backdrop-filter: blur(7px) saturate(160%);
     -webkit-backdrop-filter: blur(7px) saturate(120%);
