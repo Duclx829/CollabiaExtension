@@ -336,8 +336,9 @@ body::before {
 
 .direct-message-main .body-drm {
     height: auto !important;
-    padding-bottom: 0 !important;
+    /*padding-bottom: 0 !important;*/
     position: relative !important;
+    padding-bottom: 3em !important;
 }
 
 .body-drm div:has(div > .MuiCircularProgress-root):has(> .flex-column-reverse) {
@@ -952,6 +953,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     right: 0;
     bottom: 0;
     z-index: 110;
+    background: transparent !important;
 }
 
 #container-write-message .dm-footer.chat-input-messages::before {
