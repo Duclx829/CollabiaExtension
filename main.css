@@ -45,10 +45,14 @@ html body {
     /*        radial-gradient(circle at 20% 20%, rgb(247 232 255 / 25%), transparent 40%),*/
     /*        radial-gradient(circle at 80% 80%, rgb(220 234 243 / 50%), transparent 45%),*/
     /*        linear-gradient(135deg, rgb(233 229 226 / 50%), rgb(216 213 209 / 50%)) !important;*/
+    /*background:*/
+    /*    radial-gradient(ellipse at 10% 10%, #ffffff 0%, transparent 45%),*/
+    /*    radial-gradient(ellipse at 90% 90%, #e1e9f6 0%, transparent 50%),*/
+    /*    linear-gradient(180deg, #f2ebdf, rgb(235, 226, 238));*/
     background:
-        radial-gradient(ellipse at 10% 10%, #ffffff 0%, transparent 45%),
-        radial-gradient(ellipse at 90% 90%, #e1e9f6 0%, transparent 50%),
-        linear-gradient(180deg, #f2ebdf, rgb(235, 226, 238));
+        radial-gradient(ellipse at 10% 10%, #fff 0, transparent 45%),
+        radial-gradient(ellipse at 90% 90%, #e0e5ed 0, transparent 50%),
+        linear-gradient(180deg, #fffdf9, #fcf7ff);
 }
 
 body #root {
