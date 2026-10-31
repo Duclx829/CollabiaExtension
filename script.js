@@ -167,19 +167,20 @@ const appendScript = (id, src) => {
         if (!messages || !messages.length || !Array.isArray(messages))
             return;
 
-        // console.log('msg_evt', {channelId, msgEvent, messages})
+        console.log('msg_evt', {channelId, msgEvent, messages});
         if (channelId) {
             if (!channelMsgCache[channelId])
                 channelMsgCache[channelId] = [];
 
             if (msgEvent)
                 channelMsgCache[channelId].unshift(
-                    ...messages.map((msg) => ({
-                        id: msg.id,
-                        user_id: msg.user_id,
-                        metadata: {
-                            files: msg.metadata.files.map((file) => ({ mime_type: file.mime_type })),
-                        },
+                    ...messages.map((msg) =>
+                        ({
+                            id: msg.id,
+                            user_id: msg.user_id,
+                            metadata: {
+                                files: msg.metadata.files.map((file) => ({ mime_type: file.mime_type })),
+                            },
                         })
                     )
                 );
@@ -193,6 +194,8 @@ const appendScript = (id, src) => {
                         },
                     }))
                 );
+
+            if (channelId !== activeChannelId) return;
         }
 
         const listMsgs = document.querySelector('#container-listMessage');
@@ -359,44 +362,52 @@ const appendScript = (id, src) => {
                     data = event.data;
                 }
 
-                if (
-                    (
-                        data?.event === "posted" ||
-                    data?.event === "post_edited"
-                    ) &&
-                    data?.broadcast?.channel_id === activeChannelId
-                ) {
+                if (data?.event === "posted" || data?.event === "post_edited") {
                     try {
                         const post = JSON.parse(data?.data?.post);
                         if (post?.id) {
-                            requestAnimationFrame(() =>
-                                requestAnimationFrame(() => {
-                                    if (post?.user_id === myId) {
-                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
-                                        // console.log('here_[message from me]',
-                                        //     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                        // );
-                                    } else {
-                                        document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
-                                        // console.log('here_[message from others]',
-                                        //     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                        // );
-                                    }
+                            if (data?.broadcast?.channel_id === activeChannelId) {
+                                requestAnimationFrame(() =>
+                                    requestAnimationFrame(() => {
+                                        if (post?.user_id === myId) {
+                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
+                                            console.log('here_[message from me]',
+                                                document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                            );
+                                        } else {
+                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
+                                            console.log('here_[message from others]',
+                                                document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                            );
+                                        }
 
-                                    // console.log('msg_evt: received socket event')
-                                    trackMessages(
-                                        [{
-                                            id: post.id,
-                                            user_id: post.user_id,
-                                            metadata: {
-                                                files: post?.props?.message_detail?.files ?? [],
-                                            },
-                                        }],
-                                        activeChannelId,
-                                        true,
-                                    );
-                                })
-                            );
+                                        // console.log('msg_evt: received socket event')
+                                        trackMessages(
+                                            [{
+                                                id: post.id,
+                                                user_id: post.user_id,
+                                                metadata: {
+                                                    files: post?.props?.message_detail?.files ?? [],
+                                                },
+                                            }],
+                                            activeChannelId,
+                                            true,
+                                        );
+                                    })
+                                );
+                            } else {
+                                trackMessages(
+                                    [{
+                                        id: post.id,
+                                        user_id: post.user_id,
+                                        metadata: {
+                                            files: post?.props?.message_detail?.files ?? [],
+                                        },
+                                    }],
+                                    data?.broadcast?.channel_id,
+                                    true,
+                                );
+                            }
                         }
 
                         // console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
@@ -415,3 +426,39 @@ const appendScript = (id, src) => {
     });
     console.log("here_WebSocket listener installed!");
 })();
+
+// (() => {
+//     const GIT_OWNER_NAME = 'Duclx829';
+//     const GIT_REPO_NAME = 'CollabiaExtension';
+//     const GIT_BRANCH_NAME = 'master';
+//     const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/";
+//     const RANDOM_HEX = new Date().getTime().toString(16);
+//     const commitSHA = sessionStorage.getItem('cdnsha');
+//     async function getLatestCommitHash(owner, repo, branch = "main") {
+//         const gitUrl = `https://api.github.com/repos/${owner}/${repo}`;
+//         const response = await fetch(`${gitUrl}/commits?sha=${encodeURIComponent(branch)}&per_page=1`);
+//         if (!response.ok)
+//             throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+//
+//         const commits = await response.json();
+//         if (!commits.length)
+//             throw new Error("No commits found");
+//
+//         return commits[0].sha;
+//     }
+//
+//     async function checkNewUpdates() {
+//         try {
+//             const commitHash = await getLatestCommitHash(GIT_OWNER_NAME, GIT_REPO_NAME, GIT_BRANCH_NAME);
+//             if (commitSHA && commitHash !== commitSHA) {
+//                 console.log('UPDATE_STATUS: NEW_UPDATE_AVAILABLE');
+//             } else {
+//                 console.log('UPDATE_STATUS: STAYED_UP_TO_DATE');
+//             }
+//         } catch (e) {
+//
+//         }
+//     }
+//
+//     const interval = setInterval(() => checkNewUpdates(), 60000);
+// })();
