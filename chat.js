@@ -617,18 +617,20 @@
         }, 500);
     }
 
-    let messageContainer;
+    let messageContainer, showSTOButton = false;
     const handleMsgContainerScroll = (e) => {
-        requestAnimationFrame(() => {
-            const scrollHeight = e.target.scrollHeight;
-            if (scrollHeight >= -200) {
-                const toBottomBtn = e.target?.children?.item(0)?.children?.item(1);
-                if (toBottomBtn && toBottomBtn.classList?.value === 'position-absolute shadow') {
-                    toBottomBtn.classList.remove('position-absolute');
-                    toBottomBtn.classList.add('position-sticky');
-                }
-            }
-        })
+        // requestAnimationFrame(() => {
+        //     const scrollHeight = e.target.scrollHeight;
+        //     if (scrollHeight >= -200 && !showSTOButton) {
+        //         const toBottomBtn = e.target?.children?.item(0)?.children?.item(1);
+        //         if (toBottomBtn && toBottomBtn.classList?.value === 'position-absolute shadow') {
+        //             showSTOButton = true;
+        //             toBottomBtn.setAttribute('data-stb-status', 'active');
+        //         }
+        //     } else {
+        //         showSTOButton = false;
+        //     }
+        // })
     }
 
     const cleanup = () => {
