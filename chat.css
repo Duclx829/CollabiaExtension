@@ -2,7 +2,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    opacity: 0.07;
+    opacity: 0.05;
     background-image: var(--app-bg-image);
     background-repeat: repeat;
 }
@@ -210,7 +210,6 @@ body::before {
 .message-item[data-sender="me"][data-msg-group="child"]:has(.message-time):not(:has([data-theme][data-contain-file])) .dm-grid-container .image-stack.img-single .dm-grid-item {
     border-top-right-radius: 20px !important;
 }
-
 
 .message-item .message-time,
 .message-item [class^="DMItemLeft_titleReplyMessage__"] {
