@@ -412,6 +412,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 .direct-message-main .cqThemeDMItemLeft[data-theme][data-contain-file],
 .direct-message-main [class*="DMItemRight_contentMessages__"][data-theme][data-contain-file] {
     color: #000 !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: 1px 2px 5px 1px rgb(0 0 0 / 5%) !important;
 }
 
 .direct-message-main .darkThemeDMItemLeft[data-theme] a:not(.mention-link) {
