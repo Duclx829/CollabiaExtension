@@ -1021,9 +1021,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 
 .chat-input-messages > .d-flex.w-100 > .btn {
     position: absolute;
-    bottom: 50%;
+    bottom: .5rem;
     right: .75rem;
-    transform: translateY(50%);
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     display: flex;
