@@ -959,7 +959,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     z-index: 110;
     background: transparent !important;
     border: none !important;
-    padding-right: 4.1rem;
+    padding-right: 4.1rem !important;
 }
 
 #container-write-message .dm-footer.chat-input-messages::before {
@@ -971,9 +971,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 #container-write-message .dm-footer.chat-input-messages > .d-flex.w-100 {
-    gap: .5rem;
+    gap: .5rem !important;
 }
 
+.chat-input-messages > .d-flex.w-100 > div:first-child,
 .chat-input-messages #chat-toolbar-section {
     border-radius: 20px;
     padding-left: .5rem;
@@ -982,6 +983,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     align-self: end;
 }
 
+.chat-input-messages > .d-flex.w-100 > div:first-child,
 .chat-input-messages #chat-toolbar-section,
 .chat-input-messages .chat-input-wrapper .form-input,
 .chat-input-messages > .d-flex.w-100 > .btn {
@@ -1004,6 +1006,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border-bottom: 1px solid #e5e3f5;
 }
 
+.chat-input-messages > .d-flex.w-100 > div:first-child::before,
 .chat-input-messages #chat-toolbar-section::before,
 .chat-input-messages .chat-input-wrapper .form-input::before,
 .chat-input-messages > .d-flex.w-100 > .btn::before {
