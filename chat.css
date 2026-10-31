@@ -979,15 +979,25 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     background: transparent !important;
     border: none !important;
     padding-right: 4.1rem !important;
+
+    --c-glass: #bbbbbc;
+    --c-light: #fff;
+    --c-dark: #6e6e7e;
+    --c-content: #224;
+    --c-action: #0052f5;
+    --c-bg: #E8E8E9;
+    --glass-reflex-dark: 1;
+    --glass-reflex-light: 1;
+    --saturation: 150%;
 }
 
-#container-write-message .dm-footer.chat-input-messages::before {
-    content: "";
-    position: absolute;
-    inset: -8px 0 0 0;
-    z-index: 0;
-    background: linear-gradient(0deg, rgb(193 202 238 / 40%), rgb(233 231 250 / 21%), transparent);
-}
+/*#container-write-message .dm-footer.chat-input-messages::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    inset: -8px 0 0 0;*/
+/*    z-index: 0;*/
+/*    background: linear-gradient(0deg, rgb(193 202 238 / 40%), rgb(233 231 250 / 21%), transparent);*/
+/*}*/
 
 #container-write-message .dm-footer.chat-input-messages > .d-flex.w-100 {
     gap: .5rem !important;
@@ -1015,14 +1025,30 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     /*    inset 0 1px 2px rgb(255 255 255),*/
     /*    inset 0 -1px 2px rgb(137 137 137 / 30%),*/
     /*    1px 1px 1px #fffefe;*/
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    border-right: 1px solid #e5e3f5;
-    border-bottom: 1px solid #e5e3f5;
+
+    /*background: rgba(255, 255, 255, 0.5);*/
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+    /*backdrop-filter: blur(12px);*/
+    /*-webkit-backdrop-filter: blur(12px);*/
+    /*border-top: 1px solid rgba(255, 255, 255, 0.3);*/
+    /*border-left: 1px solid rgba(255, 255, 255, 0.3);*/
+    /*border-right: 1px solid #e5e3f5;*/
+    /*border-bottom: 1px solid #e5e3f5;*/
+
+    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+        inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+        inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+        inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
 }
 
 .chat-input-messages > .d-flex.w-100 > div:first-child::before,
