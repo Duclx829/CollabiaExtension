@@ -631,19 +631,6 @@
         })
     }
 
-    if (document.body) {
-        document.body.addEventListener('click', onClick);
-        document.body.addEventListener('contextmenu', onContextMenu, { capture: true });
-        document.body.addEventListener('mousemove', onMouseMove);
-        document.body.addEventListener('mousedown', onMouseDown);
-        document.body.addEventListener('mouseup', onMouseUp);
-        document.body.addEventListener('wheel', onScroll);
-        document.body.addEventListener('keydown', onKeydown, true);
-        messageContainer = document.querySelector('#container-listMessage')
-        if (messageContainer)
-            messageContainer.addEventListener('scroll', handleMsgContainerScroll);
-    }
-
     const cleanup = () => {
         clearTimeout(mouseStopTimeout);
         clearTimeout(mouseHoverTimeout);
@@ -660,6 +647,20 @@
         document.body.removeEventListener('keydown', onKeydown, true);
         if (messageContainer) messageContainer.removeEventListener('scroll', handleMsgContainerScroll);
     }
+
+    if (document.body) {
+        document.body.addEventListener('click', onClick);
+        document.body.addEventListener('contextmenu', onContextMenu, { capture: true });
+        document.body.addEventListener('mousemove', onMouseMove);
+        document.body.addEventListener('mousedown', onMouseDown);
+        document.body.addEventListener('mouseup', onMouseUp);
+        document.body.addEventListener('wheel', onScroll);
+        document.body.addEventListener('keydown', onKeydown, true);
+        messageContainer = document.querySelector('#container-listMessage')
+        console.log('msg_container', messageContainer);
+        if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
+    }
+
 })();
 
 (async () => {
