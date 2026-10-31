@@ -659,10 +659,20 @@
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
         messageContainer = document.querySelector('#container-listMessage')
-        console.log('msg_container', messageContainer);
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
-    }
 
+        const chatPathName = new URL(location.href).pathname;
+        const onUrlChanges = () => {
+            const url = new URL(location.href);
+            if (url.pathname !== chatPathName) {
+                cleanup();
+                window.removeEventListener("urlchange", onUrlChanges);
+                console.log('REMOVED: chat script event');
+            }
+        }
+
+        window.addEventListener("urlchange", onUrlChanges);
+    }
 })();
 
 (async () => {
