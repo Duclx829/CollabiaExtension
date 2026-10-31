@@ -1074,6 +1074,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: skew(1deg, 1deg);
 }
 
 .chat-input-wrapper .form-input > div:has(+ .input-group) {

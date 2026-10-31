@@ -667,7 +667,6 @@
             if (url.pathname !== chatPathName) {
                 cleanup();
                 window.removeEventListener("urlchange", onUrlChanges);
-                console.log('REMOVED: chat script event');
             }
         }
 
@@ -689,6 +688,7 @@
     }
 
     try {
+        console.log('INDEXED_DB: ', indexedDBData);
         const theme = JSON.parse(indexedDBData?.ThemeColor) ?? {};
         const themeColor = theme.Color || 'cq_theme';
         if (themeColor === 'cq_theme') {
@@ -719,6 +719,4 @@
     } catch (e) {
         console.log(e);
     }
-
-    console.log('chat: ', indexedDBData);
 })();
