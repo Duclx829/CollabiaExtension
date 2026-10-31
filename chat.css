@@ -1102,6 +1102,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 !important;
     transform: skew(1deg, 1deg);
 }
 
