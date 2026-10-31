@@ -123,7 +123,8 @@ const appendScript = (id, src) => {
     const originalOpen = XMLHttpRequest.prototype.open;
     const originalSend = XMLHttpRequest.prototype.send;
     let cachedMask, activeChannelId, channelIdSet = new Set([]);
-    const apiVersion = 'v1', myId = sessionStorage.getItem('cid');
+    const apiVersion = 'v1';
+    let myId = localStorage.getItem('cid');
 
     window.addEventListener("urlchange", () => {
         requestAnimationFrame(() => {
@@ -166,6 +167,7 @@ const appendScript = (id, src) => {
         if (!messages || !messages.length || !Array.isArray(messages))
             return;
 
+        // console.log('msg_evt', {channelId, msgEvent, messages})
         if (channelId) {
             if (!channelMsgCache[channelId])
                 channelMsgCache[channelId] = [];
@@ -200,25 +202,43 @@ const appendScript = (id, src) => {
                     const msgElement = listMsgs.querySelector(`#${CSS.escape(String(msg.id))}.message-item`);
                     if (!msgElement) return;
 
+                    const usrId = msg.user_id;
                     msgElement.setAttribute('data-sender-id', msg.user_id);
-                    const nextMsgUserId = arr[idx+1]?.user_id;
                     const prevSibling = msgElement.previousSibling;
                     const prevSiblingId = prevSibling?.getAttribute('data-sender-id');
-                    if (msg.user_id === nextMsgUserId) {
-                        // const nexSiblingId = msgElement.nextElementSibling?.getAttribute('data-sender-id');
-                        if (prevSiblingId && prevSiblingId === msg.user_id) {
+
+                    if (msgEvent) {
+                        const nextSibling = msgElement.nextElementSibling;
+                        const nextSiblingId = nextSibling?.getAttribute('data-sender-id');
+                        if (usrId === nextSiblingId) {
+                            const nextSiblingGroupType = nextSibling.getAttribute('data-msg-group');
+                            // console.log('msg_evt', 'same user', nextSiblingGroupType);
+                            if (nextSiblingGroupType === 'start')
+                                nextSibling.setAttribute('data-msg-group', 'child');
+                            else if (!nextSiblingGroupType)
+                                nextSibling.setAttribute('data-msg-group', 'end');
+
+                            msgElement.setAttribute('data-msg-group', 'start');
+                        }
+
+                        return msgElement;
+                    }
+
+                    const nextMsgUserId = arr[idx+1]?.user_id;
+                    if (usrId === nextMsgUserId) {
+                        if (prevSiblingId && prevSiblingId === usrId) {
                             if (prevSibling && !prevSibling.getAttribute('data-msg-group'))
                                 prevSibling.setAttribute('data-msg-group', 'start');
 
-                            if (msg.user_id === nextMsgUserId)
+                            if (usrId === nextMsgUserId)
                                 msgElement.setAttribute('data-msg-group', 'child');
                             else
                                 msgElement.setAttribute('data-msg-group', 'start');
-                        } else if (msg.user_id === nextMsgUserId) {
-                            if (!prevSiblingId || prevSiblingId !== msg.user_id)
+                        } else if (usrId === nextMsgUserId) {
+                            if (!prevSiblingId || prevSiblingId !== usrId)
                                 msgElement.setAttribute('data-msg-group', 'start');
                         }
-                    } else if (prevSiblingId && prevSiblingId === msg.user_id) {
+                    } else if (prevSiblingId && prevSiblingId === usrId) {
                         if (prevSibling?.getAttribute('data-msg-group') === 'end') {
                             msgElement.previousSibling.setAttribute('data-msg-group', 'child');
                             msgElement.setAttribute('data-msg-group', 'end');
@@ -235,7 +255,7 @@ const appendScript = (id, src) => {
                         const images = mediaFiles.filter((file) => file.mime_type === 'image');
                         const files = mediaFiles.filter((file) => file.mime_type !== 'image');
                         const mediaContainer = msgElement.querySelector('.dm-grid-container');
-                        console.log('here_[media_container]', mediaContainer);
+                        // console.log('here_[media_container]', mediaContainer);
 
                         if (mediaContainer) {
                             if (images.length) {
@@ -263,7 +283,7 @@ const appendScript = (id, src) => {
                     }
 
                     if (myId !== undefined) {
-                        if (msg.user_id === myId)
+                        if (usrId === myId)
                             msgElement.setAttribute('data-sender', 'me');
                         else
                             msgElement.setAttribute('data-sender', 'others');
@@ -271,7 +291,7 @@ const appendScript = (id, src) => {
 
                     return msgElement;
                 });
-                console.log('here_ msgItems', msgElements);
+                // console.log('here_ msgItems', msgElements);
             }, 10);
         });
     }
@@ -308,7 +328,7 @@ const appendScript = (id, src) => {
                 url.searchParams.get('user_id')
             ) {
                 const chatId = response.data?.chat_id;
-                if (chatId) sessionStorage.setItem('cid', chatId);
+                if (chatId) localStorage.setItem('cid', myId = chatId);
             } else if (pathName === `/${apiVersion}/chat/users/me/channels`)
                 trackMaskedChannels(response.data.responses);
             else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
@@ -353,16 +373,17 @@ const appendScript = (id, src) => {
                                 requestAnimationFrame(() => {
                                     if (post?.user_id === myId) {
                                         document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'me');
-                                        console.log('here_[message from me]',
-                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                        );
+                                        // console.log('here_[message from me]',
+                                        //     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                        // );
                                     } else {
                                         document.querySelector(`#${CSS.escape(String(post.id))}.message-item`)?.setAttribute('data-sender', 'others');
-                                        console.log('here_[message from others]',
-                                            document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
-                                        );
+                                        // console.log('here_[message from others]',
+                                        //     document.querySelector(`#${CSS.escape(String(post.id))}.message-item`),
+                                        // );
                                     }
 
+                                    // console.log('msg_evt: received socket event')
                                     trackMessages(
                                         [{
                                             id: post.id,
@@ -378,10 +399,10 @@ const appendScript = (id, src) => {
                             );
                         }
 
-                        console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
-                            url: ws.url,
-                            data: data?.data,
-                        });
+                        // console.log("here_[WS][RECEIVED_NEW_MESSAGE]", {
+                        //     url: ws.url,
+                        //     data: data?.data,
+                        // });
                     } catch (e) {
                         console.log('here_[ERROR]: ', e)
                     }
