@@ -339,8 +339,10 @@ body::before {
     /*padding-bottom: 0 !important;*/
     position: relative !important;
     padding-bottom: 3em !important;
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
     max-height: 100% !important;
-    scrollbar-gutter: stable;
+    scrollbar-gutter: stable both-edges !important;
 }
 
 .body-drm div:has(div > .MuiCircularProgress-root):has(> .flex-column-reverse) {
