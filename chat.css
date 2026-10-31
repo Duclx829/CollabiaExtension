@@ -945,8 +945,46 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     z-index: 30 !important;
 }
 
-#container-write-message .cqThemeDMFooter.chat-input-messages {
+#container-write-message .dm-footer.chat-input-messages {
     max-height: unset !important;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+}
+
+#container-write-message .dm-footer.chat-input-messages::before {
+    content: "";
+    position: absolute;
+    inset: -8px 0 0 0;
+    z-index: 0;
+    background: linear-gradient(0deg, rgb(193 202 238 / 40%), rgb(233 231 250 / 21%), transparent);
+}
+
+#container-write-message .dm-footer.chat-input-messages > .d-flex.w-100 {
+    gap: .5rem;
+}
+
+.chat-input-messages .chat-input-wrapper .form-input {
+    border: var(--color-reaction-toolbar-border);
+    background: rgb(255 255 255 / 20%);
+    backdrop-filter: blur(7px) saturate(160%);
+    -webkit-backdrop-filter: blur(7px) saturate(120%);
+    box-shadow:
+        0 8px 24px rgb(0 0 0 / 15%),
+        inset 0 1px 2px rgb(255 255 255),
+        inset 0 -1px 2px rgb(137 137 137 / 30%),
+        1px 1px 1px #fffefe;
+}
+
+.chat-input-messages .chat-input-wrapper .form-input::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 17px;
+    pointer-events: none;
+    box-shadow: 0 0 24px 2px hsl(0deg 0% 100% / 68%), 2px 2px 5px 1px hsl(0deg 0% 0% / 10%);
 }
 
 .chat-input-wrapper .form-input > div:has(+ .input-group) {

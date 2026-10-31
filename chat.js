@@ -617,6 +617,20 @@
         }, 500);
     }
 
+    let messageContainer;
+    const handleMsgContainerScroll = (e) => {
+        requestAnimationFrame(() => {
+            const scrollHeight = e.target.scrollHeight;
+            if (scrollHeight >= -200) {
+                const toBottomBtn = e.target?.children?.item(0)?.children?.item(1);
+                if (toBottomBtn && toBottomBtn.classList?.value === 'position-absolute shadow') {
+                    toBottomBtn.classList.remove('position-absolute');
+                    toBottomBtn.classList.add('position-sticky');
+                }
+            }
+        })
+    }
+
     if (document.body) {
         document.body.addEventListener('click', onClick);
         document.body.addEventListener('contextmenu', onContextMenu, { capture: true });
@@ -625,7 +639,9 @@
         document.body.addEventListener('mouseup', onMouseUp);
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
-        // trackDomChanges();
+        messageContainer = document.querySelector('#container-listMessage')
+        if (messageContainer)
+            messageContainer.addEventListener('scroll', handleMsgContainerScroll);
     }
 
     const cleanup = () => {
@@ -642,7 +658,7 @@
         document.body.removeEventListener('mouseup', onMouseUp);
         document.body.removeEventListener('wheel', onScroll);
         document.body.removeEventListener('keydown', onKeydown, true);
-
+        if (messageContainer) messageContainer.removeEventListener('scroll', handleMsgContainerScroll);
     }
 })();
 
