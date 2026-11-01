@@ -51,8 +51,9 @@
 
     --reaction-toolbar-shadow: 0 6px 20px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.05);
 
-    --color-pin-message-bg: #202B38;
+    --color-pin-message-bg: #202b3866;
     --color-pin-message-color: #e4e6eb;
+    --color-pin-message-border: rgba(255, 255, 255, 0.08);
 
     --c-light: #4a4a4a;;
     --c-dark: #000000;
