@@ -347,7 +347,7 @@ body::before {
     --glass-reflex-light: 1;
     --saturation: 180%;
     max-width: unset !important;
-    width: clamp(300px, 35%, 35svw) !important;
+    width: clamp(300px, 30%, 35svw) !important;
     background:
         linear-gradient(135deg, color-mix(in srgb, #fff 14%, transparent) 0, transparent 45%, color-mix(in srgb, #000 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);

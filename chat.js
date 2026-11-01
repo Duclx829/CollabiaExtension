@@ -96,7 +96,8 @@
         clearTimeout(mouseHoverTimeout);
         requestAnimationFrame(() => {
             if (!sidebarContainer) {
-                sidebarContainer = document.querySelector('#side-bar-message');
+                sidebarContainer = document.querySelector('#side-bar-message .container-side-bar-search');
+                console.log('SIDEBAR: ', sidebarContainer.cloneNode(true));
                 if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
             }
         });
