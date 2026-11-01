@@ -670,7 +670,10 @@
         document.body.addEventListener('keydown', onKeydown, true);
         requestAnimationFrame(() => requestAnimationFrame(() => {
             sidebarContainer = document.querySelector('#side-bar-message');
-            if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+            if (sidebarContainer) {
+                console.log('SIDEBAR', sidebarContainer)
+                sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+            }
         }))
 
         messageContainer = document.querySelector('#container-listMessage')
