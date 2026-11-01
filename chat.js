@@ -650,12 +650,12 @@
 
         document.body.removeEventListener('click', onClick);
         document.body.removeEventListener('contextmenu', onContextMenu);
-        if (sidebarContainer) sidebarContainer.removeEventListener('contextmenu', onSidebarContextMenu);
         document.body.removeEventListener('mousemove', onMouseMove);
         document.body.removeEventListener('mousedown', onMouseDown);
         document.body.removeEventListener('mouseup', onMouseUp);
         document.body.removeEventListener('wheel', onScroll);
         document.body.removeEventListener('keydown', onKeydown, true);
+        if (sidebarContainer) sidebarContainer.removeEventListener('contextmenu', onSidebarContextMenu);
         if (messageContainer) messageContainer.removeEventListener('scroll', handleMsgContainerScroll);
     }
 
@@ -668,8 +668,9 @@
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
         sidebarContainer = document.querySelector('#side-bar-message');
-        console.log(sidebarContainer);
+        console.log(sidebarContainer.cloneNode(true));
         if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+
         messageContainer = document.querySelector('#container-listMessage')
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
 
