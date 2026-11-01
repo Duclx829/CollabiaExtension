@@ -57,7 +57,7 @@
 
     --c-light: rgba(255, 255, 255, 0.1);;
     --c-dark: #383838;
-    --c-glass: hsl(0deg 0% 100% / 15%);;
+    --c-glass: hsl(0deg 0% 100% / 15%);
     --c-glass-emoji-picker: var(--c-glass);
     --c-content: #224;
     --c-action: #0052f5;
