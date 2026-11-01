@@ -1,4 +1,5 @@
 body #root {
+    --rgb-color: transparent;
     background: var(--app-bg);
 }
 
