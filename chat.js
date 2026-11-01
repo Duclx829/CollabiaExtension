@@ -94,13 +94,12 @@
         resetMiddleClickLongPress();
         clearTimeout(mouseStopTimeout);
         clearTimeout(mouseHoverTimeout);
-        requestAnimationFrame(() => {
+        requestAnimationFrame(() => requestAnimationFrame(() => {
             if (!sidebarContainer) {
                 sidebarContainer = document.querySelector('#side-bar-message .container-side-bar-search');
-                console.log('SIDEBAR: ', sidebarContainer.cloneNode(true));
                 if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
             }
-        });
+        }));
         mouseStopTimeout = setTimeout(() => onMouseStop(evt), mouseStopThrottle);
         mouseHoverTimeout = setTimeout(() => onMouseHover(evt), mouseHoverThrottle);
     }
@@ -357,8 +356,9 @@
     }
 
     function onSidebarContextMenu(event) {
-        if (event.target.closest('[data-channel-id][data-channel-name]')) {
-            console.log('SIDEBAR', event.target.nextSibling);
+        const sideBarItem = event.target.closest('[data-channel-id][data-channel-name]');
+        if (sideBarItem) {
+            console.log('SIDEBAR', sideBarItem.nextSibling);
         }
     }
 
