@@ -1117,7 +1117,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
         0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
     opacity: 0;
     animation:
-        anim 300ms ease forwards,
+        anim 300ms cubic-bezier(0.48, 1.38, 0.64, 1) forwards,
         fadeIn 180ms ease forwards;
 }
 
