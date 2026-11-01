@@ -56,7 +56,7 @@
     --color-pin-message-border: rgba(255, 255, 255, 0.08);
 
     --c-light: #4a4a4a;;
-    --c-dark: #000000;
+    --c-dark: #383838;
     --c-glass: hsl(0deg 0% 100% / 15%);;
     --c-glass-emoji-picker: var(--c-glass);
     --c-content: #224;
