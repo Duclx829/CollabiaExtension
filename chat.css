@@ -337,13 +337,56 @@ body::before {
 }
 
 .direct-message-main > #direct-channel-info {
+    --c-glass: hsl(0deg 0% 100% / 15%);
+    --c-light: #fff;
+    --c-dark: #6e6e7e;
+    --c-content: #224;
+    --c-action: #0052f5;
+    --c-bg: #E8E8E9;
+    --glass-reflex-dark: 1.2;
+    --glass-reflex-light: 1;
+    --saturation: 180%;
     max-width: unset !important;
-    width: clamp(300px, 40%, 40svw) !important;
-    background-color: var(--color-sidebar-bg) !important;
+    width: clamp(300px, 35%, 35svw) !important;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, #fff 14%, transparent) 0, transparent 45%, color-mix(in srgb, #000 5%, transparent) 100%),
+        color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(2px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    border: none !important;
+    border-radius: 2rem;
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+        inset -2px -2px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+        inset -.3px -1px 4px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+        inset -1.5px 2.5px 0 -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 0 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+    overflow: hidden;
+    margin: .25rem;
+    max-height: calc(100% - .5rem);
+}
+
+.direct-message-main > #direct-channel-info > div:first-child {
+    overflow: hidden;
+    margin: .25rem;
+    max-height: calc(100% - .5rem - 2px);
+    border: 1px solid transparent;
+    border-radius: calc(2rem - .25rem);
+}
+
+.direct-message-main > #direct-channel-info > div:nth-child(n+2) {
+    display: none !important;
 }
 
 .direct-message-main > #direct-channel-info > div > .channel-info-group {
     padding-bottom: 0 !important;
+    overflow: auto;
+    max-height: 100%;
 }
 
 .direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CISettting_setting-card"],
