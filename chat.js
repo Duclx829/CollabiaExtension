@@ -20,6 +20,7 @@
     if (!longPressDuration) localStorage.setItem('longpress-duration', longPressDuration = 500);
 
     let cachedMask;
+    let sidebarContainer;
     try {
         cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || [])
     } catch (e) {
@@ -349,6 +350,12 @@
         onContextMenu(target, event);
     }
 
+    function onSidebarContextMenu(event) {
+        if (event.target.closest('[data-channel-id][data-channel-name]')) {
+            console.log('SIDEBAR', event.target.nextSibling);
+        }
+    }
+
     function resetMiddleClickLongPress() {
         clearTimeout(middleClickLongpressTimeout);
         middleClickLongpressTimeout = null;
@@ -643,6 +650,7 @@
 
         document.body.removeEventListener('click', onClick);
         document.body.removeEventListener('contextmenu', onContextMenu);
+        if (sidebarContainer) sidebarContainer.removeEventListener('contextmenu', onSidebarContextMenu);
         document.body.removeEventListener('mousemove', onMouseMove);
         document.body.removeEventListener('mousedown', onMouseDown);
         document.body.removeEventListener('mouseup', onMouseUp);
@@ -659,6 +667,8 @@
         document.body.addEventListener('mouseup', onMouseUp);
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
+        sidebarContainer = document.querySelector('#side-bar-message');
+        if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
         messageContainer = document.querySelector('#container-listMessage')
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
 
