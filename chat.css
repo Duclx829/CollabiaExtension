@@ -1113,8 +1113,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
         0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
     opacity: 0;
     animation:
-            anim 260ms ease forwards,
-            fadeIn 100ms ease forwards;
+        anim 260ms ease forwards,
+        fadeIn 100ms ease forwards !important;
 }
 
 .chat-input-messages > .d-flex.w-100 > .btn {
