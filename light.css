@@ -49,7 +49,7 @@
     /*--c-dark-dm-input: #303030;*/
 
     --c-glass: hsl(0deg 0% 100% / 15%);;
-    /*--c-glass: #bbbbbc;*/
+    --c-glass-side-bar: #bbbbbc;
     --c-glass-dm-input: #fefdff;
     --c-glass-emoji-picker: #fefdff;
     --c-glass-reaction-bar: #fefdff;

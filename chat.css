@@ -34,7 +34,7 @@ body #root::before {
     --saturation: 180%;
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0%, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
-        color-mix(in srgb, var(--c-glass) 12%, transparent);
+        color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent);
     backdrop-filter: blur(2px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     border: none !important;
