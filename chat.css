@@ -300,8 +300,8 @@ body::before {
     width: calc(100% - 1rem);
     border-radius: 1rem;
     background:
-        linear-gradient(175deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%,
-        color-mix(in srgb, black 5%, transparent) 100%),        color-mix(in srgb, var(--c-glass) 12%, transparent);
+        linear-gradient(175deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%, color-mix(in srgb, black 5%, transparent) 100%),
+        color-mix(in srgb, var(--c-glass) 12%, transparent);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow:
