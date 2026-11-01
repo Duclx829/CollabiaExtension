@@ -1,4 +1,4 @@
-body {
+html body {
     background: var(--app-bg);
 }
 
@@ -9,6 +9,11 @@ body::before {
     opacity: var(--bg-pattern-opacity);
     background-image: var(--app-bg-image);
     background-repeat: repeat;
+}
+
+.darkThemeChat.site,
+#content-write-message .darkThemeWriteMessage {
+    background: transparent !important;
 }
 
 .site #side-bar-message {
