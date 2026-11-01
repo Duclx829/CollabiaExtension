@@ -818,6 +818,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border-color: transparent !important;
 }
 
+#content-write-message #container-listMessage {
+    will-change: transform, scroll;
+}
+
 #container-listMessage .typing-wrapper {
     line-height: 1 !important;
     position: absolute !important;

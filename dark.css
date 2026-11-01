@@ -69,13 +69,13 @@
 
     /*--glass-reflex-light: 5;*/
 
-    --c-glass: #bbbbbc;
-    --c-light: #c1c1c1;
+    --c-glass: #b1b1b1;
+    --c-light: #575757;
     --c-dark: #000;
     --c-content: #e1e1e1;
     --c-action: #03d5ff;
     --c-bg: #1b1b1d;
     --glass-reflex-dark: 2;
-    --glass-reflex-light: 0.3;
+    --glass-reflex-light: 1.3;
     --saturation: 150%;
 }
