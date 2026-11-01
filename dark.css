@@ -1,6 +1,8 @@
 * {
     /*--app-bg: #18191a;*/
-    --app-bg: #222222;
+    /*--app-bg: #222222;*/
+    /*--app-bg: radial-gradient(ellipse at 10% 10%, rgba(160, 148, 130, 0.10) 0, transparent 45%), radial-gradient(ellipse at 90% 90%, rgba(115, 108, 99, 0.09) 0, transparent 50%), linear-gradient(180deg, #151514, #1a1917);*/
+    --app-bg: radial-gradient(ellipse at 10% 10%, rgba(155, 145, 130, 0.08) 0, transparent 48%), radial-gradient(ellipse at 90% 90%, rgba(105, 100, 90, 0.08) 0, transparent 50%), linear-gradient(180deg, #151412, #1b1a17);
     --bg-pattern-opacity: .18;
     /*--color-sidebar-bg: rgb(40 40 40);*/
     --color-sidebar-bg: #242526;

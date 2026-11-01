@@ -61,7 +61,7 @@ body #root::before {
 }
 
 .darkThemeSidebarHeaderSearch.input-group.input-group-search {
-    border-color: var(--color-reaction-toolbar-border);
+    border-color: var(--color-reaction-toolbar-border) !important;
 }
 
 #side-bar-message .container-side-bar-search {
