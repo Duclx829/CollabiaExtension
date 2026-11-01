@@ -392,7 +392,8 @@ body::before {
 .direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CISettting_setting-card"],
 .direct-message-main > #direct-channel-info > div > .channel-info-group [class*="CIMembers_member-card"],
 .direct-message-main > #direct-channel-info > div > .channel-info-group [class^="CIShared_shared-card"] {
-    background: var(--color-message-bg) !important;
+    /*background: var(--color-message-bg) !important;*/
+    background: hsl(0deg 0% 100% / 50%) !important;
     box-shadow: -1px -1px 2px rgba(0, 0, 0, 1.5%), 2px 4px 7px -2px rgba(0, 0, 0, 12%) !important;
 }
 
