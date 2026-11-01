@@ -55,11 +55,13 @@
     --color-pin-message-color: #e4e6eb;
     --color-pin-message-border: rgba(255, 255, 255, 0.08);
 
-    --c-light: #4a4a4a;;
+    --c-light: rgba(255, 255, 255, 0.1);;
     --c-dark: #383838;
     --c-glass: hsl(0deg 0% 100% / 15%);;
     --c-glass-emoji-picker: var(--c-glass);
     --c-content: #224;
     --c-action: #0052f5;
     --c-bg: #7d7d7d;
+
+    --glass-reflex-light: 5;
 }

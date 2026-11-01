@@ -30,7 +30,6 @@ body #root::before {
 
 .site #side-bar-message > div {
     --glass-reflex-dark: 1.2;
-    --glass-reflex-light: 1;
     --saturation: 180%;
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0%, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
@@ -295,7 +294,6 @@ body #root::before {
 
 #drm-header > div:first-child {
     --glass-reflex-dark: 1.2;
-    --glass-reflex-light: 1;
     --saturation: 180%;
 
     margin: .25rem .5rem 0 .5rem;
@@ -339,7 +337,6 @@ body #root::before {
 
 .direct-message-main > #direct-channel-info {
     --glass-reflex-dark: 1.2;
-    --glass-reflex-light: 1;
     --saturation: 180%;
     max-width: unset !important;
     width: clamp(300px, 30%, 35svw) !important;
@@ -1088,7 +1085,6 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     padding-right: 4.1rem !important;
 
     --glass-reflex-dark: 1;
-    --glass-reflex-light: 1;
     --saturation: 150%;
 }
 
@@ -1187,7 +1183,6 @@ body > div:not([role="tooltip"]):has(em-emoji-picker),
 .popover[role="tooltip"].popover-image-gif.show,
 .popover[role="tooltip"].show:has(em-emoji-picker) {
     --glass-reflex-dark: 1;
-    --glass-reflex-light: 1;
     --saturation: 1;
 
     border: none !important;
@@ -1383,13 +1378,9 @@ body > div:not([role="tooltip"]):has(em-emoji-picker),
 }
 
 body > .popover[class*="DMActionButton_popover"] {
-    /*background: var(--color-reaction-toolbar-bg) !important;*/
-    /*box-shadow: var(--reaction-toolbar-shadow) !important;*/
-    /*border: 1px solid var(--color-reaction-toolbar-border) !important;*/
     padding: 0 !important;
 
     --glass-reflex-dark: 1;
-    --glass-reflex-light: 1;
     --saturation: 3;
 
     border: none !important;
