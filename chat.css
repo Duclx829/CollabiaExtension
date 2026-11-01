@@ -20,16 +20,18 @@ body::before {
 }
 
 .site #side-bar-message > div {
-    --c-glass: #bbbbbc;
+    --c-glass: hsl(0deg 0% 100% / 15%);;
     --c-light: #fff;
     --c-dark: #6e6e7e;
     --c-content: #224;
     --c-action: #0052f5;
     --c-bg: #E8E8E9;
-    --glass-reflex-dark: 1;
+    --glass-reflex-dark: 1.2;
     --glass-reflex-light: 1;
-    --saturation: 150%;
-    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+    --saturation: 180%;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%, color-mix(in srgb, black 5%, transparent) 100%),
+        color-mix(in srgb, var(--c-glass) 12%, transparent);
     backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     border: none !important;
@@ -278,11 +280,11 @@ body::before {
     color: transparent;
 }
 
-.site .content-write-message:not(:empty) {
-    border-radius: .5rem !important;
-    border: 1px solid #0000000d !important;
-    /*box-shadow: 2px 5px #0000001c;*/
-}
+/*.site .content-write-message:not(:empty) {*/
+/*    border-radius: .5rem !important;*/
+/*    border: 1px solid #0000000d !important;*/
+/*    !*box-shadow: 2px 5px #0000001c;*!*/
+/*}*/
 
 #drm-header .cqThemeHeaderPinMessage,
 #drm-header .darkThemeHeaderPinMessage {
