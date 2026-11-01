@@ -668,6 +668,7 @@
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
         sidebarContainer = document.querySelector('#side-bar-message');
+        console.log(sidebarContainer);
         if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
         messageContainer = document.querySelector('#container-listMessage')
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
