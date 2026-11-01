@@ -1073,8 +1073,12 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 
 @keyframes anim {
     from {
-        border-top-left-radius: 15rem;
-        border-top-right-radius: 15rem;
+        border-top-left-radius: 40rem;
+        border-top-right-radius: 40rem;
+        scale: 0.5 .25;
+        translate: 40% 25%;
+        border-bottom-left-radius: 20rem;
+        border-bottom-right-radius: 20rem;
     }
     to {
         border-top-left-radius: 1rem;
@@ -1095,7 +1099,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     --saturation: 3;
 
     border: none !important;
-    border-radius: 1rem !important;
+    border-radius: 1rem;
     overflow: hidden;
     background-color: color-mix(in srgb, var(--c-glass) 12%, transparent) !important;
     backdrop-filter: blur(8px) url(#switcher) saturate(var(--saturation));
@@ -1113,8 +1117,8 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
         0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
     opacity: 0;
     animation:
-        anim 260ms ease forwards,
-        fadeIn 100ms ease forwards !important;
+        anim 300ms ease forwards,
+        fadeIn 180ms ease forwards;
 }
 
 .chat-input-messages > .d-flex.w-100 > .btn {
