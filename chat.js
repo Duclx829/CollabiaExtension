@@ -160,6 +160,7 @@
         const target = event.target;
         clearTimeout(mouseStopTimeout);
         resetMiddleClickLongPress();
+        console.log('[MOUSE_EVENT]: ContextMenu', event);
 
         const className = target.className?.toString() ?? '';
         if (className.startsWith('cqThemeDMItemLeft') && className.includes('DMItemLeft_contentMessageMaxWidth__')) {
@@ -264,7 +265,7 @@
     }
 
     const onMouseDown = (event) => {
-        console.log('[MOUSEDOWN]', event);
+        console.log('[MOUSE_EVENT]: MouseDown', event);
         // if  (event.button === 0) {
         //     if (event.shiftKey) return;
         //
