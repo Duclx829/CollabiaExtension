@@ -998,8 +998,9 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 #container-write-message .dm-footer.chat-input-messages::before {
     content: "";
     position: absolute;
-    inset: -12px 0 0 0;
+    inset: auto 0 0 0;
     z-index: 0;
+    height: 70px;
     /*background: linear-gradient(0deg, rgb(193 202 238 / 40%), rgb(233 231 250 / 21%), transparent);*/
     background: linear-gradient(0deg, rgb(158 162 176 / 70%), rgb(240 242 249 / 60%), transparent);
 }
