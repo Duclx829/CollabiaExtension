@@ -163,6 +163,7 @@
         resetMiddleClickLongPress();
         console.log('[MOUSE_EVENT]: ContextMenu', event);
 
+        // if (!sidebarContainer) sidebarContainer = document.querySelector('#side-bar-message');
         const className = target.className?.toString() ?? '';
         if (className.startsWith('cqThemeDMItemLeft') && className.includes('DMItemLeft_contentMessageMaxWidth__')) {
             event.preventDefault();
@@ -667,9 +668,10 @@
         document.body.addEventListener('mouseup', onMouseUp);
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
-        sidebarContainer = document.querySelector('#side-bar-message');
-        console.log(sidebarContainer.cloneNode(true));
-        if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            sidebarContainer = document.querySelector('#side-bar-message');
+            if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+        }))
 
         messageContainer = document.querySelector('#container-listMessage')
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
