@@ -1,8 +1,8 @@
-html body {
+body #root {
     background: var(--app-bg);
 }
 
-body::before {
+body #root::before {
     content: "";
     position: fixed;
     inset: 0;
