@@ -286,6 +286,37 @@ body::before {
 /*    !*box-shadow: 2px 5px #0000001c;*!*/
 /*}*/
 
+#drm-header > div:first-child {
+    --c-glass: hsl(0deg 0% 100% / 15%);;
+    --c-light: #fff;
+    --c-dark: #6e6e7e;
+    --c-content: #224;
+    --c-action: #0052f5;
+    --c-bg: #E8E8E9;
+    --glass-reflex-dark: 1.2;
+    --glass-reflex-light: 1;
+
+    margin: .25rem .5rem 0 .5rem;
+    width: calc(100% - 1rem);
+    border-radius: 1rem;
+    background:
+        linear-gradient(175deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%,
+        color-mix(in srgb, black 5%, transparent) 100%),        color-mix(in srgb, var(--c-glass) 12%, transparent);
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+        inset -2px -2px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+        inset -.3px -1px 4px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+        inset -1.5px 2.5px 0 -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 0 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+}
+
 #drm-header .cqThemeHeaderPinMessage,
 #drm-header .darkThemeHeaderPinMessage {
     border-radius: 1rem !important;
