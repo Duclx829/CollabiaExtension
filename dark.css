@@ -1,5 +1,7 @@
 * {
-    --app-bg: #18191a;
+    /*--app-bg: #18191a;*/
+    --app-bg: #222222;
+    --bg-pattern-opacity: .18;
     /*--color-sidebar-bg: rgb(40 40 40);*/
     --color-sidebar-bg: #242526;
     --color-sidebar-border: rgba(0, 0, 0, 0);
