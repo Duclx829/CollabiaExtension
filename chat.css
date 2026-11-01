@@ -1184,12 +1184,12 @@ body > div:not([role="tooltip"]):has(em-emoji-picker),
 .popover[role="tooltip"].show:has(em-emoji-picker) {
     --glass-reflex-dark: 1;
     --glass-reflex-light: 1;
-    --saturation: 3;
+    --saturation: 1;
 
     border: none !important;
     border-radius: 1rem;
     overflow: hidden;
-    background-color: color-mix(in srgb, var(--c-glass) 12%, transparent) !important;
+    background-color: color-mix(in srgb, var(--c-glass-emoji-picker) 12%, transparent) !important;
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     box-shadow:
