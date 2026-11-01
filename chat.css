@@ -407,7 +407,6 @@ body::before {
     border: none !important;
     margin-bottom: 0 !important;
     padding: .5rem !important;
-    background: var(--color-message-bg) !important;
 }
 
 .direct-message-main > #direct-channel-info .channel-info-group > .channel-info-group + div > div + div > div {
