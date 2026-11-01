@@ -20,17 +20,11 @@ body::before {
 }
 
 .site #side-bar-message > div {
-    --c-glass: hsl(0deg 0% 100% / 15%);;
-    --c-light: #fff;
-    --c-dark: #6e6e7e;
-    --c-content: #224;
-    --c-action: #0052f5;
-    --c-bg: #E8E8E9;
     --glass-reflex-dark: 1.2;
     --glass-reflex-light: 1;
     --saturation: 180%;
     background:
-        linear-gradient(135deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%, color-mix(in srgb, black 5%, transparent) 100%),
+        linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0%, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);
     backdrop-filter: blur(2px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
@@ -287,12 +281,6 @@ body::before {
 /*}*/
 
 #drm-header > div:first-child {
-    --c-glass: hsl(0deg 0% 100% / 15%);;
-    --c-light: #fff;
-    --c-dark: #6e6e7e;
-    --c-content: #224;
-    --c-action: #0052f5;
-    --c-bg: #E8E8E9;
     --glass-reflex-dark: 1.2;
     --glass-reflex-light: 1;
     --saturation: 180%;
@@ -301,7 +289,7 @@ body::before {
     width: calc(100% - 1rem);
     border-radius: 1rem;
     background:
-        linear-gradient(175deg, color-mix(in srgb, white 14%, transparent) 0%, transparent 45%, color-mix(in srgb, black 5%, transparent) 100%),
+        linear-gradient(175deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0%, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
@@ -337,19 +325,13 @@ body::before {
 }
 
 .direct-message-main > #direct-channel-info {
-    --c-glass: hsl(0deg 0% 100% / 15%);
-    --c-light: #fff;
-    --c-dark: #6e6e7e;
-    --c-content: #224;
-    --c-action: #0052f5;
-    --c-bg: #E8E8E9;
     --glass-reflex-dark: 1.2;
     --glass-reflex-light: 1;
     --saturation: 180%;
     max-width: unset !important;
     width: clamp(300px, 30%, 35svw) !important;
     background:
-        linear-gradient(135deg, color-mix(in srgb, #fff 14%, transparent) 0, transparent 45%, color-mix(in srgb, #000 5%, transparent) 100%),
+        linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);
     backdrop-filter: blur(2px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
@@ -1092,12 +1074,6 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border: none !important;
     padding-right: 4.1rem !important;
 
-    --c-glass: #bbbbbc;
-    --c-light: #fff;
-    --c-dark: #6e6e7e;
-    --c-content: #224;
-    --c-action: #0052f5;
-    --c-bg: #E8E8E9;
     --glass-reflex-dark: 1;
     --glass-reflex-light: 1;
     --saturation: 150%;
@@ -1197,12 +1173,6 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 body > div:not([role="tooltip"]):has(em-emoji-picker),
 .popover[role="tooltip"].popover-image-gif.show,
 .popover[role="tooltip"].show:has(em-emoji-picker) {
-    --c-glass: #fefdff;
-    --c-light: #ffffff;
-    --c-dark: #303030;
-    --c-content: #444059;
-    --c-action: #0052f5;
-    --c-bg: #ffffff;
     --glass-reflex-dark: 1;
     --glass-reflex-light: 1;
     --saturation: 3;
@@ -1405,12 +1375,6 @@ body > .popover[class*="DMActionButton_popover"] {
     /*border: 1px solid var(--color-reaction-toolbar-border) !important;*/
     padding: 0 !important;
 
-    --c-glass: #fefdff;
-    --c-light: #ffffff;
-    --c-dark: #303030;
-    --c-content: #444059;
-    --c-action: #0052f5;
-    --c-bg: #ffffff;
     --glass-reflex-dark: 1;
     --glass-reflex-light: 1;
     --saturation: 3;

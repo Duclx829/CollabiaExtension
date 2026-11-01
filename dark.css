@@ -51,4 +51,11 @@
 
     --color-pin-message-bg: #202B38;
     --color-pin-message-color: #e4e6eb;
+
+    --c-light: #4a4a4a;;
+    --c-dark: #000000;
+    --c-glass: hsl(0deg 0% 100% / 15%);;
+    --c-content: #224;
+    --c-action: #0052f5;
+    --c-bg: #7d7d7d;
 }
