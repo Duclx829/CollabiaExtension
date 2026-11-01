@@ -332,9 +332,10 @@ const appendScript = (id, src) => {
             ) {
                 const chatId = response.data?.chat_id;
                 if (chatId) localStorage.setItem('cid', myId = chatId);
-            } else if (pathName === `/${apiVersion}/chat/users/me/channels`)
+            } else if (pathName === `/${apiVersion}/chat/users/me/channels`) {
                 trackMaskedChannels(response.data.responses);
-            else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
+                window.dispatchEvent(new Event("list_channel_response"));
+            } else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
                 activeChannelId = new URL(location.href).searchParams.get('channelId');
                 // todo: handle the case last posts cached.
                 if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
@@ -426,39 +427,3 @@ const appendScript = (id, src) => {
     });
     console.log("here_WebSocket listener installed!");
 })();
-
-// (() => {
-//     const GIT_OWNER_NAME = 'Duclx829';
-//     const GIT_REPO_NAME = 'CollabiaExtension';
-//     const GIT_BRANCH_NAME = 'master';
-//     const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/";
-//     const RANDOM_HEX = new Date().getTime().toString(16);
-//     const commitSHA = sessionStorage.getItem('cdnsha');
-//     async function getLatestCommitHash(owner, repo, branch = "main") {
-//         const gitUrl = `https://api.github.com/repos/${owner}/${repo}`;
-//         const response = await fetch(`${gitUrl}/commits?sha=${encodeURIComponent(branch)}&per_page=1`);
-//         if (!response.ok)
-//             throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
-//
-//         const commits = await response.json();
-//         if (!commits.length)
-//             throw new Error("No commits found");
-//
-//         return commits[0].sha;
-//     }
-//
-//     async function checkNewUpdates() {
-//         try {
-//             const commitHash = await getLatestCommitHash(GIT_OWNER_NAME, GIT_REPO_NAME, GIT_BRANCH_NAME);
-//             if (commitSHA && commitHash !== commitSHA) {
-//                 console.log('UPDATE_STATUS: NEW_UPDATE_AVAILABLE');
-//             } else {
-//                 console.log('UPDATE_STATUS: STAYED_UP_TO_DATE');
-//             }
-//         } catch (e) {
-//
-//         }
-//     }
-//
-//     const interval = setInterval(() => checkNewUpdates(), 60000);
-// })();

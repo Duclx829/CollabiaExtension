@@ -94,12 +94,6 @@
         resetMiddleClickLongPress();
         clearTimeout(mouseStopTimeout);
         clearTimeout(mouseHoverTimeout);
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-            if (!sidebarContainer) {
-                sidebarContainer = document.querySelector('#side-bar-message .container-side-bar-search');
-                if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
-            }
-        }));
         mouseStopTimeout = setTimeout(() => onMouseStop(evt), mouseStopThrottle);
         mouseHoverTimeout = setTimeout(() => onMouseHover(evt), mouseHoverThrottle);
     }
@@ -356,10 +350,26 @@
     }
 
     function onSidebarContextMenu(event) {
-        const sideBarItem = event.target.closest('[data-channel-id][data-channel-name]');
-        if (sideBarItem) {
-            console.log('SIDEBAR', sideBarItem.nextSibling);
-        }
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            const sideBarItem = event.target.closest('[data-channel-id][data-channel-name]');
+            if (sideBarItem) {
+                const contextMenu = sideBarItem.nextSibling;
+                console.log('CONTEXT', {
+                    contextMenu: contextMenu.cloneNode(true),
+                    top: event.clientY,
+                    left: event.clientX + contextMenu.getBoundingClientRect().width,
+                });
+                // setTimeout(() => {
+                //     Object.assign(
+                //         contextMenu.style,
+                //         {
+                //             top: `${event.clientY - contextMenu.getBoundingClientRect().height}px`,
+                //             left: `${event.clientX - contextMenu.getBoundingClientRect().width}px`,
+                //         }
+                //     )
+                // }, 300)
+            }
+        }))
     }
 
     function resetMiddleClickLongPress() {
@@ -673,6 +683,19 @@
         document.body.addEventListener('mouseup', onMouseUp);
         document.body.addEventListener('wheel', onScroll);
         document.body.addEventListener('keydown', onKeydown, true);
+
+
+        window.addEventListener("list_channel_response", () => {
+            console.log('list channel response');
+            if (sidebarContainer) return;
+
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                if (sidebarContainer) return;
+
+                sidebarContainer = document.querySelector('#side-bar-message .container-side-bar-search');
+                if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+            }));
+        });
 
         messageContainer = document.querySelector('#container-listMessage')
         if (messageContainer) messageContainer.addEventListener('scroll', handleMsgContainerScroll);
