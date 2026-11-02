@@ -209,6 +209,7 @@ body #root {
     border: 1px solid transparent !important;
     border-radius: 50%;
     height: 39px;
+    z-index: 10;
 }
 
 @keyframes search-anim-open {
@@ -257,6 +258,7 @@ body #root {
     min-width: 40px;
     width: auto;
     padding-left: min(40px, 50%) !important;
+    will-change: width;
 }
 
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control::placeholder {
