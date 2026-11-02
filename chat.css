@@ -75,6 +75,10 @@ body #root::before {
     margin-right: -.875rem !important;
 }
 
+#side-bar-message .container-side-bar-search > div > div:first-child {
+    will-change: transform, opacity, scroll-position;
+}
+
 .cqThemeSideBarItem .contact-name,
 .cqThemeSideBarItem .contact-namelh-1 {
     font-weight: 500 !important;
