@@ -1698,6 +1698,9 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
 
 body .MuiDialog-root.MuiModal-root .MuiPaper-root {
     --saturation: 150%;
+    --glass-reflex-light: 1;
+    --glass-reflex-dark: var(--modal-glass-reflex-dark);
+    --c-glass: var(--modal-c-glass);
 
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 16%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 2%, transparent) 100%),
