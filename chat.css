@@ -499,10 +499,11 @@ body #root::before {
 }
 
 body.anti-spy .message-item .cqThemeDMItemLeft > div,
+body.anti-spy .message-item .darkThemeDMItemLeft > div,
 body.anti-spy .message-item .seen-chat .avatar-seen,
 body.anti-spy .message-item [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) > span:nth-child(1),
 body.anti-spy .message-item [class^="DMItemLeft_titleReplyMessage__"] > div:nth-child(2),
-body.anti-spy .message-item :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply),
+body.anti-spy .message-item :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply, .darkThemeDMItemRightReply),
 body.anti-spy .message-item [class^="DMItemRight_contentMessages__"] > div
 {
     transition: filter 120ms ease;
