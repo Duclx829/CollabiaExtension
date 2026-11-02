@@ -510,10 +510,11 @@ body.anti-spy .message-item [class^="DMItemRight_contentMessages__"] > div
 }
 
 body.anti-spy .message-item:not(:hover) .cqThemeDMItemLeft > div,
+body.anti-spy .message-item:not(:hover) .darkThemeDMItemLeft > div,
 body.anti-spy .message-item:not(:hover) .seen-chat .avatar-seen,
 body.anti-spy .message-item:not(:hover) [class^="DMItemLeft_chatList__"] > div:nth-child(2) > div:nth-child(1) > span:nth-child(1),
 body.anti-spy .message-item:not(:hover) [class^="DMItemLeft_titleReplyMessage__"] > div:nth-child(2),
-body.anti-spy .message-item:not(:hover) :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply),
+body.anti-spy .message-item:not(:hover) :is(.chat-image-resource-contain, .chat-image-resource-cover, .cqThemeDMItemRightReply, .cqThemeDMItemRightReply),
 body.anti-spy .message-item:not(:hover) [class^="DMItemRight_contentMessages__"] > div,
 body.anti-spy .message-item:not(:hover) [class^="DMItemRight_titleReplyMessage__"] > div:nth-child(2),
 body.anti-spy .typing-wrapper > .view-typing
