@@ -187,6 +187,11 @@ body #root {
     display: none;
 }
 
+.navbar-user .cqThemeNavbarAvatarDropdown .cqThemeNavbarAvatarDropdownItem,
+.navbar-user .darkThemeNavbarAvatarDropdown .darkThemeNavbarAvatarDropdownItem {
+    background: transparent !important;
+}
+
 .navbar-user .cqThemeNavbarAvatarDropdown > div,
 .navbar-user .darkThemeNavbarAvatarDropdown > div {
     border: 1px solid transparent;
@@ -216,7 +221,7 @@ body #root {
     min-height: 76px !important;
 }
 
-.darkThemeNewFeed > .MuiBox-root .btn[data-bs-toggle] {
+.darkThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"] {
     position: absolute;
     top: 50px;
     left: 12px;
