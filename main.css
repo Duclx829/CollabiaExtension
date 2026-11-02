@@ -65,6 +65,8 @@ body #root {
     background: rgb(221 221 221);
 }
 
+.navbar-user .cqThemeNavbarAvatarDropdown,
+.navbar-user .darkThemeNavbarAvatarDropdown,
 .navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.cqThemeNewFeed,
 .navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.darkThemeNewFeed {
     --glass-reflex-dark: 1.2;
@@ -88,6 +90,16 @@ body #root {
         inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+    color: var(--color-message-text) !important;
+}
+
+.navbar-user .cqThemeNavbarAvatarDropdown,
+.navbar-user .darkThemeNavbarAvatarDropdown {
+    transform: translateY(-1rem);
+}
+
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.cqThemeNewFeed,
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.darkThemeNewFeed {
     padding: 13px !important;
     padding-bottom: 17px !important;
     width: 500px !important;
@@ -127,6 +139,30 @@ body #root {
 #container-notification .cqThemeNotiItemRead:has(.alert-request-dr),
 #container-notification .darkThemeNotiItemRead:has(.alert-request-dr) {
     color: var(--color-sidebar-last-msg-unread) !important;
+}
+
+.navbar-user .cqThemeNavbarAvatarDropdown > :first-child,
+.navbar-user .darkThemeNavbarAvatarDropdown > :first-child {
+    display: none;
+}
+
+.navbar-user .cqThemeNavbarAvatarDropdown > div,
+.navbar-user .darkThemeNavbarAvatarDropdown > div {
+    border: 1px solid transparent;
+}
+
+.navbar-user .cqThemeNavbarAvatarDropdown > div:hover,
+.navbar-user .darkThemeNavbarAvatarDropdown > div:hover {
+    background: var(--ci-card-bg);
+    border: var(--ci-card-border);
+}
+
+.navbar-user .cqThemeNavbarAvatarDropdown > :last-child,
+.navbar-user .darkThemeNavbarAvatarDropdown > :last-child {
+    border-bottom-left-radius: inherit !important;
+    border-bottom-right-radius: inherit !important;
+    background: var(--ci-card-bg) !important;
+    pointer-events: none !important;
 }
 
 .profile-navbar .navbar-search {
