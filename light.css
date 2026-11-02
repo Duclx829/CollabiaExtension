@@ -74,4 +74,7 @@
     --modal-glass-reflex-dark: 3.2;
     --modal-c-light: hsl(0deg 0% 100% / 45%);
     --modal-c-glass: #ffffff;
+
+    --ctxmenu-bg: #e7e7e7f2;
+    --ctxmenu-item-bg-hover: #fdf8f280;
 }
