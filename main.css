@@ -253,7 +253,7 @@ body #root {
 .cqThemeNewFeed > .MuiBox-root #contacts-searchbox,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox {
     display: grid;
-    grid-template-columns: auto 1fr 0fr;
+    grid-template-columns: 0fr 1fr 0fr;
     animation: search-anim-close 200ms ease forwards;
 }
 
