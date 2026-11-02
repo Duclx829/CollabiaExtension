@@ -182,7 +182,7 @@ body #root::before {
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent) !important;
-    background-color: #42403bf2 !important;
+    background-color: var(--ctxmenu-bg) !important;
     backdrop-filter: blur(16px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(16px) saturate(var(--saturation));
     border: none !important;
