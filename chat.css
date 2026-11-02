@@ -958,9 +958,18 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     border: 1px solid #73737354 !important;
     background: #f7de98 !important;
     color: #000 !important;
-    border-radius: 20px 20px 2px 2px !important;
     margin-bottom: -20px;
     padding-bottom: 20px;
+}
+
+.message-item[data-sender="others"] .messages-container .replied,
+.message-item[data-sender="others"] .messages-reply .replied {
+    border-radius: 20px 20px 20px 2px !important;
+}
+
+.message-item[data-sender="me"] .messages-container .replied,
+.message-item[data-sender="me"] .messages-reply .replied {
+    border-radius: 20px 20px 2px 20px !important;
 }
 
 .messages-reply:has(.chat-image-resource-contain) .replied,
