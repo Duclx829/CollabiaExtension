@@ -93,6 +93,17 @@ body #root {
     color: var(--color-message-text) !important;
 }
 
+.navbar-user .cqThemeNavbarAvatarDropdown:has(.cqThemeNavbarAvatarDropdownItem:hover),
+.navbar-user .darkThemeNavbarAvatarDropdown:has(.darkThemeNavbarAvatarDropdownItem:hover),
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.cqThemeNewFeed:has(.cqThemeNotiItemRead:hover),
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.darkThemeNewFeed:has(.darkThemeNotiItemRead:hover) {
+    --glass-reflex-light: 2;
+}
+
+.navbar-user .MuiBox-root {
+    box-shadow: none !important;
+}
+
 .navbar-user .cqThemeNavbarAvatarDropdown,
 .navbar-user .darkThemeNavbarAvatarDropdown {
     transform: translateY(-1rem);
@@ -103,6 +114,7 @@ body #root {
     padding: 13px !important;
     padding-bottom: 17px !important;
     width: 500px !important;
+    transform: translateY(.5rem);
 }
 
 .MuiBox-root.darkThemeNewFeed .btn path {
@@ -153,7 +165,7 @@ body #root {
 
 .navbar-user .cqThemeNavbarAvatarDropdown > div:hover,
 .navbar-user .darkThemeNavbarAvatarDropdown > div:hover {
-    background: var(--ci-card-bg);
+    background: var(--ci-card-bg) !important;
     border: var(--ci-card-border);
 }
 
