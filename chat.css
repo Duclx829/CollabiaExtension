@@ -1003,6 +1003,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 [class^="DMItemLeft_messagesContainer"] .cqThemeDMItemLeft::before,
+[class^="DMItemLeft_messagesContainer"] .darkThemeDMItemLeft::before,
 [class^="DMItemLeft_messagesContainer"] div:has(> .dm-grid-container)::before,
 [class^="DMItemRight_contentMessages_"]::before,
 [class^="DMItemRight_chatList"] div:has(> .dm-grid-container)::before {
@@ -1017,6 +1018,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
 }
 
 [class^="DMItemLeft_messagesContainer"] .cqThemeDMItemLeft::before,
+[class^="DMItemLeft_messagesContainer"] .darkThemeDMItemLeft::before,
 [class^="DMItemLeft_messagesContainer"] div:has(> .dm-grid-container)::before {
     inset: 0 calc(var(--layer-width) * -1 + 1px) 0 calc(100% - 1px);
 }
