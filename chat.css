@@ -168,6 +168,17 @@ body #root::before {
     background: transparent !important;
 }
 
+.cqThemeSideBarItem[data-channel-id] + :not(.cqThemeSideBarItem):not(.cqThemeSideBarItemFocus),
+.cqThemeSideBarItemFocus[data-channel-id] + :not(.cqThemeSideBarItem):not(.cqThemeSideBarItemFocus),
+.darkThemeSideBarItem[data-channel-id] + :not(.darkThemeSideBarItem):not(.darkThemeSideBarItemFocus),
+.darkThemeSideBarItemFocus[data-channel-id] + :not(.darkThemeSideBarItem):not(.darkThemeSideBarItemFocus) {
+    bottom: auto !important;
+    top: var(--ctxmenu-p-top) !important;
+    left: var(--ctxmenu-p-left) !important;
+    transform: translate(-100%, var(--ctxmenu-transform-y)) !important;
+    width: 160px;
+}
+
 .message-item .cqThemeBorderFocus,
 .message-item .darkThemeBorderFocus {
     border: none !important;

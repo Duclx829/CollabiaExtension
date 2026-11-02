@@ -20,7 +20,7 @@
     if (!longPressDuration) localStorage.setItem('longpress-duration', longPressDuration = 500);
 
     let cachedMask;
-    let sidebarContainer;
+    let sidebarContainer, sidebarScroller;
     try {
         cachedMask = new Set(JSON.parse(sessionStorage.getItem('masked')) || [])
     } catch (e) {
@@ -350,26 +350,18 @@
     }
 
     function onSidebarContextMenu(event) {
-        requestAnimationFrame(() => requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
             const sideBarItem = event.target.closest('[data-channel-id][data-channel-name]');
-            if (sideBarItem) {
-                const contextMenu = sideBarItem.nextSibling;
-                console.log('CONTEXT', {
-                    contextMenu: contextMenu.cloneNode(true),
-                    top: event.clientY,
-                    left: event.clientX + contextMenu.getBoundingClientRect().width,
-                });
-                // setTimeout(() => {
-                //     Object.assign(
-                //         contextMenu.style,
-                //         {
-                //             top: `${event.clientY - contextMenu.getBoundingClientRect().height}px`,
-                //             left: `${event.clientX - contextMenu.getBoundingClientRect().width}px`,
-                //         }
-                //     )
-                // }, 300)
-            }
-        }))
+            if (!sideBarItem || !sidebarScroller)
+                return;
+
+            const rect = sidebarScroller.getBoundingClientRect();
+            const clientX = event.clientX - rect.left;
+            const clientY = event.clientY - rect.top + sidebarScroller.scrollTop;
+            sidebarContainer.style.setProperty('--ctxmenu-p-left', `${Math.max(clientX, 180)}px`);
+            sidebarContainer.style.setProperty('--ctxmenu-p-top', `${clientY}px`);
+            sidebarContainer.style.setProperty('--ctxmenu-transform-y', `${clientY + 180 >= window.screen.availHeight ? -100 : 0}%`);
+        })
     }
 
     function resetMiddleClickLongPress() {
@@ -693,7 +685,10 @@
                 if (sidebarContainer) return;
 
                 sidebarContainer = document.querySelector('#side-bar-message .container-side-bar-search');
-                if (sidebarContainer) sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+                if (sidebarContainer) {
+                    sidebarScroller = sidebarContainer.children.item(0).children.item(0);
+                    sidebarContainer.addEventListener('contextmenu', onSidebarContextMenu);
+                }
             }));
         });
 
