@@ -108,11 +108,13 @@ body #root {
 
 #container-notification .cqThemeNotiItemRead,
 #container-notification .darkThemeNotiItemRead {
+    font-size: 14px;
     min-height: 4.875rem !important;
     background: transparent !important;
     color: var(--color-sidebar-last-msg) !important;
     transition: background 120ms linear, color 120ms linear;
     border: 1px solid transparent !important;
+    align-items: center;
 }
 
 #container-notification .cqThemeNotiItemRead:hover,
@@ -122,8 +124,8 @@ body #root {
     color: var(--color-sidebar-last-msg-unread) !important;
 }
 
-#container-notification .cqThemeNotiItemRead[class*="Noti_unread_"],
-#container-notification .darkThemeNotiItemRead[class*="Noti_unread_"] {
+#container-notification .cqThemeNotiItemRead:has(.alert-request-dr),
+#container-notification .darkThemeNotiItemRead:has(.alert-request-dr) {
     color: var(--color-sidebar-last-msg-unread) !important;
 }
 
