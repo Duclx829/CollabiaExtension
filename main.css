@@ -130,8 +130,6 @@ body #root {
     padding-bottom: 17px !important;
     width: 500px !important;
     transform: translateY(.5rem);
-    opacity: 0;
-    visibility: hidden;
     animation: navbar-dropdown-anim 180ms cubic-bezier(0.46, 1.26, 0.64, 1) forwards;
 }
 
@@ -152,6 +150,8 @@ body #root {
 .MuiBox-root #container-notification {
     background-color: transparent !important;
     color: var(--color-message-text) !important;
+    opacity: 0;
+    visibility: hidden;
     animation: noti-container-anim 120ms 180ms ease forwards;
 }
 
