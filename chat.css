@@ -1120,10 +1120,11 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     padding: .25rem .5rem 1.5rem .5rem;
     position: absolute;
     top: -3.5rem;
-    right: 3rem;
+    right: 4.1rem;
     left: 9.5rem;
-    min-width: unset;
-    width: 82.25%;
+    min-width: fit-content;
+    max-width: unset;
+    width: auto;
 }
 
 /*#container-write-message .dm-footer.chat-input-messages::before {*/
