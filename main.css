@@ -107,6 +107,7 @@ body #root {
     color: var(--color-message-text) !important;
     animation: anim1 220ms cubic-bezier(0.48, 1.38, 0.64, 1) forwards;
     transform-origin: top right;
+    will-change: transform, scale, opacity;
 }
 
 .navbar-user .cqThemeNavbarAvatarDropdown:has(.cqThemeNavbarAvatarDropdownItem:hover),
