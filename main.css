@@ -182,3 +182,44 @@ body #root {
     transform: translateX(-1rem) !important;
     gap: 0 !important;
 }
+
+.darkThemeNewFeed > .MuiBox-root {
+    min-height: 76px !important;
+}
+
+.darkThemeNewFeed > .MuiBox-root .btn[data-bs-toggle] {
+    position: absolute;
+    top: 50px;
+    left: 12px;
+    border: 1px solid var(--color-reaction-toolbar-border);
+    border-radius: 50%;
+    height: 39px;
+}
+
+@keyframes search-anim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text {
+    visibility: hidden;
+    pointer-events: none !important;
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control {
+}
+
+.darkThemeNewFeed > .MuiBox-root + div .MuiButtonBase-root {
+    position: absolute;
+    top: 12px;
+    right: 5px;
+}
