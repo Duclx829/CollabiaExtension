@@ -221,7 +221,7 @@ body #root {
     min-height: 76px !important;
 }
 
-.cqThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"]
+.cqThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"],
 .darkThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"] {
     position: absolute;
     top: 50px;
