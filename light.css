@@ -66,6 +66,7 @@
     --c-bg-reaction-bar: #ffffff;
 
     --glass-reflex-light: 5;
+    --glass-reflex-dark: 1.2;
 
     --ci-card-bg: hsl(0deg 0% 100% / 40%);
     --ci-card-border: 1px solid #ffffffbf;

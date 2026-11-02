@@ -1701,7 +1701,7 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root {
 
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 16%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 2%, transparent) 100%),
-        color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent);
+        color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent) !important;
     background-color: color-mix(in srgb, var(--c-glass) 5%, transparent) !important;
     backdrop-filter: blur(8px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
