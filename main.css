@@ -221,6 +221,7 @@ body #root {
     min-height: 76px !important;
 }
 
+.cqThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"]
 .darkThemeNewFeed > .MuiBox-root .btn[data-bs-toggle][data-bs-target="#contacts-searchbox"] {
     position: absolute;
     top: 50px;
@@ -249,17 +250,20 @@ body #root {
     }
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox {
     display: grid;
     grid-template-columns: auto 1fr 0fr;
     animation: search-anim-close 200ms ease forwards;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox.show,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show {
     animation: search-anim-open 200ms ease forwards;
 }
 
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text {
     visibility: hidden;
     pointer-events: none !important;
@@ -268,6 +272,7 @@ body #root {
     padding: 0 !important;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control {
     background: #00000000 !important;
     border: 1px solid var(--color-reaction-toolbar-border) !important;
@@ -279,26 +284,31 @@ body #root {
     will-change: width;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control {
     color: transparent !important;
     transition: color 200ms 50ms ease;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control::placeholder,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control::placeholder {
     opacity: 0;
     transition: opacity 120ms linear;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control {
     color: var(--color-message-text) !important;
     transition: color 180ms ease;
 }
 
+.cqThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control::placeholder,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control::placeholder {
     opacity: 1;
     transition: opacity 120ms 50ms ease;
 }
 
+.cqThemeNewFeed > .MuiBox-root + div .MuiButtonBase-root,
 .darkThemeNewFeed > .MuiBox-root + div .MuiButtonBase-root {
     position: absolute;
     top: 12px;
