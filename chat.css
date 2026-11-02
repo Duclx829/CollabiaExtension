@@ -874,6 +874,7 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     position: sticky !important;
     opacity: 0;
     animation: fade-n-zoom-in 160ms ease forwards;
+    min-width: 2rem !important;
     width: fit-content !important;
 }
 
