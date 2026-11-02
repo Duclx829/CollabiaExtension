@@ -32,6 +32,8 @@ body #root::before {
     background: transparent !important;
 }
 
+#side-bar-message .darkThemeSidebarHeaderSearch .input-group-search path,
+.darkThemeDMMainHeader .group-button-chat path,
 .darkThemeNavbarSearch.input-group path {
     stroke: transparent;
 }
