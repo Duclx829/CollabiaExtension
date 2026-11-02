@@ -734,7 +734,7 @@
             if (alreadyLoaded)
                 return;
 
-            appendStyleSheet(`light_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/light${MINIFIED ? '.min' : ''}.css`);
+            appendStyleSheet(`light_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/light${MINIFIED ? '.min' : ''}.css?v=${SHA_SHORTEN}`);
             return;
         }
 
@@ -747,7 +747,7 @@
             if (alreadyLoaded)
                 return;
 
-            appendStyleSheet(`dark_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/dark${MINIFIED ? '.min' : ''}.css`);
+            appendStyleSheet(`dark_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/dark${MINIFIED ? '.min' : ''}.css?v=${SHA_SHORTEN}`);
             return;
         }
     } catch (e) {

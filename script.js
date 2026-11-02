@@ -1,5 +1,6 @@
 const RANDOM_HEX = new Date().getTime().toString(16);
 const CDNSHA = sessionStorage.getItem('cdnsha') || '@HEAD';
+const SHA_SHORTEN = CDNSHA?.slice(0, 16) || new Date().getTime().toString(16);
 const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/Duclx829/CollabiaExtension";
 const CONFIG_URL = `${CDN_BASE_URL}@${CDNSHA}/config.json`;
 const MINIFIED = true;
@@ -16,7 +17,7 @@ const appendStyleSheet = (id, href) => {
         const link =
             Object.assign(
                 document.createElement("link"),
-                {href, rel: 'stylesheet', id},
+                {href: `${href}?v=${SHA_SHORTEN}`, rel: 'stylesheet', id},
             );
 
         (document.head || document.documentElement).append(link);
@@ -33,7 +34,7 @@ const appendScript = (id, src) => {
         const script =
             Object.assign(
                 document.createElement("script"),
-                {src, type: 'text/javascript', id},
+                {src: `${src}?v=${SHA_SHORTEN}`, type: 'text/javascript', id},
             );
         (document.body || document.documentElement).append(script);
     } catch (e) {
