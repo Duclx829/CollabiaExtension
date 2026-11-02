@@ -253,7 +253,6 @@ body #root {
     background: #00000000 !important;
     border: 1px solid var(--color-reaction-toolbar-border) !important;
     border-radius: 2rem !important;
-    color: transparent !important;
     height: 40px !important;
     min-width: 40px;
     width: auto;
@@ -261,13 +260,24 @@ body #root {
     will-change: width;
 }
 
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control {
+    color: transparent !important;
+    transition: color 200ms 50ms ease;
+}
+
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control::placeholder {
     opacity: 0;
-    transition: opacity 50ms 120ms linear;
+    transition: opacity 120ms linear;
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control {
+    color: var(--color-message-text) !important;
+    transition: color 180ms ease;
 }
 
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control::placeholder {
     opacity: 1;
+    transition: opacity 120ms 50ms ease;
 }
 
 .darkThemeNewFeed > .MuiBox-root + div .MuiButtonBase-root {
