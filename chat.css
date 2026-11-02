@@ -32,7 +32,7 @@ body #root::before {
     background: transparent !important;
 }
 
-#side-bar-message .darkThemeSidebarHeaderSearch.input-group-search input-group-text path,
+#side-bar-message .darkThemeSidebarHeaderSearch.input-group-search .input-group-text path,
 .darkThemeDMMainHeader .group-button-chat path,
 .darkThemeNavbarSearch.input-group path {
     stroke: transparent;
