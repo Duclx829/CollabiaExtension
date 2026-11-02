@@ -72,6 +72,6 @@
     --ci-card-border: 1px solid #ffffffbf;
 
     --modal-glass-reflex-dark: 3.2;
-    --modal-c-light: rgb(255 255 255 / 45%);
+    --modal-c-light: hsl(0deg 0% 100% / 45%);
     --modal-c-glass: #ffffff;
 }

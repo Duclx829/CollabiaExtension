@@ -1200,6 +1200,10 @@ body.anti-spy .message-item:not(:hover) .MuiAvatar-img {
     stroke: var(--color-sidebar-last-msg);
 }
 
+.cqThemeDMFooter #chat-toolbar-section .btn:not(:hover) path {
+    stroke: #00000040;
+}
+
 .chat-input-messages #chat-toolbar-section > .d-flex {
     align-items: center;
 }
@@ -1701,12 +1705,13 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root {
     --glass-reflex-light: 1;
     --glass-reflex-dark: var(--modal-glass-reflex-dark);
     --c-glass: var(--modal-c-glass);
+    --c-light: var(--modal-c-light);
 
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 16%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 2%, transparent) 100%),
         color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent) !important;
     background-color: color-mix(in srgb, var(--c-glass) 5%, transparent) !important;
-    backdrop-filter: blur(8px) saturate(var(--saturation));
+    backdrop-filter: blur(18px) saturate(var(--saturation));
     -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
     border: none !important;
     border-radius: 2rem;
@@ -1721,4 +1726,14 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root {
         inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent) !important;
+}
+
+.MuiPaper-root [class^="DialogShowReadStatus_wrap__"] > div:first-child {
+    border: none !important;
+}
+
+.MuiPaper-root .hover-text-underline,
+.MuiPaper-root [class^="DialogShowReadStatus_custom-link_"] {
+    color: #fafafa !important;
+    font-weight: 600 !important;
 }

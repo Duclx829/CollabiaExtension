@@ -262,7 +262,6 @@ body #root {
     animation: search-anim-open 200ms ease forwards;
 }
 
-
 .cqThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text,
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text {
     visibility: hidden;
