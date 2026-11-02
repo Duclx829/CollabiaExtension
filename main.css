@@ -211,26 +211,60 @@ body #root {
     height: 39px;
 }
 
-@keyframes search-anim {
+@keyframes search-anim-open {
     from {
-        opacity: 0;
+        grid-template-columns: 0fr 0fr 1fr;
     }
     to {
-        opacity: 1;
+        grid-template-columns: 0fr 1fr 0fr;
+    }
+}
+
+@keyframes search-anim-close {
+    from {
+        grid-template-columns: 0fr 1fr 0fr;
+    }
+    to {
+        grid-template-columns: 0fr 0fr 1fr;
     }
 }
 
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr 0fr;
+    animation: search-anim-close 200ms ease forwards;
 }
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show {
+    animation: search-anim-open 200ms ease forwards;
+}
+
 
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox > .input-group-text {
     visibility: hidden;
     pointer-events: none !important;
+    width: 0 !important;
+    max-width: 0 !important;
 }
 
 .darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control {
+    background: #00000000 !important;
+    border: 1px solid var(--color-reaction-toolbar-border) !important;
+    border-radius: 2rem !important;
+    color: transparent !important;
+    height: 40px !important;
+    min-width: 40px;
+    width: auto;
+    padding-left: min(40px, 50%) !important;
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox input.form-control::placeholder {
+    opacity: 0;
+    transition: opacity 50ms 120ms linear;
+}
+
+.darkThemeNewFeed > .MuiBox-root #contacts-searchbox.show input.form-control::placeholder {
+    opacity: 1;
 }
 
 .darkThemeNewFeed > .MuiBox-root + div .MuiButtonBase-root {
