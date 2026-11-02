@@ -65,15 +65,66 @@ body #root {
     background: rgb(221 221 221);
 }
 
-.navbar-user .MuiBox-root.cqThemeNewFeed:not(#container-notification) {
-    box-shadow: -1px -1px 3px rgba(0, 0, 0, 5%), 3px 6px 12px rgba(0, 0, 0, 17%) !important;
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.cqThemeNewFeed,
+.navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.darkThemeNewFeed {
+    --glass-reflex-dark: 1.2;
+    --saturation: 180%;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
+        color-mix(in srgb, var(--c-glass-side-bar) 12%, transparent);
+    background-color: transparent !important;
+    backdrop-filter: blur(8px) saturate(var(--saturation));
+    -webkit-backdrop-filter: blur(8px) saturate(var(--saturation));
+    border: none !important;
+    border-radius: 2rem;
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+        inset 1.8px 3px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+        inset -2px -2px 0 -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+        inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+        inset -.3px -1px 4px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+        inset -1.5px 2.5px 0 -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 0 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+        inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+        0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
     padding: 13px !important;
     padding-bottom: 17px !important;
     width: 500px !important;
 }
 
-#container-notification .cqThemeNotiItemRead {
+.MuiBox-root.darkThemeNewFeed .btn path {
+    stroke: transparent !important;
+}
+
+.MuiBox-root #container-notification {
+    background-color: transparent !important;
+    color: var(--color-message-text) !important;
+}
+
+#container-notification div:has(>.darkThemeNotiItemRead) {
+    padding: 0 !important;
+}
+
+#container-notification .cqThemeNotiItemRead,
+#container-notification .darkThemeNotiItemRead {
     min-height: 4.875rem !important;
+    background: transparent !important;
+    color: var(--color-sidebar-last-msg) !important;
+    transition: background 120ms linear, color 120ms linear;
+    border: 1px solid transparent !important;
+}
+
+#container-notification .cqThemeNotiItemRead:hover,
+#container-notification .darkThemeNotiItemRead:hover {
+    border: var(--ci-card-border) !important;
+    background: var(--ci-card-bg) !important;
+    color: var(--color-sidebar-last-msg-unread) !important;
+}
+
+#container-notification .cqThemeNotiItemRead[class*="Noti_unread_"],
+#container-notification .darkThemeNotiItemRead[class*="Noti_unread_"] {
+    color: var(--color-sidebar-last-msg-unread) !important;
 }
 
 .profile-navbar .navbar-search {

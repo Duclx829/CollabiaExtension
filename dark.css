@@ -81,4 +81,7 @@
     --glass-reflex-dark: 2;
     --glass-reflex-light: 1.3;
     --saturation: 150%;
+
+    --ci-card-bg: hsl(0deg 0% 100% / 7%);
+    --ci-card-border: 1px solid #ffffff0f;
 }
