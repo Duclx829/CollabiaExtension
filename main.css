@@ -65,6 +65,20 @@ body #root {
     background: rgb(221 221 221);
 }
 
+.navbar-user {
+    @keyframes anim1 {
+        from {
+            scale: .5 .35;
+            opacity: .5;
+            border-radius: 10rem 2rem 10rem 12rem;
+            overflow: hidden;
+        }
+        99% {
+            overflow: hidden;
+        }
+    }
+}
+
 .navbar-user .cqThemeNavbarAvatarDropdown,
 .navbar-user .darkThemeNavbarAvatarDropdown,
 .navbar-user .wrap-notification-button > .MuiBox-root > .MuiBox-root.cqThemeNewFeed,
@@ -89,8 +103,10 @@ body #root {
         inset 0 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
         inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0 1px 5px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
-        0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+        0 6px 16px 0 color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent) !important;
     color: var(--color-message-text) !important;
+    animation: anim1 220ms cubic-bezier(0.48, 1.38, 0.64, 1) forwards;
+    transform-origin: top right;
 }
 
 .navbar-user .cqThemeNavbarAvatarDropdown:has(.cqThemeNavbarAvatarDropdownItem:hover),
