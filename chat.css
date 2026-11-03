@@ -1745,3 +1745,7 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen
     background: var(--glass-item-hover-bg) !important;
     color: var(--color-message-text) !important;
 }
+
+.chat-input-messages + div > .darkThemeMentionItemSelect > img {
+    outline: 2px solid orange;
+}
