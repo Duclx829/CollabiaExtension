@@ -1364,10 +1364,12 @@ body > div:not([role="tooltip"]):has(em-emoji-picker),
 .chat-input-wrapper .form-input > div:has(+ .input-group) {
     position: sticky !important;
     top: 0 !important;
-    border: 1px solid #f1f1f1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--color-dmi-file-container-border);
     border-radius: calc(20px - .25rem);
-    box-shadow: -1px -1px 1px #ffffff, 1px 2px 3px #b6b6b6;
-    background: inherit !important;
+    box-shadow: 0 4px 30px var(--color-dmi-file-container-shadow);
+    background: var(--color-dmi-file-container-bg) !important;
     margin-right: .12rem;
     margin-left: .25rem;
 }
@@ -1740,7 +1742,7 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
     justify-content: center;
 }
 
-body .MuiDialog-root.MuiModal-root .MuiPaper-root {
+body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen) {
     --saturation: 150%;
     --glass-reflex-light: 1;
     --glass-reflex-dark: var(--modal-glass-reflex-dark);

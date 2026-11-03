@@ -45,6 +45,11 @@
     --color-pin-message-color: #333;
     --color-pin-message-border: rgba(255, 255, 255, 0.3);
 
+
+    --color-dmi-file-container-bg: rgba(255, 255, 255, 0.2);
+    --color-dmi-file-container-border: rgba(255, 255, 255, 0.3);
+    --color-dmi-file-container-shadow: rgba(0, 0, 0, 0.1);
+
     --c-light: #fff;
     --c-dark: #6e6e7e;
     /*--c-dark-dm-input: #303030;*/

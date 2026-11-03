@@ -60,6 +60,10 @@
     --color-pin-message-color: #e4e6eb;
     --color-pin-message-border: rgba(255, 255, 255, 0.08);
 
+    --color-dmi-file-container-bg: rgba(76, 76, 68, 0.2);
+    --color-dmi-file-container-border: rgba(255, 255, 255, 0.2);
+    --color-dmi-file-container-shadow: rgba(0, 0, 0, 0.35);
+
     /*--c-light: rgba(255, 255, 255, 0.1);*/
     /*--c-dark: #383838;*/
     /*--c-glass: hsl(0deg 0% 100% / 15%);*/

@@ -326,6 +326,8 @@ const appendScript = (id, src) => {
                 console.log("Response:", response);
             }
 
+            if (!response === undefined) return;
+
             const pathName = url.pathname;
             if (
                 pathName === `/${apiVersion}/users/user-profile` &&
