@@ -1750,3 +1750,13 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen
 .darkThemeMentionItemSelect > img {
     outline: 2px solid orange;
 }
+
+body .cqThemeNavbarAvatarDropdown {
+/*body .darkThemeNavbarAvatarDropdown {*/
+    background: rgb(255 255 255 / 35%) !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgb(255 255 255 / 35%);
+}
