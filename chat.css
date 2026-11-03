@@ -1740,7 +1740,7 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen
 .chat-input-messages + div > .cqThemeMentionItemSelect,
 .chat-input-messages + div > .cqThemeMentionItemSelect:hover,
 .chat-input-messages + div > .darkThemeMentionItem:hover,
-.chat-input-messages + div > .darkThemeMentionItemSelec:
+.chat-input-messages + div > .darkThemeMentionItemSelect,
 .chat-input-messages + div > .darkThemeMentionItemSelect:hover {
     background: var(--glass-item-hover-bg) !important;
     color: var(--color-message-text) !important;
