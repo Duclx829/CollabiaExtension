@@ -309,8 +309,8 @@ const appendScript = (id, src) => {
         this.addEventListener("load", function () {
             const { method, url: urlStr } = this._interceptInfo || {};
             const url = new URL(urlStr);
-            console.group(`here_[API] ${method}: ${urlStr}`, this.status);
             const contentType = this.getResponseHeader("content-type") || "";
+            console.group(`here_[API] ${method}: ${urlStr}`, this.status, contentType);
             let response;
             if (contentType.includes("application/json")) {
                 try {
@@ -322,7 +322,7 @@ const appendScript = (id, src) => {
                     console.log("Response text:", response);
                 }
             } else {
-                response = this.responseText;
+                try { response = this.responseText; } catch (e) { }
                 console.log("Response:", response);
             }
 
