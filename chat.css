@@ -1746,6 +1746,7 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen
     color: var(--color-message-text) !important;
 }
 
-.chat-input-messages + div > .darkThemeMentionItemSelect > img {
+.cqThemeMentionItemSelect > img,
+.darkThemeMentionItemSelect > img {
     outline: 2px solid orange;
 }
