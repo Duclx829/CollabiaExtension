@@ -1683,6 +1683,7 @@ body > .popover[class*="DMActionButton_popover"] > ul.nav .nav-item:not(:last-ch
     justify-content: center;
 }
 
+.chat-input-messages + [class^="DMFooter_listMention__"],
 body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen) {
     --saturation: 150%;
     --glass-reflex-light: 1;
@@ -1719,4 +1720,26 @@ body .MuiDialog-root.MuiModal-root .MuiPaper-root:not(.MuiDialog-paperFullScreen
 .MuiPaper-root [class^="DialogShowReadStatus_custom-link_"] {
     color: #fafafa !important;
     font-weight: 600 !important;
+}
+
+.chat-input-messages + [class^="DMFooter_listMention__"] {
+    border-radius: 1.5rem !important;
+}
+
+.chat-input-messages + div > .cqThemeMentionItem,
+.chat-input-messages + div > .cqThemeMentionItemSelect,
+.chat-input-messages + div > .darkThemeMentionItem,
+.chat-input-messages + div > .darkThemeMentionItemSelect {
+    align-items: center;
+    background: transparent !important;
+    font-weight: 500 !important;
+    color: var(--color-sidebar-last-msg-unread) !important;
+}
+
+.chat-input-messages + div > .cqThemeMentionItem:hover,
+.chat-input-messages + div > .cqThemeMentionItemSelect:hover,
+.chat-input-messages + div > .darkThemeMentionItem:hover,
+.chat-input-messages + div > .darkThemeMentionItemSelect:hover {
+    background: var(--glass-item-hover-bg) !important;
+    color: var(--color-message-text) !important;
 }

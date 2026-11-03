@@ -152,7 +152,7 @@ body #root {
     color: var(--color-message-text) !important;
     opacity: 0;
     visibility: hidden;
-    animation: noti-container-anim 120ms 180ms ease forwards;
+    animation: noti-container-anim 120ms 190ms ease forwards;
 }
 
 #container-notification div:has(>.darkThemeNotiItemRead) {
