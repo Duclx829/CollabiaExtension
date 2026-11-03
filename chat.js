@@ -747,7 +747,7 @@
             if (alreadyLoaded)
                 return;
 
-            appendStyleSheet(`dark_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/dark${MINIFIED ? '.min' : ''}.css?v=${SHA_SHORTEN}`);
+            appendStyleSheet(`dark_theme_variable`, `${CDN_BASE_URL}@${CDNSHA}/dark${MINIFIED ? '.min' : ''}.css`);
             return;
         }
     } catch (e) {
