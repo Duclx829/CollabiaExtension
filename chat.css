@@ -1787,7 +1787,7 @@ body > .popover[role="tooltip"] {
     --saturation: 1;
 
     overflow: hidden;
-    max-width: 100svw !important;
+    max-width: fit-content !important;
     border: none !important;
     border-radius: 1rem !important;
     background: color-mix(in srgb, var(--c-glass-emoji-picker) 12%, transparent) !important;
