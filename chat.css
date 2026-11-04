@@ -1786,7 +1786,6 @@ body > .popover[role="tooltip"] {
     --glass-reflex-dark: 1;
     --saturation: 1;
 
-    overflow: hidden;
     max-width: fit-content !important;
     border: none !important;
     border-radius: 1rem !important;
@@ -1805,5 +1804,5 @@ body > .popover[role="tooltip"] {
         0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
         0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
     will-change: transform;
-    animation: fade-n-zoom-in 200ms ease forwards;
+    /*animation: fade-n-zoom-in 200ms ease forwards;*/
 }
