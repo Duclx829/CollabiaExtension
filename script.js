@@ -346,6 +346,8 @@ const appendScript = (id, src) => {
                         response?.data?.posts,
                         !response.data.next_post_id ? activeChannelId : null,
                     );
+            } else if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/members`) {
+                window.dispatchEvent(new Event("channel_members_loaded"))
             }
 
             console.groupEnd();

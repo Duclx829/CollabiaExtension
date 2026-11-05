@@ -727,7 +727,11 @@
             }
         }
 
-        requestAnimationFrame(() => requestAnimationFrame(onUrlChanges));
+        const { abort, signal } = new AbortController();
+        window.addEventListener("channel_members_loaded", () => {
+            onUrlChanges();
+            abort();
+        }, {signal})
         window.addEventListener("urlchange", onUrlChanges);
     }
 })();

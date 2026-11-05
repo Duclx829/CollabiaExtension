@@ -420,7 +420,8 @@ body #root::before {
 .direct-message-main #direct-channel-info > * {
     visibility: hidden;
     opacity: 0;
-    animation: noti-container-anim 120ms 320ms linear forwards;
+    animation: noti-container-anim 120ms 330ms ease forwards;
+    will-change: opacity;
 }
 
 .direct-message-main > #direct-channel-info {
