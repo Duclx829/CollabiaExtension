@@ -702,6 +702,7 @@
             const enableChannelInfoAnimation = () => {
                 const dmContainer = document.querySelector('#content-write-message > .direct-message-main');
                 if (dmContainer) {
+                    console.log('here____', dmContainer);
                     Object.assign(dmContainer.style, {animation: 'channel-info-close 200ms cubic-bezier(0.4, 0, 1, 1) forwards'});
                     btnToggleChannelInfo.removeEventListener('click', enableChannelInfoAnimation);
                 }
