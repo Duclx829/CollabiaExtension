@@ -701,7 +701,6 @@
             let timeout, btnToggleChannelInfo;
             const enableChannelInfoAnimation = () => {
                 const dmContainer = document.querySelector('#content-write-message > .direct-message-main');
-                console.log('check_1', dmContainer);
                 if (dmContainer) {
                     Object.assign(dmContainer.style, {animation: 'channel-info-close 200ms cubic-bezier(0.4, 0, 1, 1) forwards'});
                     btnToggleChannelInfo.removeEventListener('click', enableChannelInfoAnimation);
@@ -716,7 +715,6 @@
                     clearTimeout(timeout);
                     timeout = setTimeout(() => {
                         btnToggleChannelInfo = document.querySelector('#content-write-message > .direct-message-main .group-button-chat > div:nth-child(2)');
-                        console.log('check_2', btnToggleChannelInfo);
                         if (btnToggleChannelInfo) btnToggleChannelInfo.addEventListener('click', enableChannelInfoAnimation);
                     }, 500);
                 }

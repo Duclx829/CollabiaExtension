@@ -393,7 +393,6 @@ body #root::before {
 
 .content-write-message .direct-message-main > #container-write-message {
     min-height: 0 !important;
-    border: 1px solid red !important;
 }
 
 @keyframes channel-info-open {
@@ -412,7 +411,6 @@ body #root::before {
     grid-template-rows: 1fr;
     overflow: hidden;
     will-change: transform;
-    outline: 1px solid blue !important;
 }
 
 .direct-message-main:has(>[data-channel-info-open="true"]) {
