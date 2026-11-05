@@ -403,8 +403,12 @@ body #root::before {
 }
 
 @keyframes channel-info-open {
-    from { grid-template-columns: auto 0; }
-    to { grid-template-columns: auto clamp(300px, 30%, 35svw); }
+    from {
+        grid-template-columns: auto 0;
+    }
+    to {
+        grid-template-columns: auto clamp(300px, 30%, 35svw);
+    }
 }
 
 /*@keyframes channe-info-close {*/
@@ -413,8 +417,17 @@ body #root::before {
 /*}*/
 
 .direct-message-main:has(> #direct-channel-info) {
-    animation: channel-info-open 300ms linear alternate;
+    animation: channel-info-open 300ms linear forwards;
 }
+
+.direct-message-main > #direct-channel-info > * {
+    opacity: 0;
+    animation: fadeIn 150ms 310ms ease forwards;
+}
+
+/*.direct-message-main:has(> #direct-channel-info) {*/
+
+/*}*/
 
 /*.direct-message-main:not(:has(> #direct-channel-info)) {*/
 /*    animation: channe-info-close 300ms linear forwards;*/
