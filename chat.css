@@ -408,24 +408,26 @@ body #root::before {
     to { grid-template-columns: auto clamp(300px, 30%, 35svw); }
 }
 
-@keyframes channe-info-close {
-    from { grid-template-columns: auto clamp(300px, 30%, 35svw); }
-    to { grid-template-columns: auto 0; }
-}
+/*@keyframes channe-info-close {*/
+/*    from { grid-template-columns: auto clamp(300px, 30%, 35svw); }*/
+/*    to { grid-template-columns: auto 0; }*/
+/*}*/
 
 .direct-message-main:has(> #direct-channel-info) {
-    animation: channe-info-open 300ms linear forwards;
+    animation: channe-info-open 300ms linear alternate;
 }
 
-.direct-message-main:not(:has(> #direct-channel-info)) {
-    animation: channe-info-close 300ms linear forwards;
-}
+/*.direct-message-main:not(:has(> #direct-channel-info)) {*/
+/*    animation: channe-info-close 300ms linear forwards;*/
+/*}*/
 
 .direct-message-main > #direct-channel-info {
     --glass-reflex-dark: 1.2;
     --saturation: 180%;
 
     width: clamp(300px, 30%, 35svw) !important;
+    max-width: clamp(300px, 30%, 35svw) !important;
+
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);
