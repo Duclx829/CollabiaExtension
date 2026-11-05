@@ -1488,7 +1488,7 @@ body > .popover[class*="DMActionButton_popover"] {
     --saturation: 3;
 
     border: none !important;
-    border-radius: 1rem;
+    border-radius: 1.5rem !important;
     overflow: hidden;
     background-color: color-mix(in srgb, var(--c-glass) 12%, transparent) !important;
     backdrop-filter: blur(8px) saturate(var(--saturation));
