@@ -698,7 +698,15 @@
         const chatPathName = new URL(location.href).pathname;
         const onUrlChanges = () => {
             const url = new URL(location.href);
-            let timeout;
+            let timeout, btnToggleChannelInfo;
+            const enableChannelInfoAnimation = () => {
+                const dmContainer = document.querySelector('#content-write-message > .direct-message-main');
+                if (dmContainer) {
+                    Object.assign(dmContainer.style, {animation: 'channel-info-close 200ms cubic-bezier(0.4, 0, 1, 1) forwards'});
+                    btnToggleChannelInfo.removeEventListener('click', enableChannelInfoAnimation);
+                }
+            }
+
             if (url.pathname === chatPathName) {
                 if (
                     url.searchParams.get('channelId') ||
@@ -706,12 +714,13 @@
                 ) {
                     clearTimeout(timeout);
                     timeout = setTimeout(() => {
-                        const dmContainer = document.querySelector('#content-write-message > .direct-message-main');
-                        if (dmContainer) dmContainer.setAttribute('data-animation', 'true');
+                        const btnToggleChannelInfo = document.querySelector('#content-write-message > .direct-message-main .group-button-chat > div:nth-child(2)');
+                        if (btnToggleChannelInfo) btnToggleChannelInfo.addEventListener('click', enableChannelInfoAnimation);
                     }, 500);
                 }
             } else {
                 clearTimeout(timeout);
+                if (btnToggleChannelInfo) btnToggleChannelInfo.removeEventListener('click', enableChannelInfoAnimation);
                 cleanup();
                 window.removeEventListener("urlchange", onUrlChanges);
             }
