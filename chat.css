@@ -414,7 +414,7 @@ body #root::before {
 }
 
 .direct-message-main:has(>[data-channel-info-open="true"]) {
-    animation: channel-info-open  300ms 10ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation: channel-info-open  300ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .direct-message-main #direct-channel-info > * {
