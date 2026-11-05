@@ -413,7 +413,7 @@ body #root::before {
 }
 
 .direct-message-main:has(> #direct-channel-info) {
-    animation: channel-info-open 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: channel-info-open  300ms 10ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .direct-message-main #direct-channel-info > * {
