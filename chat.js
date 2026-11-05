@@ -698,7 +698,20 @@
         const chatPathName = new URL(location.href).pathname;
         const onUrlChanges = () => {
             const url = new URL(location.href);
-            if (url.pathname !== chatPathName) {
+            let timeout;
+            if (url.pathname === chatPathName) {
+                if (
+                    url.searchParams.get('channelId') ||
+                    url.searchParams.get('userId')
+                ) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        const dmContainer = document.querySelector('#content-write-message > .direct-message-main');
+                        if (dmContainer) dmContainer.setAttribute('data-animation', 'true');
+                    }, 500);
+                }
+            } else {
+                clearTimeout(timeout);
                 cleanup();
                 window.removeEventListener("urlchange", onUrlChanges);
             }
