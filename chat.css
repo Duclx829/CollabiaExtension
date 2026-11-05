@@ -393,6 +393,32 @@ body #root::before {
 
 .content-write-message .direct-message-main {
     background: transparent !important;
+    display: grid !important;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 0;
+    overflow: hidden;
+}
+
+.content-write-message .direct-message-main > #container-write-message {
+    min-height: 0 !important;
+}
+
+@keyframes channe-info-open {
+    from { grid-template-columns: auto 0; }
+    to { grid-template-columns: auto clamp(300px, 30%, 35svw); }
+}
+
+@keyframes channe-info-close {
+    from { grid-template-columns: auto clamp(300px, 30%, 35svw); }
+    to { grid-template-columns: auto 0; }
+}
+
+.direct-message-main:has(> #direct-channel-info) {
+    animation: channe-info-open 300ms linear forwards;
+}
+
+.direct-message-main:not(:has(> #direct-channel-info)) {
+    animation: channe-info-close 300ms linear forwards;
 }
 
 .direct-message-main > #direct-channel-info {
@@ -1806,3 +1832,13 @@ body .darkThemeNavbarAvatarDropdown {
     box-shadow: 0 4px 30px rgb(0 0 0 / 40%);
     border: 1px solid rgb(255 255 255 / 10%);
 }
+
+/*content: "";*/
+/*position: fixed;*/
+/*background: url(blob:https://collabia.tdt.asia/c5c5234c-5c35-4d70-8a46-4d155a19e712) center center no-repeat !important;*/
+/*inset: 0;*/
+/*z-index: -1;*/
+/*opacity: .5;*/
+/*filter: blur(80px);*/
+/*background-size: 115% !important;*/
+/*}*/
