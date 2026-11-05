@@ -409,8 +409,10 @@ body #root::before {
 .content-write-message .direct-message-main {
     background: transparent !important;
     display: grid !important;
+    grid-template-rows: 1fr;
     overflow: hidden;
     will-change: transform;
+    outline: 1px solid blue !important;
 }
 
 .direct-message-main:has(>[data-channel-info-open="true"]) {
