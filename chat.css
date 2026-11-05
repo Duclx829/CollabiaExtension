@@ -395,7 +395,6 @@ body #root::before {
     background: transparent !important;
     display: grid !important;
     grid-template-rows: 1fr;
-    grid-template-columns: auto 0;
     overflow: hidden;
 }
 
@@ -403,7 +402,7 @@ body #root::before {
     min-height: 0 !important;
 }
 
-@keyframes channe-info-open {
+@keyframes channel-info-open {
     from { grid-template-columns: auto 0; }
     to { grid-template-columns: auto clamp(300px, 30%, 35svw); }
 }
@@ -414,7 +413,7 @@ body #root::before {
 /*}*/
 
 .direct-message-main:has(> #direct-channel-info) {
-    animation: channe-info-open 300ms linear alternate;
+    animation: channel-info-open 300ms linear alternate;
 }
 
 /*.direct-message-main:not(:has(> #direct-channel-info)) {*/
@@ -425,9 +424,8 @@ body #root::before {
     --glass-reflex-dark: 1.2;
     --saturation: 180%;
 
-    width: clamp(300px, 30%, 35svw) !important;
-    max-width: clamp(300px, 30%, 35svw) !important;
-
+    width: auto !important;
+    max-width: 100% !important;
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%, color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
         color-mix(in srgb, var(--c-glass) 12%, transparent);
