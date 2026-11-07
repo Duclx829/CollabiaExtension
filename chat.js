@@ -753,6 +753,7 @@
         console.log('INDEXED_DB: ', indexedDBData);
         const theme = JSON.parse(indexedDBData?.ThemeColor) ?? {};
         const themeColor = theme.Color || 'cq_theme';
+        document.body.setAttribute('data-theme', themeColor);
         if (themeColor === 'cq_theme') {
             const darkThemeStyleSheet = document.querySelector('#dark_theme_variable');
             if (darkThemeStyleSheet)
