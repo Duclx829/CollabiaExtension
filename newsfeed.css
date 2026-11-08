@@ -19,6 +19,7 @@
 .form-post-input .darkThemePostItem.post-item {
     --glass-reflex-dark: 1.2;
     --saturation: 180%;
+    background-color: transparent !important;
     background: linear-gradient(135deg,
     color-mix(in srgb, var(--c-light) 14%, transparent) 0, transparent 45%,
     color-mix(in srgb, var(--c-dark) 5%, transparent) 100%),
