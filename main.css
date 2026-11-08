@@ -43,9 +43,28 @@ html#collabia {
     overflow: hidden;
 }
 
-body #root {
+body {
+    --rgb-background: transparent;
+}
+
+body #root:has([data-theme="dark_theme"]) {
     position: relative;
     z-index: 1;
+    background: var(--app-bg);
+}
+
+body #root:has([data-theme="dark_theme"])::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: var(--bg-pattern-opacity);
+    background-image: var(--app-bg-image);
+    background-repeat: repeat;
+}
+
+.darkThemeChat.site,
+#content-write-message .darkThemeWriteMessage {
+    background: transparent !important;
 }
 
 .site .container-navbar {

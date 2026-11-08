@@ -1,25 +1,3 @@
-body {
-    --rgb-background: transparent;
-}
-
-body #root {
-    background: var(--app-bg);
-}
-
-body #root::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    opacity: var(--bg-pattern-opacity);
-    background-image: var(--app-bg-image);
-    background-repeat: repeat;
-}
-
-.darkThemeChat.site,
-#content-write-message .darkThemeWriteMessage {
-    background: transparent !important;
-}
-
 .site .darkThemeNavbar {
     background: #282623;
 }
