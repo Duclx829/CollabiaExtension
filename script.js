@@ -341,11 +341,10 @@ const appendScript = (id, src) => {
             } else if (pathName.startsWith(`/${apiVersion}/chat/channels/`)) {
                 activeChannelId = new URL(location.href).searchParams.get('channelId');
                 // todo: handle the case last posts cached.
-                if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts`)
-                    trackMessages(
-                        response?.data?.posts,
-                        !response.data.next_post_id ? activeChannelId : null,
-                    );
+                if (
+                    pathName === `/${apiVersion}/chat/channels/${activeChannelId}/posts` &&
+                    response?.data
+                ) trackMessages(response.data.posts, !response.data.next_post_id ? activeChannelId : null);
             } else if (pathName === `/${apiVersion}/chat/channels/${activeChannelId}/members`) {
                 window.dispatchEvent(new CustomEvent("channel_members_loaded"))
             }
