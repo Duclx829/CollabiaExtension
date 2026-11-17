@@ -11,6 +11,11 @@
       "name": "newsfeed"
     },
     {
+      "matches": ["/posts"],
+      "type": "stylesheet",
+      "name": "posts"
+    },
+    {
       "matches": ["/chat/main-content"],
       "type": "stylesheet",
       "name": "chat"

@@ -1,0 +1,7 @@
+
+#collabia .site.origin-post-detail {
+    min-height: 100svh !important;
+    heigh: 100svh !important;
+    max-height: 100svh !important;
+    overflow-y: auto !important;
+}
